@@ -1,11 +1,15 @@
 <template>
-  <footer class="footer">
+  <footer class="footer" id="contact">
 
     <div class="footer-container">
 
-      <!-- Top -->
-      <div class="footer-top">
+      <!-- =========================
+           MAIN FOOTER GRID
+      ========================== -->
 
+      <div class="footer-grid">
+
+        <!-- BRAND -->
         <div class="footer-brand">
 
           <span class="brand-label">
@@ -14,29 +18,35 @@
 
           <h2>
             BUILD YOUR
-            <span>REAL ESTATE FUTURE.</span>
+            REAL ESTATE
+            FUTURE.
           </h2>
 
         </div>
 
+
+        <!-- CTA -->
         <div class="footer-cta">
 
+          <span class="footer-label">
+            START YOUR JOURNEY
+          </span>
+
           <p>
-            Join a growing network of real estate entrepreneurs across
-            Ahmedabad & Gandhinagar.
+            Join a growing network of real estate
+            entrepreneurs across Ahmedabad
+            & Gandhinagar.
           </p>
 
           <a href="#contact" class="footer-button">
-            Become An Associate Partner
+            <span>Become An Associate Partner</span>
+            <span class="footer-arrow">↗</span>
           </a>
 
         </div>
 
-      </div>
 
-      <!-- Middle -->
-      <div class="footer-middle">
-
+        <!-- COMPANY -->
         <div class="footer-column">
 
           <span class="column-title">
@@ -44,11 +54,14 @@
           </span>
 
           <a href="#home">Home</a>
+          <a href="#about">About</a>
           <a href="#vision">Vision</a>
           <a href="#mission">Mission</a>
 
         </div>
 
+
+        <!-- GET STARTED -->
         <div class="footer-column">
 
           <span class="column-title">
@@ -57,24 +70,38 @@
 
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact Us</a>
-          <a href="#contact">Become an Associate Partner</a>
+          <a href="#contact">
+            Become An Associate Partner
+          </a>
+
+        </div>
+
+
+        <!-- QUOTE -->
+        <div class="footer-quote">
+
+          <p>
+            You build your real estate business.
+            We build the system that helps you grow.
+            Together, we build a stronger real estate community.
+          </p>
 
         </div>
 
       </div>
 
-      <!-- Quote -->
-      <div class="footer-quote">
 
-        <p>
-          “You build your real estate business.
-          We build the system that helps you grow.
-          Together, we build a stronger real estate community.”
-        </p>
+      <!-- =========================
+           DIVIDER
+      ========================== -->
 
-      </div>
+      <div class="footer-divider"></div>
 
-      <!-- Bottom -->
+
+      <!-- =========================
+           BOTTOM
+      ========================== -->
+
       <div class="footer-bottom">
 
         <p>
@@ -108,45 +135,126 @@
   </footer>
 </template>
 
+
 <style scoped>
+
+/* =========================================
+   FOOTER
+========================================= */
+
 .footer {
-  position: relative;
+  width: 100%;
 
   background: #050505;
 
   color: #f4f1e9;
 
-  overflow: hidden;
+  border-top: 1px solid rgba(244, 241, 233, 0.1);
 
-  border-top: 1px solid rgba(244,241,233,0.08);
+  overflow: hidden;
 }
+
+
+/* =========================================
+   CONTAINER
+========================================= */
 
 .footer-container {
-  width: min(1440px, calc(100% - 100px));
+  width: min(1920px, calc(100% - 100px));
+  margin: 0 20px;
 
-  margin: 0 auto;
-
-  padding: 120px 0 50px;
+  padding: 85px 0 30px;
 }
 
-/* =========================
-   TOP
-========================= */
 
-.footer-top {
-  display: flex;
+/* =========================================
+   MAIN GRID
+========================================= */
 
-  justify-content: space-between;
+.footer-grid {
+  display: grid;
 
-  gap: 80px;
+  grid-template-columns:
+    1.4fr
+    0.9fr
+    0.6fr
+    0.75fr
+    1.8fr;
 
-  margin-bottom: 100px;
+  gap: 55px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.footer-brand {
+  min-width: 0;
 }
 
 .brand-label {
   display: block;
 
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+
+  font-family: Inter, Arial, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  line-height: 1.2;
+
+  color: #b59a67;
+}
+
+.footer-brand h2 {
+  margin: 0;
+
+  font-family: Inter, Arial, sans-serif;
+
+  font-size: clamp(52px, 5vw, 46px);
+
+  font-weight: 400;
+
+  line-height: 0.86;
+
+  letter-spacing: -4px;
+
+  text-transform: uppercase;
+}
+
+.footer-brand h2 span {
+  display: block;
+}
+
+.footer-brand h2 span:nth-child(2),
+.footer-brand h2 span:nth-child(3) {
+  color: #b59a67;
+
+  font-style: italic;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.footer-cta {
+  padding-top: 3px;
+}
+
+.footer-label {
+  display: block;
+
+  margin-bottom: 22px;
+
+  font-family: Inter, Arial, sans-serif;
 
   font-size: 10px;
 
@@ -157,100 +265,99 @@
   color: #b59a67;
 }
 
-.footer-brand h2 {
-  margin: 0;
-
-  font-size: clamp(55px, 8vw, 110px);
-
-  font-weight: 300;
-
-  line-height: 0.85;
-
-  letter-spacing: -5px;
-
-  text-transform: uppercase;
-}
-
-.footer-brand h2 span {
-  display: block;
-
-  font-family: "DM Serif Display", serif;
-
-  font-style: italic;
-
-  color: #b59a67;
-
-  text-transform: none;
-}
-
-.footer-cta {
-  max-width: 360px;
-}
-
 .footer-cta p {
-  margin: 0 0 30px;
+  margin: 0 0 28px;
 
-  font-size: 15px;
+  max-width: 280px;
 
-  line-height: 1.8;
+  font-family: Inter, Arial, sans-serif;
 
-  color: rgba(244,241,233,0.65);
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  color: rgba(244, 241, 233, 0.62);
 }
+
+
+/* =========================================
+   BUTTON
+========================================= */
 
 .footer-button {
   display: inline-flex;
 
   align-items: center;
 
-  justify-content: center;
+  justify-content: space-between;
 
-  padding: 14px 26px;
+  gap: 25px;
 
-  text-decoration: none;
+  width: 100%;
 
-  border: 1px solid #b59a67;
+  max-width: 245px;
+
+  box-sizing: border-box;
+
+  padding: 15px 17px;
+
+  border: 1px solid rgba(181, 154, 103, 0.85);
 
   color: #f4f1e9;
 
-  transition: 0.3s;
+  text-decoration: none;
+
+  font-family: Inter, Arial, sans-serif;
+
+  font-size: 12px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .footer-button:hover {
   background: #b59a67;
 
+  border-color: #b59a67;
+
   color: #050505;
 }
 
-/* =========================
-   MIDDLE
-========================= */
+.footer-arrow {
+  font-size: 18px;
 
-.footer-middle {
-  display: grid;
+  line-height: 1;
 
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 480px;
-  margin-left: auto;
-
-  gap: 60px;
-
-  padding: 60px 0;
-
-  border-top: 1px solid rgba(244,241,233,0.08);
-
-  border-bottom: 1px solid rgba(244,241,233,0.08);
+  transition: transform 0.3s ease;
 }
+
+.footer-button:hover .footer-arrow {
+  transform: translate(3px, -3px);
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
 
 .footer-column {
   display: flex;
 
   flex-direction: column;
 
-  gap: 16px;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding-top: 3px;
 }
 
 .column-title {
   margin-bottom: 10px;
+
+  font-family: Inter, Arial, sans-serif;
 
   font-size: 10px;
 
@@ -262,65 +369,114 @@
 }
 
 .footer-column a {
+  display: block;
+
+  color: rgba(244, 241, 233, 0.65);
+
   text-decoration: none;
 
-  color: rgba(244,241,233,0.7);
+  font-family: Inter, Arial, sans-serif;
 
-  transition: 0.3s;
+  font-size: 13px;
+
+  line-height: 1.4;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .footer-column a:hover {
-  color: #fff;
+  color: #f4f1e9;
+
+  transform: translateX(4px);
 }
 
-/* =========================
+
+/* =========================================
    QUOTE
-========================= */
+========================================= */
 
 .footer-quote {
-  max-width: 900px;
+  position: relative;
 
-  margin: 90px auto;
+  padding-top: 3px;
 
-  text-align: center;
+  padding-left: 25px;
+
+  border-left: 1px solid rgba(181, 154, 103, 0.5);
+}
+
+.quote-mark {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-family: Georgia, serif;
+
+  font-size: 40px;
+
+  line-height: 0.5;
+
+  color: #b59a67;
 }
 
 .footer-quote p {
   margin: 0;
 
-  font-family: "DM Serif Display", serif;
+  font-family: Inter, Arial, sans-serif;
 
-  font-size: clamp(24px, 3vw, 42px);
+  font-size: clamp(18px, 1.7vw, 27px);
 
-  line-height: 1.4;
+  font-weight: 400;
 
-  color: rgba(244,241,233,0.85);
+  line-height: 1.35;
+
+  letter-spacing: -0.7px;
+
+  color: rgba(244, 241, 233, 0.9);
 }
 
-/* =========================
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.footer-divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin-top: 85px;
+
+  background: rgba(244, 241, 233, 0.12);
+}
+
+
+/* =========================================
    BOTTOM
-========================= */
+========================================= */
 
 .footer-bottom {
   display: flex;
 
-  justify-content: space-between;
-
   align-items: center;
 
-  gap: 20px;
+  justify-content: space-between;
 
-  padding-top: 30px;
+  gap: 30px;
 
-  border-top: 1px solid rgba(244,241,233,0.08);
+  padding-top: 24px;
 }
 
 .footer-bottom p {
   margin: 0;
 
-  font-size: 13px;
+  font-family: Inter, Arial, sans-serif;
 
-  color: rgba(244,241,233,0.45);
+  font-size: 11px;
+
+  color: rgba(244, 241, 233, 0.4);
 }
 
 .footer-tagline {
@@ -328,56 +484,191 @@
 
   align-items: center;
 
-  gap: 14px;
+  justify-content: flex-end;
+
+  gap: 12px;
 
   flex-wrap: wrap;
 
-  font-size: 11px;
+  font-family: Inter, Arial, sans-serif;
 
-  letter-spacing: 2px;
+  font-size: 9px;
+
+  letter-spacing: 1.7px;
 
   text-transform: uppercase;
 
-  color: rgba(244,241,233,0.55);
+  color: rgba(244, 241, 233, 0.4);
 }
 
 .dot {
-  width: 4px;
-  height: 4px;
+  width: 3px;
+
+  height: 3px;
+
+  flex-shrink: 0;
 
   border-radius: 50%;
 
   background: #b59a67;
 }
 
-/* =========================
-   MOBILE
-========================= */
 
-@media (max-width: 900px) {
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1150px) {
+
+  .footer-container {
+    width: calc(100% - 70px);
+  }
+
+  .footer-grid {
+    grid-template-columns:
+      1.4fr
+      1fr
+      0.7fr
+      0.8fr;
+
+    gap: 45px;
+  }
+
+  .footer-quote {
+    grid-column: 1 / -1;
+
+    max-width: 800px;
+
+    margin-top: 30px;
+  }
+
+  .footer-divider {
+    margin-top: 65px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
 
   .footer-container {
     width: calc(100% - 40px);
+
+    padding: 65px 0 25px;
   }
 
-  .footer-top {
-    flex-direction: column;
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px 30px;
   }
 
-  .footer-middle {
-    grid-template-columns: 1fr;
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand h2 {
+    font-size: clamp(52px, 15vw, 82px);
+
+    letter-spacing: -3px;
+  }
+
+  .footer-cta {
+    grid-column: 1 / -1;
+  }
+
+  .footer-cta p {
+    max-width: 350px;
+  }
+
+  .footer-column {
+    padding-top: 0;
+  }
+
+  .footer-quote {
+    grid-column: 1 / -1;
+
+    margin-top: 10px;
+
+    padding-left: 20px;
+  }
+
+  .footer-quote p {
+    font-size: 21px;
+
+    line-height: 1.4;
+  }
+
+  .footer-divider {
+    margin-top: 55px;
   }
 
   .footer-bottom {
     flex-direction: column;
 
-    text-align: center;
+    align-items: flex-start;
+
+    gap: 20px;
   }
 
-  .footer-brand h2 {
-    font-size: 58px;
+  .footer-tagline {
+    justify-content: flex-start;
 
-    letter-spacing: -2px;
+    line-height: 1.8;
   }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 430px) {
+
+  .footer-container {
+    width: calc(100% - 30px);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-cta {
+    grid-column: auto;
+  }
+
+  .footer-column {
+    grid-column: auto;
+  }
+
+  .footer-quote {
+    grid-column: auto;
+
+    margin-top: 0;
+  }
+
+  .footer-tagline {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+  }
+
+  .dot {
+    display: none;
+  }
+
 }
 </style>

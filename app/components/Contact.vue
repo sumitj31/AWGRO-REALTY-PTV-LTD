@@ -131,7 +131,7 @@ const handleSubmit = () => {
 
   width: 100%;
 
-  padding: 140px 0;
+  padding: 50px 0;
 
   background: #f4f1e9;
 
@@ -176,7 +176,7 @@ const handleSubmit = () => {
 .contact-info h2 {
   font-family: "DM Serif Display", Georgia, serif;
   font-weight: 400;
-  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-size: 24px;
   line-height: 1.2;
 
   margin-bottom: 24px;
@@ -189,7 +189,7 @@ const handleSubmit = () => {
 
 .contact-copy {
   font-family: Inter, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.75;
   color: rgba(9, 9, 9, 0.62);
 
@@ -199,7 +199,7 @@ const handleSubmit = () => {
 
 .contact-image {
   width: 100%;
-  height: 220px;
+  height: 270px;
 
   overflow: hidden;
 

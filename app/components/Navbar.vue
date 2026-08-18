@@ -14,7 +14,7 @@
       <nav class="nav-links">
         <a href="#home" @click.prevent="scrollToSection('home')">Home</a>
         <a href="#vision" @click.prevent="scrollToSection('vision')">Vision</a>
-        <a href="#mission" @click.prevent="scrollToSection('mission')">Mission</a>
+        <a href="#mission" @click.prevent="scrollToSection('vision')">Mission</a>
         <a href="#faq" @click.prevent="scrollToSection('faq')">FAQ</a>
         <a href="#contact" @click.prevent="scrollToSection('contact')">Contact</a>
       </nav>

@@ -12,13 +12,13 @@
       </div>
 
       <!-- Heading -->
-      <div class="faq-heading">
+      <!-- <div class="faq-heading">
         <p class="eyebrow">BEFORE YOU BEGIN</p>
         <h2>
           ANSWERS FOR FUTURE
           <span>ASSOCIATE PARTNERS.</span>
         </h2>
-      </div>
+      </div> -->
 
       <!-- Accordion -->
       <div class="faq-list">
@@ -52,7 +52,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const openIndex = ref<number>(0)
+const openIndex = ref<number>(-1)
 
 const toggle = (index: number) => {
   openIndex.value = openIndex.value === index ? -1 : index
