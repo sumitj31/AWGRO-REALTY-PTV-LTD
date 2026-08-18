@@ -7,11 +7,12 @@
            MAIN FOOTER GRID
       ========================== -->
 
+      <a href="#home" class="footer-logo">
+            <img src="/public/images/awgro logo2.png" alt="AWGRO Realty" class="footer-logo-img" />
+          </a>
       <div class="footer-grid">
-
         <!-- BRAND -->
         <div class="footer-brand">
-
           <span class="brand-label">
             AWGRO REALTY PVT. LTD.
           </span>
@@ -137,7 +138,6 @@
 
 
 <style scoped>
-
 /* =========================================
    FOOTER
 ========================================= */
@@ -163,7 +163,7 @@
   width: min(1920px, calc(100% - 100px));
   margin: 0 20px;
 
-  padding: 85px 0 30px;
+  padding: 35px 0 30px;
 }
 
 
@@ -175,11 +175,7 @@
   display: grid;
 
   grid-template-columns:
-    1.4fr
-    0.9fr
-    0.6fr
-    0.75fr
-    1.8fr;
+    1.4fr 0.9fr 0.6fr 0.75fr 1.8fr;
 
   gap: 55px;
 
@@ -278,7 +274,18 @@
 
   color: rgba(244, 241, 233, 0.62);
 }
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 28px;
+  text-decoration: none;
+}
 
+.footer-logo-img {
+  height: 38px;        /* You can adjust this */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
 
 /* =========================================
    BUTTON
@@ -526,10 +533,7 @@
 
   .footer-grid {
     grid-template-columns:
-      1.4fr
-      1fr
-      0.7fr
-      0.8fr;
+      1.4fr 1fr 0.7fr 0.8fr;
 
     gap: 45px;
   }
@@ -572,12 +576,12 @@
   }
 
   .footer-brand h2 {
-  font-size: clamp(40px, 12vw, 58px);
+    font-size: clamp(40px, 12vw, 58px);
 
-  line-height: 0.92;
+    line-height: 0.92;
 
-  letter-spacing: -2.5px;
-}
+    letter-spacing: -2.5px;
+  }
 
   .footer-cta {
     grid-column: 1 / -1;
@@ -674,25 +678,25 @@
 
   @media (max-width: 700px) {
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 42px 30px;
-  }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 42px 30px;
+    }
 
-  /* Full width */
-  .footer-brand,
-  .footer-cta,
-  .footer-quote {
-    grid-column: 1 / -1;
-  }
+    /* Full width */
+    .footer-brand,
+    .footer-cta,
+    .footer-quote {
+      grid-column: 1 / -1;
+    }
 
-  /* Side by side */
-  .footer-column {
-    grid-column: auto;
-  }
+    /* Side by side */
+    .footer-column {
+      grid-column: auto;
+    }
 
-}
+  }
 
 }
 </style>

@@ -4,11 +4,12 @@
 
       <!-- Logo -->
       <a href="#home" class="logo" @click.prevent="scrollToSection('home')">
-        <div class="logo-text">
-          <span class="logo-name">AWGRO</span>
-          <span class="logo-subtitle">REALTY PVT. LTD.</span>
-        </div>
-      </a>
+  <img 
+    src="/public/images/awgro logo.png" 
+    alt="AWGRO Realty" 
+    class="logo-img"
+  />
+</a>
 
       <!-- Desktop Navigation -->
       <nav class="nav-links">
@@ -122,7 +123,7 @@ const scrollToSection = (id: string) => {
 }
 
 .navbar.scrolled {
-  background: rgba(9, 9, 9, 0.88);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
@@ -130,24 +131,38 @@ const scrollToSection = (id: string) => {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+.logo-img {
+  height: 48px;          /* Adjust this size as needed */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  padding-left: 10px;
+}
+
+/* Slightly smaller when scrolled */
+.navbar.scrolled .logo-img {
+  height: 48px;
+}
+
 /* =========================================
    CONTAINER
 ========================================= */
 
 .navbar-container {
-  width: min(100% - 40px, 1400px);
+  width: 100%;
+  max-width: 1400px;
   height: 82px;
   margin: 0 auto;
-
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 40px;
+  /* padding: 0 20px; */
 }
 
 .navbar.scrolled .navbar-container {
-  height: 72px;
+  height: 82px;
 }
 
 /* =========================================
@@ -201,7 +216,7 @@ const scrollToSection = (id: string) => {
 .nav-links a {
   position: relative;
 
-  color: rgba(244, 241, 233, 0.85);
+  color: rgba(12, 12, 12, 0.85);
   text-decoration: none;
   font-family: Inter, Arial, sans-serif;
 
@@ -244,7 +259,7 @@ const scrollToSection = (id: string) => {
   gap: 10px;
 
   padding: 13px 20px;
-
+  margin-right: 10px;
   background: #b68500;
   color: #090909;
 
@@ -283,18 +298,13 @@ const scrollToSection = (id: string) => {
 
 .menu-button {
   display: none;
-
   width: 42px;
   height: 42px;
-
   padding: 9px;
-
   background: transparent;
-  border: 1px solid rgba(244, 241, 233, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-
   cursor: pointer;
-
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -302,11 +312,10 @@ const scrollToSection = (id: string) => {
 
 .menu-button span {
   display: block;
-
   width: 100%;
-  height: 1.5px;
-
-  background: #f4f1e9;
+  height: 2px;
+  background: #111;
+  transition: all 0.3s ease;
 }
 
 /* =========================================
@@ -339,10 +348,6 @@ const scrollToSection = (id: string) => {
 
 @media (max-width: 900px) {
 
-  .navbar-container {
-    height: 72px;
-  }
-
   .nav-links,
   .nav-cta {
     display: none;
@@ -354,29 +359,26 @@ const scrollToSection = (id: string) => {
 
   .mobile-nav {
     display: flex;
-
     flex-direction: column;
-
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
     padding: 10px 20px 25px;
-
-    background: rgba(9, 9, 9, 0.97);
-    backdrop-filter: blur(14px);
-
-    border-top: 1px solid rgba(181, 154, 103, 0.2);
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 999;
   }
 
   .mobile-nav a {
     padding: 15px 0;
-
-    color: #f4f1e9;
-
+    color: #111;
     text-decoration: none;
     font-family: Inter, Arial, sans-serif;
-
     font-size: 15px;
     font-weight: 500;
-
-    border-bottom: 1px solid rgba(244, 241, 233, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 
   .mobile-nav a:last-child {
@@ -385,18 +387,14 @@ const scrollToSection = (id: string) => {
 
   .mobile-cta {
     display: flex;
-
     align-items: center;
     justify-content: space-between;
-
     margin-top: 12px;
     padding: 15px 18px !important;
-
     background: #b68500;
     color: #090909 !important;
-
     border-radius: 4px;
-    border-bottom: none;
+    border-bottom: none !important;
   }
 }
 
