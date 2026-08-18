@@ -150,9 +150,9 @@ const scrollToSection = (id: string) => {
 
 .navbar-container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1900px;
   height: 82px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   background: #fff;
   display: flex;
   align-items: center;
