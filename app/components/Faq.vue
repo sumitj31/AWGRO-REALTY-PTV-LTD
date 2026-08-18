@@ -307,7 +307,7 @@ const faqs = [
 @media (max-width: 640px) {
 
   .faq-section {
-    padding: 55px 0 40px;
+    padding: 20px 0 20px;
   }
 
   .faq-question {

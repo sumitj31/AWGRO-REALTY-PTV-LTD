@@ -372,7 +372,7 @@ const handleSubmit = () => {
 @media (max-width: 560px) {
 
   .contact-section {
-    padding: 25px 0 50px;
+    padding: 25px 0 20px;
   }
 
   .contact-form-wrap {

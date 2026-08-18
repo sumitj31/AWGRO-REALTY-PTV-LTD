@@ -672,5 +672,27 @@
     display: none;
   }
 
+  @media (max-width: 700px) {
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42px 30px;
+  }
+
+  /* Full width */
+  .footer-brand,
+  .footer-cta,
+  .footer-quote {
+    grid-column: 1 / -1;
+  }
+
+  /* Side by side */
+  .footer-column {
+    grid-column: auto;
+  }
+
+}
+
 }
 </style>
