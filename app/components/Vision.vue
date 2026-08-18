@@ -9,188 +9,85 @@
 
     <div class="vision-container">
 
-      <!-- Section Label -->
-      <div class="section-label">
-        <!-- <span class="label-number">02</span> -->
-        <span class="label-line"></span>
-        <span>OUR VISION</span>
-      </div>
 
       <!-- Main Vision Statement -->
-      <div class="vision-intro">
-
-        <div class="vision-number">
-          100<span>+</span>
-        </div>
-
+      <!-- <div class="vision-intro">
         <div class="vision-heading">
           <p class="eyebrow">MAIN VISION STATEMENT</p>
 
           <h2>
             TO CREATE INDIA'S
-            <span>MOST TRUSTED COMMUNITY</span>
+            MOST TRUSTED COMMUNITY
             OF REAL ESTATE
-            <em>ENTREPRENEURS.</em>
+            ENTREPRENEURS.
           </h2>
         </div>
 
-      </div>
+      </div> -->
 
       <!-- Vision Statement -->
       <div class="vision-statement">
 
-        <div class="statement-label">
-          <span>OUR VISION</span>
+        <div class="statement-image">
+          <img class="img" src="/public/images/vision.jpg" alt="Awgro Realty Associate Partner reviewing a property" />
         </div>
 
         <div class="statement-content">
+          <span class="statement-label">OUR VISION</span>
+
           <p>
             To create India's most trusted community of real estate
             entrepreneurs, starting with a network of 100+ successful
             Associate Partners across Ahmedabad and Gandhinagar.
           </p>
+          <p>
+            We envision a future where real estate professionals are not dependent only on a job or a single company.
+          </p>
+          <p>
+            Instead, they build their own client relationships, their own network, their own reputation, and their own real estate business while being supported by the collective strength, systems, and resources of Awgro Realty.
+          </p>
         </div>
 
       </div>
 
-      <!-- Supporting Content -->
-      <div class="vision-support">
+      <!-- Mission Statement -->
+      <div class="mission-statement">
 
-        <div class="support-left">
-          <!-- <span class="support-number">01</span> -->
+        <div class="statement-content">
+          <span class="statement-label">OUR MISSION</span>
 
-          <h3>
-            A FUTURE WHERE
-            <span>PROFESSIONALS BUILD THEIR OWN BUSINESS.</span>
-          </h3>
+          <p>
+            To empower individuals to start, build, and grow their own
+            real estate business through professional training, proven
+            systems, technology, marketing support, and a strong network.
+          </p>
+          <p>
+            Train Associate Partners in real estate knowledge, sales, negotiation, investment, communication, and business development.
+          </p>
+          <p>
+            Provide practical knowledge about the Ahmedabad and Gandhinagar real estate markets.
+          </p>
         </div>
 
-        <div class="support-right">
-
-          <p>
-            We envision a future where real estate professionals are not
-            dependent only on a job or a single company.
-          </p>
-
-          <p>
-            Instead, they build their <strong>own client relationships,
-            their own network, their own reputation, and their own real
-            estate business</strong>—while being supported by the
-            collective strength, systems, and resources of Awgro Realty.
-          </p>
-
-          <p>
-            Our vision is to make <strong>real estate entrepreneurship
-            accessible, professional, and scalable</strong> for the
-            right individuals.
-          </p>
-
+        <div class="statement-image">
+          <img src="/public/images/mission.jpg" alt="Awgro Realty Associate Partner planning a real estate business" />
         </div>
 
       </div>
 
-      <!-- Ecosystem Journey -->
-      <!-- Ecosystem Journey -->
-<div class="vision-journey">
-
-  <div class="journey-header">
-    <span>THE FUTURE WE ARE BUILDING</span>
-  </div>
-
-  <!-- Journey Timeline -->
-  <div class="journey">
-
-    <template
-      v-for="(item, index) in journeyItems"
-      :key="item.title"
-    >
-
-      <!-- Journey Item -->
-      <button
-        class="journey-item"
-        :class="{ active: activeJourney === index }"
-        type="button"
-        @click="activeJourney = index"
-      >
-
-        <span class="journey-dot"></span>
-
-        <span class="journey-text">
-          {{ item.title }}
-        </span>
-
-      </button>
-
-      <!-- Connector -->
-      <div
-        v-if="index < journeyItems.length - 1"
-        class="journey-connector"
-      ></div>
-
-    </template>
-
-  </div>
-
-  <!-- Selected Journey Content -->
-<div class="journey-detail">
-
-  <Transition name="journey-fade" mode="out-in">
-
-    <div
-      :key="activeJourney"
-      class="journey-detail-inner"
-    >
-
-      <!-- Number -->
-      <div class="journey-detail-number">
-        0{{ activeJourney + 1 }}
-      </div>
-
-      <!-- Content -->
-      <div class="journey-detail-content">
-
-        <span class="journey-detail-label">
-          {{ journeyItems[activeJourney].label }}
-        </span>
-
-        <h3>
-          {{ journeyItems[activeJourney].heading }}
-        </h3>
-
-        <p>
-          {{ journeyItems[activeJourney].description }}
-        </p>
-
-      </div>
-
-      <!-- Arrow -->
-      <div class="journey-detail-arrow">
-        ↗
-      </div>
-
-    </div>
-
-  </Transition>
-
-</div>
-
-</div>
-
-      <!-- Closing -->
       <div class="vision-closing">
 
-        <span class="closing-line"></span>
 
-        <p>
+        <!-- <p>
           ACCESSIBLE.
           PROFESSIONAL.
           SCALABLE.
-        </p>
+        </p> -->
 
-        <h3>
+        <!-- <h3>
           THE FUTURE OF
           <span>REAL ESTATE ENTREPRENEURSHIP.</span>
-        </h3>
+        </h3> -->
 
       </div>
 
@@ -286,9 +183,9 @@ onBeforeUnmount(() => {
 
   min-height: 100vh;
 
-  background: #090909;
+  background: #f4f1e9;
 
-  color: #f4f1e9;
+  color: #090909;
 
   overflow: hidden;
 }
@@ -360,7 +257,7 @@ onBeforeUnmount(() => {
 
   margin: 0 auto;
 
-  padding: 150px 0 170px;
+  padding: 10px 0 10px;
 }
 
 /* =========================================
@@ -370,31 +267,26 @@ onBeforeUnmount(() => {
 .section-label {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 
-  gap: 14px;
+  /* gap: 14px; */
 
-  margin-bottom: 105px;
+  margin-bottom: 50px;
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 9px;
+  font-size: 40px;
   font-weight: 700;
 
   letter-spacing: 2.8px;
 
-  color: rgba(244, 241, 233, 0.55);
+  color: #090909;
 }
 
 .label-number {
-  color: #b59a67;
+  color: #b68500;
 }
 
-.label-line {
-  width: 42px;
-  height: 1px;
-
-  background: #b59a67;
-}
 
 /* =========================================
    INTRO
@@ -403,9 +295,9 @@ onBeforeUnmount(() => {
 .vision-intro {
   display: grid;
 
-  grid-template-columns: 280px minmax(0, 1fr);
+  /* grid-template-columns: 280px minmax(0, 1fr); */
 
-  gap: 100px;
+  /* gap: 100px; */
 
   align-items: start;
 
@@ -421,7 +313,7 @@ onBeforeUnmount(() => {
 
   letter-spacing: -6px;
 
-  color: #f4f1e9;
+  color: #11100e;
 
   white-space: nowrap;
 }
@@ -463,7 +355,7 @@ onBeforeUnmount(() => {
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 10px;
+  font-size: 20px;
   font-weight: 700;
 
   letter-spacing: 3.5px;
@@ -476,7 +368,7 @@ onBeforeUnmount(() => {
 
   font-family: "DM Serif Display", Georgia, serif;
 
-  font-size: clamp(52px, 6vw, 100px);
+  font-size: clamp(2px, 6vw, 30px);
 
   font-weight: 400;
 
@@ -516,7 +408,7 @@ onBeforeUnmount(() => {
 .vision-heading h2 em {
   display: block;
 
-  margin-left: clamp(80px, 9vw, 170px);
+  /* margin-left: clamp(80px, 9vw, 170px); */
 
   margin-top: 2px;
 
@@ -534,47 +426,89 @@ onBeforeUnmount(() => {
 .vision-statement {
   display: grid;
 
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 0.85fr 1fr;
 
-  gap: 200px;
+  gap: 250px;
+
+  align-items: center;
 
   max-width: 1440px;
 
-  /* margin-left: auto; */
-  margin-bottom: 150px;
+  /* margin-bottom: 40px; */
 
   padding-top: 55px;
 
   border-top: 1px solid rgba(244, 241, 233, 0.18);
 }
 
+.statement-image {
+  width: 100%;
+  height: 420px;
+
+  overflow: hidden;
+}
+
+.statement-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: grayscale(15%);
+}
+
 .statement-label {
-  padding-top: 10px;
+  display: block;
+
+  margin-bottom: 22px;
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 12px;
+  font-size: 42px;
   font-weight: 700;
 
   letter-spacing: 2.5px;
 
-  color: rgba(244, 241, 233, 0.4);
+  color: #090909;
+}
+
+/* =========================================
+   MISSION STATEMENT
+   (mirror of vision-statement: text left, image right)
+========================================= */
+
+.mission-statement {
+  display: grid;
+
+  grid-template-columns: 1fr 0.85fr;
+
+  gap: 90px;
+
+  align-items: center;
+
+  max-width: 1440px;
+
+  margin-bottom: 30px;
+
+  /* padding-top: 5px; */
+
+  border-top: 1px solid rgba(244, 241, 233, 0.18);
 }
 
 .statement-content p {
-  max-width: 950px;
-
-  margin: 0;
+  max-width: 560px;
+  
+  margin-bottom: 10px;
 
   font-family: "DM Serif Display", Georgia, serif;
 
-  font-size: clamp(28px, 3.3vw, 45px);
+  font-size: clamp(16px, 2.6vw, 20px);
 
-  line-height: 1.2;
+  line-height: 1.28;
 
-  letter-spacing: -1.3px;
+  letter-spacing: -1px;
 
-  color: #f4f1e9;
+  color: #090909;
 }
 
 /* =========================================
@@ -666,7 +600,7 @@ onBeforeUnmount(() => {
 
   line-height: 1.9;
 
-  color: rgba(244, 241, 233, 0.62);
+  color: rgba(34, 33, 31, 0.62);
 }
 
 .support-right p:last-child {
@@ -674,7 +608,7 @@ onBeforeUnmount(() => {
 }
 
 .support-right strong {
-  color: #f4f1e9;
+  color: #a38020;
 
   font-weight: 500;
 }
@@ -806,7 +740,7 @@ onBeforeUnmount(() => {
 
   white-space: nowrap;
 
-  color: rgba(244, 241, 233, 0.45);
+  color: rgba(17, 17, 16, 0.45);
 
   transition:
     color 0.55s ease,
@@ -921,7 +855,7 @@ onBeforeUnmount(() => {
 
   letter-spacing: -1.5px;
 
-  color: #f4f1e9;
+  color: #22211f;
 }
 
 .journey-detail-content p {
@@ -935,7 +869,7 @@ onBeforeUnmount(() => {
 
   line-height: 1.8;
 
-  color: rgba(244, 241, 233, 0.58);
+  color: rgba(24, 23, 22, 0.58);
 }
 
 .journey-detail-arrow {
@@ -976,7 +910,8 @@ onBeforeUnmount(() => {
 
   text-align: center;
 
-  padding-top: 10px;
+  padding-top: 15px;
+  margin-bottom: 0px;
 }
 
 .closing-line {
@@ -984,21 +919,21 @@ onBeforeUnmount(() => {
   height: 70px;
 
   margin-bottom: 35px;
-
-  background: #b59a67;
+  
+  background: #201f1c;
 }
 
 .vision-closing p {
-  margin: 0 0 25px;
+  margin: 0 0 15px;
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 10px;
+  font-size: 20px;
   font-weight: 600;
 
   letter-spacing: 4px;
 
-  color: rgba(244, 241, 233, 0.45);
+  color: #090909;
 }
 
 .vision-closing h3 {
@@ -1008,7 +943,7 @@ onBeforeUnmount(() => {
 
   font-family: "DM Serif Display", Georgia, serif;
 
-  font-size: clamp(40px, 5.2vw, 82px);
+  font-size: clamp(20px, 5.2vw, 42px);
 
   font-weight: 400;
 
@@ -1029,6 +964,8 @@ onBeforeUnmount(() => {
   font-weight: 300;
 
   letter-spacing: -1px;
+
+  color: #b68500;
 }
 
 /* =========================================
@@ -1056,10 +993,15 @@ onBeforeUnmount(() => {
     gap: 60px;
   }
 
-  .vision-statement {
-    grid-template-columns: 130px 1fr;
+  .vision-statement,
+  .mission-statement {
+    grid-template-columns: 0.9fr 1fr;
 
     gap: 40px;
+  }
+
+  .statement-image {
+    height: 320px;
   }
 
   .journey-text {
@@ -1072,6 +1014,17 @@ onBeforeUnmount(() => {
 ========================================= */
 
 @media (max-width: 700px) {
+
+  .vision-statement,
+  .mission-statement {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .statement-image {
+    height: 260px;
+  }
 
   .journey {
     display: flex;

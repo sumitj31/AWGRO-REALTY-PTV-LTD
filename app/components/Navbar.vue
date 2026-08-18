@@ -1,13 +1,9 @@
 <template>
-  <header class="navbar">
+  <header class="navbar" :class="{ scrolled: isScrolled }">
     <div class="navbar-container">
 
       <!-- Logo -->
-      <a href="#home" class="logo">
-        <div class="logo-mark">
-          A
-        </div>
-
+      <a href="#home" class="logo" @click.prevent="scrollToSection('home')">
         <div class="logo-text">
           <span class="logo-name">AWGRO</span>
           <span class="logo-subtitle">REALTY PVT. LTD.</span>
@@ -16,58 +12,18 @@
 
       <!-- Desktop Navigation -->
       <nav class="nav-links">
-  <a
-    href="#home"
-    @click.prevent="scrollToSection('home')"
-  >
-    Home
-  </a>
-
-  <a
-    href="#about"
-    @click.prevent="scrollToSection('about')"
-  >
-    About
-  </a>
-
-  <a
-    href="#vision"
-    @click.prevent="scrollToSection('vision')"
-  >
-    Vision
-  </a>
-
-  <a
-    href="#mission"
-    @click.prevent="scrollToSection('mission')"
-  >
-    Mission
-  </a>
-
-  <a
-    href="#partners"
-    @click.prevent="scrollToSection('partners')"
-  >
-    100 Partners
-  </a>
-
-  <a
-    href="#values"
-    @click.prevent="scrollToSection('values')"
-  >
-    Values
-  </a>
-</nav>
+        <a href="#home" @click.prevent="scrollToSection('home')">Home</a>
+        <a href="#vision" @click.prevent="scrollToSection('vision')">Vision</a>
+        <a href="#mission" @click.prevent="scrollToSection('mission')">Mission</a>
+        <a href="#faq" @click.prevent="scrollToSection('faq')">FAQ</a>
+        <a href="#contact" @click.prevent="scrollToSection('contact')">Contact</a>
+      </nav>
 
       <!-- CTA -->
-      <a
-  href="#promise"
-  class="nav-cta"
-  @click.prevent="scrollToSection('promise')"
->
-  Become an Associate Partner
-  <span class="arrow">↗</span>
-</a>
+      <a href="#contact" class="nav-cta" @click.prevent="scrollToSection('contact')">
+        Become an Associate Partner
+        <span class="arrow">↗</span>
+      </a>
 
       <!-- Mobile Menu Button -->
       <button
@@ -86,71 +42,39 @@
     <!-- Mobile Navigation -->
     <Transition name="mobile-menu">
       <nav v-if="isMenuOpen" class="mobile-nav">
+        <a href="#home" @click.prevent="scrollToSection('home')">Home</a>
+        <a href="#vision" @click.prevent="scrollToSection('vision')">Vision</a>
+        <a href="#mission" @click.prevent="scrollToSection('mission')">Mission</a>
+        <a href="#faq" @click.prevent="scrollToSection('faq')">FAQ</a>
+        <a href="#contact" @click.prevent="scrollToSection('contact')">Contact</a>
 
-  <a
-    href="#home"
-    @click.prevent="scrollToSection('home')"
-  >
-    Home
-  </a>
-
-  <a
-    href="#about"
-    @click.prevent="scrollToSection('about')"
-  >
-    About
-  </a>
-
-  <a
-    href="#vision"
-    @click.prevent="scrollToSection('vision')"
-  >
-    Vision
-  </a>
-
-  <a
-    href="#mission"
-    @click.prevent="scrollToSection('mission')"
-  >
-    Mission
-  </a>
-
-  <a
-    href="#partners"
-    @click.prevent="scrollToSection('partners')"
-  >
-    100 Partners
-  </a>
-
-  <a
-    href="#values"
-    @click.prevent="scrollToSection('values')"
-  >
-    Values
-  </a>
-
-  <a
-    href="#promise"
-    class="mobile-cta"
-    @click.prevent="scrollToSection('promise')"
-  >
-    Become an Associate Partner
-    <span>↗</span>
-  </a>
-
-</nav>
+        <a href="#contact" class="mobile-cta" @click.prevent="scrollToSection('contact')">
+          Become an Associate Partner
+          <span>↗</span>
+        </a>
+      </nav>
     </Transition>
   </header>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const isMenuOpen = ref(false)
+const isScrolled = ref(false)
 
-const closeMenu = () => {
-  isMenuOpen.value = false
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 60
 }
+
+onMounted(() => {
+  handleScroll()
+  window.addEventListener('scroll', handleScroll, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 const scrollToSection = (id: string) => {
   const section = document.getElementById(id)
@@ -178,7 +102,7 @@ const scrollToSection = (id: string) => {
 
 <style scoped>
 /* =========================================
-   NAVBAR
+   NAVBAR — transparent over hero, solid on scroll
 ========================================= */
 
 .navbar {
@@ -188,11 +112,22 @@ const scrollToSection = (id: string) => {
   width: 100%;
   z-index: 1000;
 
-  background: rgba(255, 255, 255, 0.92);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(9, 9, 9, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(181, 154, 103, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* =========================================
@@ -200,9 +135,8 @@ const scrollToSection = (id: string) => {
 ========================================= */
 
 .navbar-container {
-  width: min(1400px, calc(100% - 80px));
+  width: min(100% - 40px, 1400px);
   height: 82px;
-
   margin: 0 auto;
 
   display: flex;
@@ -210,6 +144,10 @@ const scrollToSection = (id: string) => {
   justify-content: space-between;
 
   gap: 40px;
+}
+
+.navbar.scrolled .navbar-container {
+  height: 72px;
 }
 
 /* =========================================
@@ -222,26 +160,8 @@ const scrollToSection = (id: string) => {
   gap: 11px;
 
   text-decoration: none;
-  color: #111;
 
   flex-shrink: 0;
-}
-
-.logo-mark {
-  width: 42px;
-  height: 42px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #111;
-  color: #fff;
-
-  font-size: 21px;
-  font-weight: 700;
-
-  border-radius: 50%;
 }
 
 .logo-text {
@@ -251,18 +171,21 @@ const scrollToSection = (id: string) => {
 }
 
 .logo-name {
-  font-size: 40px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #f4f1e9;
 }
 
 .logo-subtitle {
   margin-top: 5px;
 
+  font-family: Inter, Arial, sans-serif;
   font-size: 7px;
   font-weight: 600;
   letter-spacing: 2px;
-  color: #777;
+  color: #b59a67;
 }
 
 /* =========================================
@@ -273,22 +196,19 @@ const scrollToSection = (id: string) => {
   display: flex;
   align-items: center;
   gap: 32px;
-
-  margin-left: auto;
 }
 
 .nav-links a {
   position: relative;
 
-  color: #333;
+  color: rgba(244, 241, 233, 0.85);
   text-decoration: none;
+  font-family: Inter, Arial, sans-serif;
 
   font-size: 14px;
   font-weight: 500;
 
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .nav-links a::after {
@@ -301,13 +221,13 @@ const scrollToSection = (id: string) => {
   width: 0;
   height: 1px;
 
-  background: #111;
+  background: #b68500;
 
   transition: width 0.25s ease;
 }
 
 .nav-links a:hover {
-  color: #000;
+  color: #f4f1e9;
 }
 
 .nav-links a:hover::after {
@@ -325,13 +245,14 @@ const scrollToSection = (id: string) => {
 
   padding: 13px 20px;
 
-  background: #111;
-  color: #fff;
+  background: #b68500;
+  color: #090909;
 
-  border: 1px solid #111;
   border-radius: 4px;
+  /* border: 1px solid #b68500; */
 
   text-decoration: none;
+  font-family: Inter, Arial, sans-serif;
 
   font-size: 13px;
   font-weight: 600;
@@ -345,7 +266,7 @@ const scrollToSection = (id: string) => {
 }
 
 .nav-cta:hover {
-  background: transparent;
+  background: #ffffff86;
   color: #111;
 
   transform: translateY(-1px);
@@ -369,7 +290,7 @@ const scrollToSection = (id: string) => {
   padding: 9px;
 
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(244, 241, 233, 0.3);
   border-radius: 4px;
 
   cursor: pointer;
@@ -385,7 +306,7 @@ const scrollToSection = (id: string) => {
   width: 100%;
   height: 1.5px;
 
-  background: #111;
+  background: #f4f1e9;
 }
 
 /* =========================================
@@ -401,10 +322,6 @@ const scrollToSection = (id: string) => {
 ========================================= */
 
 @media (max-width: 1100px) {
-
-  .navbar-container {
-    width: min(100% - 40px, 1400px);
-  }
 
   .nav-links {
     gap: 20px;
@@ -442,22 +359,24 @@ const scrollToSection = (id: string) => {
 
     padding: 10px 20px 25px;
 
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(9, 9, 9, 0.97);
+    backdrop-filter: blur(14px);
 
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-top: 1px solid rgba(181, 154, 103, 0.2);
   }
 
   .mobile-nav a {
     padding: 15px 0;
 
-    color: #222;
+    color: #f4f1e9;
 
     text-decoration: none;
+    font-family: Inter, Arial, sans-serif;
 
     font-size: 15px;
     font-weight: 500;
 
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(244, 241, 233, 0.1);
   }
 
   .mobile-nav a:last-child {
@@ -473,10 +392,11 @@ const scrollToSection = (id: string) => {
     margin-top: 12px;
     padding: 15px 18px !important;
 
-    background: #111;
-    color: #fff !important;
+    background: #b68500;
+    color: #090909 !important;
 
     border-radius: 4px;
+    border-bottom: none;
   }
 }
 

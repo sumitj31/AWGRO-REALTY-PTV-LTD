@@ -11,12 +11,6 @@
     <!-- Dark Overlay -->
     <div class="hero-overlay"></div>
 
-    <!-- Architectural Lines -->
-    <div class="architecture-lines">
-      <span class="line line-one"></span>
-      <span class="line line-two"></span>
-      <span class="line line-three"></span>
-    </div>
 
     <!-- Hero Content -->
     <div class="hero-container">
@@ -24,7 +18,8 @@
       <!-- Top Label -->
       <div class="hero-label">
         <span class="label-line"></span>
-        <span>AWGRO REALTY PVT. LTD.</span>
+        <span>AWGRO REALTY PVT. LTD</span>
+        <span class="label-line"></span>
       </div>
 
       <!-- Main Content -->
@@ -52,8 +47,8 @@
               <span class="button-arrow">↗</span>
             </a>
 
-            <a href="#about" class="secondary-button">
-              Explore Our Story
+            <a href="#vision" class="secondary-button">
+              Explore Our Vision
               <span>↓</span>
             </a>
           </div>
@@ -93,11 +88,6 @@
 
       </div>
 
-    </div>
-
-    <!-- Vertical Side Text -->
-    <div class="vertical-text">
-      REAL ESTATE · ENTREPRENEURSHIP · NETWORK · GROWTH
     </div>
   </section>
 </template>
@@ -158,7 +148,7 @@
 
   z-index: 1;
 
-  /* background:
+  background:
     linear-gradient(
       90deg,
       rgba(9, 9, 9, 0.88) 0%,
@@ -171,7 +161,7 @@
       rgba(9, 9, 9, 0.48) 0%,
       rgba(9, 9, 9, 0.05) 45%,
       rgba(9, 9, 9, 0.72) 100%
-    ); */
+    );
 }
 
 /* =========================================
@@ -194,6 +184,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* =========================================
@@ -209,12 +200,12 @@
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 10px;
+  font-size: 16px;
   font-weight: 600;
 
   letter-spacing: 2.8px;
 
-  color: rgba(244, 241, 233, 0.8);
+  color: #f1f1f1;
 
   opacity: 0;
 
@@ -225,7 +216,7 @@
   width: 38px;
   height: 1px;
 
-  background: #b59a67;
+  background: #f1f1f1;
 }
 
 /* =========================================
@@ -239,9 +230,9 @@
 
   align-items: end;
 
-  gap: 80px;
+  gap: 18px;
 
-  margin-top: auto;
+  /* margin-top: auto; */
   margin-bottom: 80px;
 }
 
@@ -258,12 +249,12 @@
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
 
   letter-spacing: 4px;
 
-  color: #b59a67;
+  color: #f1f1f1;
 
   opacity: 0;
 
@@ -273,19 +264,19 @@
 .hero-heading h1 {
   margin: 0;
 
-  font-family: "DM Serif Display", Georgia, serif;
+  font-family: Inter, Arial, sans-serif;
 
-  font-size: clamp(70px, 8.5vw, 145px);
+  font-size: clamp(70px, 8.5vw, 100px);
 
-  font-weight: 400;
+  font-weight: 100;
 
   line-height: 0.84;
 
-  letter-spacing: -5px;
+  /* letter-spacing: 2px; */
 
   text-transform: uppercase;
 
-  color: #f4f1e9;
+  color: #f1f1f1;
 
   opacity: 0;
 
@@ -295,7 +286,7 @@
 .hero-heading h1 span {
   display: block;
 
-  margin-left: clamp(25px, 5vw, 90px);
+  /* margin-left: clamp(25px, 5vw, 90px); */
 
   font-family: Inter, Arial, sans-serif;
 
@@ -307,7 +298,7 @@
 
   letter-spacing: -3px;
 
-  color: #f4f1e9;
+  color: #b68500;
 }
 
 /* =========================================
@@ -315,7 +306,7 @@
 ========================================= */
 
 .hero-side {
-  max-width: 350px;
+  max-width: 680px;
 
   padding-bottom: 4px;
 
@@ -329,13 +320,13 @@
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 14px;
+  font-size: 16px;
 
   line-height: 1.75;
 
   font-weight: 400;
 
-  color: rgba(244, 241, 233, 0.78);
+  color: #f1f1f1;
 }
 
 /* =========================================
@@ -362,14 +353,14 @@
 
   padding: 15px 18px;
 
-  background: #f4f1e9;
-  color: #090909;
+  background: #ffffff;
+  color: #b68500;
 
   text-decoration: none;
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
 
   letter-spacing: 0.8px;
@@ -382,7 +373,7 @@
 }
 
 .primary-button:hover {
-  background: #b59a67;
+  background: #b68500;
   color: #090909;
 
   transform: translateX(5px);
@@ -404,7 +395,7 @@
 
   gap: 12px;
 
-  color: rgba(244, 241, 233, 0.75);
+  color: #b68500;
 
   text-decoration: none;
 
@@ -420,7 +411,7 @@
 }
 
 .secondary-button span {
-  color: #b59a67;
+  color: #b68500;
 
   font-size: 15px;
 
@@ -442,13 +433,13 @@
 .hero-bottom {
   display: grid;
 
+  width: 1000px ;
+
   grid-template-columns: 1fr 1fr 1fr;
 
   align-items: end;
 
   padding-top: 24px;
-
-  border-top: 1px solid rgba(244, 241, 233, 0.2);
 
   opacity: 0;
 
@@ -473,27 +464,27 @@
 
   line-height: 0.8;
 
-  color: #f4f1e9;
+  color: #b68500;
 }
 
 .stat-number span {
-  color: #b59a67;
+  color: #b68500;
 }
 
 .stat-text {
   display: flex;
   flex-direction: column;
 
-  padding-bottom: 2px;
+  padding-bottom: 4px;
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 600;
 
   letter-spacing: 2px;
 
-  color: rgba(244, 241, 233, 0.55);
+  color: #b68500;
 }
 
 /* =========================================
@@ -512,12 +503,12 @@
 .location-label {
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 8px;
+  font-size: 14px;
   font-weight: 600;
 
   letter-spacing: 2px;
 
-  color: rgba(244, 241, 233, 0.45);
+  color: #b68500;
 }
 
 .locations {
@@ -528,16 +519,16 @@
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 600;
 
   letter-spacing: 1.8px;
 
-  color: #f4f1e9;
+  color: #b68500;
 }
 
 .location-divider {
-  color: #b59a67;
+  color: #b68500;
 }
 
 /* =========================================
@@ -554,23 +545,23 @@
 
   font-family: Inter, Arial, sans-serif;
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
 
   letter-spacing: 2px;
 
-  color: rgb(255, 255, 255);
+  color: #b68500;
 }
 
 .scroll-line {
   width: 40px;
   height: 1px;
 
-  background: rgb(255, 255, 255);
+  background: #b68500;
 }
 
 .scroll-arrow {
-  color: #b59a67;
+  color: #b68500;
 
   font-size: 16px;
 

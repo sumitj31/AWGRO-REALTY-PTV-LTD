@@ -26,7 +26,7 @@
             Ahmedabad & Gandhinagar.
           </p>
 
-          <a href="#hero" class="footer-button">
+          <a href="#contact" class="footer-button">
             Become An Associate Partner
           </a>
 
@@ -43,7 +43,7 @@
             COMPANY
           </span>
 
-          <a href="#about">About Us</a>
+          <a href="#home">Home</a>
           <a href="#vision">Vision</a>
           <a href="#mission">Mission</a>
 
@@ -52,24 +52,12 @@
         <div class="footer-column">
 
           <span class="column-title">
-            COMMUNITY
+            GET STARTED
           </span>
 
-          <a href="#partners">100 Partner Mission</a>
-          <a href="#beliefs">What We Believe</a>
-          <a href="#values">Core Values</a>
-
-        </div>
-
-        <div class="footer-column">
-
-          <span class="column-title">
-            OPPORTUNITY
-          </span>
-
-          <a href="#promise">Our Promise</a>
-          <a href="#dream">Our Bigger Dream</a>
-          <a href="#hero">Start Your Journey</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#contact">Become an Associate Partner</a>
 
         </div>
 
@@ -240,7 +228,9 @@
 .footer-middle {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 480px;
+  margin-left: auto;
 
   gap: 60px;
 

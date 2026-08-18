@@ -5,21 +5,11 @@
 
     <Hero />
 
-    <About />
-
     <Vision />
 
-    <Mission />
+    <Faq />
 
-    <Partners />
-
-    <Beliefs />
-
-    <Values />
-
-    <Promise />
-
-    <Dream />
+    <Contact />
 
     <Footer />
 
@@ -29,13 +19,8 @@
 <script setup lang="ts">
 import Navbar from '~/components/Navbar.vue'
 import Hero from '~/components/Hero.vue'
-import About from '~/components/About.vue'
 import Vision from '~/components/Vision.vue'
-import Mission from '~/components/Mission.vue'
-import Partners from '~/components/Partners.vue'
-import Beliefs from '~/components/Beliefs.vue'
-import Values from '~/components/Values.vue'
-import Promise from '~/components/Promise.vue'
-import Dream from '~/components/Dream.vue'
+import Faq from '~/components/Faq.vue'
+import Contact from '~/components/Contact.vue'
 import Footer from '~/components/Footer.vue'
 </script>
