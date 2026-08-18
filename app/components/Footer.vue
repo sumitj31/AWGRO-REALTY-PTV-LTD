@@ -572,10 +572,12 @@
   }
 
   .footer-brand h2 {
-    font-size: clamp(52px, 15vw, 82px);
+  font-size: clamp(40px, 12vw, 58px);
 
-    letter-spacing: -3px;
-  }
+  line-height: 0.92;
+
+  letter-spacing: -2.5px;
+}
 
   .footer-cta {
     grid-column: 1 / -1;

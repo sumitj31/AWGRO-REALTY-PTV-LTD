@@ -307,16 +307,35 @@ const faqs = [
 @media (max-width: 640px) {
 
   .faq-section {
-    padding: 100px 0;
+    padding: 55px 0 40px;
   }
 
   .faq-question {
-    gap: 16px;
-    padding: 24px 0;
+    gap: 12px;
+    padding: 15px 0;
+  }
+
+  .question-text {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .question-index {
+    font-size: 11px;
+  }
+
+  .question-icon {
+    width: 28px;
+    height: 28px;
+
+    font-size: 14px;
   }
 
   .faq-answer p {
-    padding-right: 0;
+    padding: 0 0 18px;
+
+    font-size: 13px;
+    line-height: 1.65;
   }
 }
 </style>

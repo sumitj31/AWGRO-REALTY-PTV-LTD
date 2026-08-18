@@ -1018,8 +1018,26 @@ onBeforeUnmount(() => {
   .vision-statement,
   .mission-statement {
     grid-template-columns: 1fr;
-
+    margin-bottom: 20px;
     gap: 30px;
+  }
+  .vision-section {
+    min-height: auto;
+  }
+
+  .vision-container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+.vision-statement,
+  .mission-statement {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .vision-statement {
+    padding-top: 15px;
   }
 
   .statement-image {

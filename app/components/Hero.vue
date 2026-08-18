@@ -787,7 +787,7 @@
   }
 
   .eyebrow {
-    font-size: 9px;
+    font-size: 15px;
 
     letter-spacing: 3px;
   }

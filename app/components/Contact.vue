@@ -371,6 +371,18 @@ const handleSubmit = () => {
 
 @media (max-width: 560px) {
 
+  .contact-section {
+    padding: 25px 0 50px;
+  }
+
+  .contact-form-wrap {
+    background: transparent;
+
+    padding: 0;
+
+    border: none;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
   }
