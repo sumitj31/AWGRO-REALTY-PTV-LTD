@@ -122,13 +122,26 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div className="flex items-center">
-          <img
-            src={awgroLogoNavbar}
-            alt="Awgro Realty"
-            className="h-10 w-auto object-contain"
-          />
-        </div>
+        <a
+  href="/"
+  onClick={(e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    window.history.replaceState(null, "", "/");
+  }}
+  className="flex items-center"
+>
+  <img
+    src={awgroLogoNavbar}
+    alt="Awgro Realty"
+    className="h-10 w-auto object-contain"
+  />
+</a>
         <nav className="hidden lg:flex items-center gap-6">
           <a
             href="#vision"
@@ -200,7 +213,7 @@ function Header() {
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#F8F6F0]">
+    <section id="home" className="relative overflow-hidden bg-[#F8F6F0]">
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent/[0.04] pointer-events-none" />
 
@@ -703,7 +716,7 @@ function ValuesSection() {
               )}
             >
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <Icon className="w-5 h-5 text-accent" />
+                <Icon className="w-5 h-5 text-accent hover:text-secondary" />
               </div>
               <span className="text-sm font-bold text-primary leading-tight">{label}</span>
             </div>
@@ -734,7 +747,7 @@ function FAQ() {
                 <span className="font-semibold text-primary text-sm sm:text-[15px] leading-snug">
                   {faq.q}
                 </span>
-                <ChevronDown className="w-5 h-5 text-accent flex-shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                <ChevronDown className="w-5 h-5 text-secondrary flex-shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
               </AccordionPrimitive.Trigger>
               <AccordionPrimitive.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
                 <div className="px-6 pb-5">
@@ -785,11 +798,8 @@ function ConversionForm({
             {/* Form header */}
             <span className="text-accent/70 text-[22px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 mb-4">Contact us</span>
             <div className="bg-primary rounded-t-2xl px-8 pt-8 pb-7 text-center relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent" />
+              {/* <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent" /> */}
               <div className="flex items-center justify-center gap-2.5 mb-4">
-                <div className="h-px w-6 bg-accent/50" />
-                
-                <div className="h-px w-6 bg-accent/50" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-primary-foreground leading-tight mb-2">
                 Ready to Start Your Real Estate Business?
@@ -925,23 +935,36 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center">
-            <div className="bg-transparent rounded-xl px-3 py-1.5">
-              <img
-                src={awgroLogoFooter}
-                alt="Awgro Realty"
-                className="h-8 w-auto object-contain"
-              />
-            </div>
-          </div>
+  <a
+  href="/"
+  onClick={(e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    window.history.replaceState(null, "", "/");
+  }}
+  className="bg-transparent rounded-xl px-3 py-1.5"
+>
+  <img
+    src={awgroLogoFooter}
+    alt="Awgro Realty"
+    className="h-8 w-auto object-contain"
+  />
+</a>
+</div>
 
           <div className="flex items-center gap-5 text-sm">
             <a href="#" className="hover:text-foreground">
               Privacy Policy
             </a>
-            <span>·</span>
-            <a href="#" className="flex items-center gap-1">
+            {/* <span>·</span> */}
+            {/* <a href="#" className="flex items-center gap-1">
               Visit Main Website <ExternalLink className="w-3 h-3" />
-            </a>
+            </a> */}
           </div>
 
           <p className="text-primary-foreground/25 text-xs">
