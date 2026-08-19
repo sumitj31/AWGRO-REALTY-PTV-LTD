@@ -744,7 +744,7 @@ function Campaign() {
               <br />
               <span className="text-accent">100</span> Real Estate Businesses.
               <br />
-              <span className="text-white/70">One Powerful Network.</span>
+              <span className="text-white">One Powerful Network.</span>
             </h2>
             <p className="text-white/55 text-base leading-relaxed max-w-sm mb-10">
               We are building a community of empowered real estate entrepreneurs
