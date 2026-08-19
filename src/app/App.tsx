@@ -184,7 +184,7 @@ function SectionLabel({
       <div className={clsx("h-px w-8", light ? "bg-accent/50" : "bg-accent")} />
       <span
         className={clsx(
-          "text-[22px] font-bold uppercase tracking-[0.2em]",
+          "text-[12px] font-bold uppercase tracking-[0.2em]",
           light ? "text-accent/80" : "text-accent",
         )}
       >
@@ -330,7 +330,7 @@ function Hero() {
   return (
     <section id="home" className="relative overflow-hidden bg-[#F8F6F0]">
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent/[0.04] pointer-events-none" />
+      {/* <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent/[0.04] pointer-events-none" /> */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -430,6 +430,17 @@ function Hero() {
           </div>
         </div>
       </div>
+
+      <a
+  href="#apply"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("apply");
+            }}
+  className="fixed right-6 bottom-6 z-50 bg-primary text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+  Become Associate <ArrowRight className="w-5 h-5 flex" />
+</a>
+
     </section>
   );
 }
@@ -508,7 +519,7 @@ function Benefits() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <SectionLabel text="Our Promise" />
-          <h2 className="text-3xl sm:text-4xl md:text-[2.6rem] font-extrabold text-primary leading-tight max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight max-w-2xl mx-auto">
             You Build the Business. We Build the System That Helps You Grow.
           </h2>
         </div>
@@ -723,8 +734,8 @@ function Campaign() {
           {/* Left */}
           <div>
             <div className="flex items-center gap-3 mb-7">
-              <div className="h-px w-8 bg-accent" />
-              <span className="text-accent text-[11px] font-bold uppercase tracking-[0.2em]">
+              <div className="h-px w-8 bg-secondary" />
+              <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.2em]">
                 OUR 100 ASSOCIATE PARTNER MISSION
               </span>
             </div>
@@ -742,7 +753,7 @@ function Campaign() {
             </p>
             <a
               href="#apply"
-              className="inline-flex items-center gap-2 bg-accent text-primary font-bold px-7 py-3.5 rounded-xl hover:bg-accent/90 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/20"
+              className="inline-flex items-center gap-2 bg-accent text-secondary font-bold px-7 py-3.5 rounded-xl hover:bg-accent/90 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/20"
             >
               Join the Network
               <ArrowRight className="w-4 h-4" />
@@ -752,8 +763,8 @@ function Campaign() {
           {/* Right: Growth ladder (Enterprise at top = goal) */}
           <div>
             <div className="flex items-center gap-3 mb-7">
-              <div className="h-px w-8 bg-accent/40" />
-              <span className="text-accent/70 text-[11px] font-bold uppercase tracking-[0.2em]">
+              <div className="h-px w-8 bg-secondary" />
+              <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.2em]">
                 The Entrepreneur Journey
               </span>
             </div>
@@ -869,7 +880,7 @@ function ValuesSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <SectionLabel text="OUR CORE VALUES" />
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-primary">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-primary">
             Built on These Principles
           </h2>
         </div>
@@ -883,7 +894,7 @@ function ValuesSection() {
               )}
             >
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <Icon className="w-5 h-5 text-accent hover:text-secondary" />
+                <Icon className="w-5 h-5 text-secondary" />
               </div>
               <span className="text-sm font-bold text-primary leading-tight">
                 {label}
@@ -982,7 +993,7 @@ function ConversionForm({
         ) : (
           <>
             {/* Form header */}
-            <span className="text-accent/70 text-[22px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 mb-4">
+            <span className="text-accent text-[12px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 mb-4">
               Contact us
             </span>
             <div className="bg-primary rounded-t-2xl px-8 pt-8 pb-7 text-center relative overflow-hidden">
