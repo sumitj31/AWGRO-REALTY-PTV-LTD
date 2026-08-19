@@ -1136,11 +1136,24 @@ function ConversionForm({
 
 // ─── Footer ────────────────────────────────────────────────────────────────────
 function Footer() {
+  const footerNav = [
+    { label: "Vision & Mission", id: "vision" },
+    { label: "Promise", id: "promise" },
+    { label: "Dream", id: "dream" },
+    { label: "Partner Mission", id: "partner-mission" },
+    { label: "Core Values", id: "core-values" },
+    { label: "FAQs", id: "faq" },
+  ];
+
   return (
-    <footer className="bg-[#F8F6F0] py-10 border-t border-white/5">
+    <footer className="bg-[#F8F6F0] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
-          <div className="flex items-center">
+
+        {/* Main Footer */}
+        <div className="grid md:grid-cols-3 gap-12 py-14 md:py-16">
+
+          {/* Brand */}
+          <div className="max-w-sm">
             <a
               href="/"
               onClick={(e) => {
@@ -1153,30 +1166,129 @@ function Footer() {
 
                 window.history.replaceState(null, "", "/");
               }}
-              className="bg-transparent rounded-xl px-3 py-1.5"
+              className="inline-flex items-center mb-5"
             >
               <img
                 src={awgroLogoFooter}
                 alt="Awgro Realty"
-                className="h-8 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </a>
-          </div>
 
-          <div className="flex items-center gap-5 text-sm">
-            <div className="hover:text-foreground">
-              Privacy Policy
+            <p className="text-primary text-sm leading-relaxed max-w-xs">
+              Building a community of real estate entrepreneurs across
+              Ahmedabad and Gandhinagar.
+            </p>
+
+            <div className="flex items-center gap-2 mt-6 text-sm text-primary">
+              <MapPin className="w-4 h-4 text-primary" />
+              Ahmedabad & Gandhinagar
             </div>
-            {/* <span>·</span> */}
-            {/* <a href="#" className="flex items-center gap-1">
-              Visit Main Website <ExternalLink className="w-3 h-3" />
-            </a> */}
           </div>
 
-          <p className="text-primary-secondary">
-            © {new Date().getFullYear()} Awgro Realty Pvt. Ltd.
-          </p>
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-primary mb-5">
+              Quick Links
+            </h3>
+
+            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+              {footerNav.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-left text-sm text-primary hover:text-accent transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Get In Touch */}
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-primary mb-5">
+              Get In Touch
+            </h3>
+
+            <div className="space-y-3">
+              <p className="text-sm text-primary">
+                Ahmedabad & Gandhinagar
+              </p>
+
+              <p className="text-sm text-primary">
+                Associate Partner Program
+              </p>
+
+              <a
+                href="https://wa.me/919099999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-2 border border-[#25D366]/50 text-[#25D366] font-semibold px-4 py-2.5 rounded-xl hover:bg-[#25D366]/10 transition-all text-sm"
+              >
+                <WA />
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
+
+        {/* CTA Banner */}
+        <div className="border border-accent/25 bg-accent/[0.07] rounded-2xl p-6 md:p-7 mb-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-5">
+            <div>
+              <h3 className="text-xl md:text-2xl font-extrabold text-primary">
+                Ready to build your own real estate business?
+              </h3>
+
+              <p className="text-sm text-primary mt-1.5">
+                Take the first step toward becoming an Awgro Associate Partner.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => scrollToSection("apply")}
+              className="inline-flex items-center gap-2 bg-accent text-secondary font-bold px-6 py-3 rounded-xl hover:bg-accent/90 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/20 whitespace-nowrap"
+            >
+              Become a Partner
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
+            <p>
+              © {new Date().getFullYear()} Awgro Realty Pvt. Ltd. All rights reserved.
+            </p>
+
+            <div className="flex items-center gap-4">
+              <button
+                type="button"
+                className="hover:text-white transition-colors"
+              >
+                Privacy Policy
+              </button>
+
+              <span className="text-white/15">·</span>
+
+              <button
+                type="button"
+                className="hover:text-white transition-colors"
+              >
+                Terms & Conditions
+              </button>
+
+              <span className="text-white/15">·</span>
+
+              <span>Ahmedabad · Gandhinagar</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </footer>
   );
