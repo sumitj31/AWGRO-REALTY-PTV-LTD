@@ -1,1145 +1,885 @@
 <template>
-  <section id="vision" class="vision-section">
-
-    <!-- Background Grid -->
-    <div class="vision-grid"></div>
-
-    <!-- Decorative Line -->
-    <div class="vision-line"></div>
+  <section id="vision" class="vision">
+    <div class="vision-bg-text">VISION</div>
 
     <div class="vision-container">
+      <div class="vision-header">
+        <div class="vision-index">
+          <span>01</span>
+          <div></div>
+          <span>VISION</span>
+        </div>
 
+        <p class="vision-kicker">
+          WHERE WE ARE HEADED
+        </p>
+      </div>
 
-      <!-- Main Vision Statement -->
-      <!-- <div class="vision-intro">
-        <div class="vision-heading">
-          <p class="eyebrow">MAIN VISION STATEMENT</p>
+      <div class="vision-layout">
+        <div class="vision-content">
+          <div class="vision-tag">
+            <span></span>
+            OUR VISION
+          </div>
 
-          <h2>
-            TO CREATE INDIA'S
-            MOST TRUSTED COMMUNITY
-            OF REAL ESTATE
-            ENTREPRENEURS.
+          <h2 class="vision-title">
+            Building a
+            <span>community</span>
+            of real estate
+            <em>entrepreneurs.</em>
           </h2>
-        </div>
 
-      </div> -->
-
-      <!-- Vision Statement -->
-      <div class="vision-statement">
-
-        <div class="statement-image">
-          <img class="img" src="/public/images/vision.jpg" alt="Awgro Realty Associate Partner reviewing a property" />
-        </div>
-
-        <div class="statement-content">
-          <span class="statement-label">OUR VISION</span>
-
-          <p>
+          <p class="vision-lead">
             To create India's most trusted community of real estate
             entrepreneurs, starting with a network of 100+ successful
             Associate Partners across Ahmedabad and Gandhinagar.
           </p>
-          <p>
-            We envision a future where real estate professionals are not dependent only on a job or a single company.
+
+          <div class="vision-divider"></div>
+
+          <p class="vision-description">
+            We envision a future where real estate professionals are not
+            dependent only on a job or a single company.
           </p>
+
+          <p class="vision-description">
+            Instead, they build their own client relationships, their own
+            network, their own reputation, and their own real estate business
+            while being supported by the collective strength, systems, and
+            resources of AWGRO Realty.
+          </p>
+
+          <a
+            href="#contact"
+            class="vision-action"
+            @click.prevent="scrollToSection('contact')"
+          >
+            <span>Become Part of the Vision</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="vision-visual">
+          <div class="visual-label">
+            <span>AWGRO REALTY</span>
+            <span>01 / 02</span>
+          </div>
+
+          <div class="image-wrapper">
+            <img
+              src="/public/images/vision.jpg"
+              alt="Awgro Realty Associate Partner reviewing a property"
+              class="vision-image"
+            />
+
+            <div class="image-shade"></div>
+
+            <div class="image-message">
+              <span>THE FUTURE</span>
+              <strong>Starts With You.</strong>
+            </div>
+
+            <div class="image-corner"></div>
+          </div>
+
+          <div class="visual-footer">
+            <span>AHMEDABAD</span>
+            <div></div>
+            <span>GANDHINAGAR</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-bottom">
+        <div class="bottom-number">100<span>+</span></div>
+
+        <div class="bottom-copy">
+          <span>THE FIRST MILESTONE</span>
           <p>
-            Instead, they build their own client relationships, their own network, their own reputation, and their own real estate business while being supported by the collective strength, systems, and resources of Awgro Realty.
+            A growing community of successful Associate Partners
+            building their own future in real estate.
           </p>
         </div>
 
-      </div>
-
-      <!-- Mission Statement -->
-      <div class="mission-statement">
-
-        <div class="statement-content">
-          <span class="statement-label">OUR MISSION</span>
-
-          <p>
-            To empower individuals to start, build, and grow their own
-            real estate business through professional training, proven
-            systems, technology, marketing support, and a strong network.
-          </p>
-          <p>
-            Train Associate Partners in real estate knowledge, sales, negotiation, investment, communication, and business development.
-          </p>
-          <p>
-            Provide practical knowledge about the Ahmedabad and Gandhinagar real estate markets.
-          </p>
+        <div class="bottom-mark">
+          <span></span>
+          BUILD YOUR OWN
         </div>
-
-        <div class="statement-image">
-          <img src="/public/images/mission.jpg" alt="Awgro Realty Associate Partner planning a real estate business" />
-        </div>
-
       </div>
-
-      <div class="vision-closing">
-
-
-        <!-- <p>
-          ACCESSIBLE.
-          PROFESSIONAL.
-          SCALABLE.
-        </p> -->
-
-        <!-- <h3>
-          THE FUTURE OF
-          <span>REAL ESTATE ENTREPRENEURSHIP.</span>
-        </h3> -->
-
-      </div>
-
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+const scrollToSection = (id: string) => {
+  const section = document.getElementById(id)
 
-interface JourneyItem {
-  title: string
-  label: string
-  heading: string
-  description: string
-}
-
-const activeJourney = ref(0)
-
-const journeyItems: JourneyItem[] = [
-  {
-    title: 'INDIVIDUAL',
-    label: 'THE STARTING POINT',
-    heading: 'START WITH YOUR OWN AMBITION.',
-    description:
-      'Every real estate business begins with an individual who has the right attitude, discipline, learning mindset, and commitment to build something of their own.'
-  },
-  {
-    title: 'ENTREPRENEUR',
-    label: 'OWNERSHIP',
-    heading: 'BUILD YOUR OWN BUSINESS.',
-    description:
-      'Associate Partners are encouraged to think and act like business owners, building their own professional identity, client relationships, reputation, and real estate business.'
-  },
-  {
-    title: 'NETWORK',
-    label: 'CONNECTION',
-    heading: 'BUILD RELATIONSHIPS THAT CREATE OPPORTUNITY.',
-    description:
-      'Build your own client relationships and professional network while gaining access to projects, developers, clients, investors, and business opportunities.'
-  },
-  {
-    title: 'COMMUNITY',
-    label: 'COLLECTIVE STRENGTH',
-    heading: 'GROW WITH THE RIGHT PEOPLE AROUND YOU.',
-    description:
-      'Your business may be your own, but your growth becomes stronger when you are connected to a professional ecosystem where individual success and team success grow together.'
-  },
-  {
-    title: 'REAL ESTATE ECOSYSTEM',
-    label: 'THE BIGGER PICTURE',
-    heading: 'A SYSTEM BUILT TO HELP YOU GROW.',
-    description:
-      'Awgro Realty brings together knowledge, training, technology, marketing support, systems, and a professional network to make real estate entrepreneurship more accessible, professional, and scalable.'
+  if (!section) {
+    console.warn(`Section #${id} not found`)
+    return
   }
-]
 
-let journeyTimer: ReturnType<typeof setInterval> | null = null
+  const navbar = document.querySelector('.navbar') as HTMLElement | null
+  const navbarHeight = navbar?.offsetHeight ?? 82
 
-const startJourneyAutoPlay = () => {
-  journeyTimer = setInterval(() => {
-    activeJourney.value =
-      (activeJourney.value + 1) % journeyItems.length
-  }, 2000)
+  const sectionTop =
+    section.getBoundingClientRect().top + window.scrollY
+
+  window.scrollTo({
+    top: sectionTop - navbarHeight,
+    behavior: 'smooth'
+  })
 }
-
-const stopJourneyAutoPlay = () => {
-  if (journeyTimer) {
-    clearInterval(journeyTimer)
-    journeyTimer = null
-  }
-}
-
-onMounted(() => {
-  startJourneyAutoPlay()
-})
-
-onBeforeUnmount(() => {
-  stopJourneyAutoPlay()
-})
-
 </script>
 
 <style scoped>
-/* =========================================
-   VISION SECTION
-========================================= */
+.vision {
+  --blue: #2788a9;
+  --blue-dark: #1f718d;
+  --blue-light: #55abc6;
+  --dark: #303538;
+  --gray: #50575b;
+  --gray-light: #737b80;
+  --surface: #f5f8f9;
+  --white: #ffffff;
+  --border: #dce5e8;
 
-.vision-section {
+  --display:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  --body:
+    "Manrope",
+    "Inter",
+    Arial,
+    sans-serif;
+
   position: relative;
 
   width: 100%;
 
-  min-height: 100vh;
-
-  background: #f4f1e9;
-
-  color: #090909;
-
   overflow: hidden;
-}
 
-/* =========================================
-   BACKGROUND GRID
-========================================= */
-
-.vision-grid {
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  opacity: 0.45;
-
-  background-image:
+  background:
     linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(25% - 1px),
-      rgba(244, 241, 233, 0.045) 25%,
-      transparent calc(25% + 1px),
-      transparent calc(50% - 1px),
-      rgba(244, 241, 233, 0.045) 50%,
-      transparent calc(50% + 1px),
-      transparent calc(75% - 1px),
-      rgba(244, 241, 233, 0.045) 75%,
-      transparent calc(75% + 1px)
+      135deg,
+      #ffffff 0%,
+      #f5f8f9 100%
     );
+
+  color: var(--dark);
 }
-
-/* =========================================
-   DECORATIVE LINE
-========================================= */
-
-.vision-line {
-  position: absolute;
-
-  top: -10%;
-  right: 19%;
-
-  width: 1px;
-  height: 120%;
-
-  /* background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(181, 154, 103, 0.45),
-    transparent
-  );
-
-  transform: rotate(18deg); */
-
-  pointer-events: none;
-}
-
-/* =========================================
-   CONTAINER
-========================================= */
 
 .vision-container {
   position: relative;
 
   z-index: 2;
 
-  width: min(1440px, calc(100% - 100px));
+  width: min(
+    calc(100% - 100px),
+    1440px
+  );
 
   margin: 0 auto;
 
-  padding: 10px 0 10px;
+  padding:
+    100px
+    0
+    85px;
 }
 
-/* =========================================
-   SECTION LABEL
-========================================= */
+.vision-bg-text {
+  position: absolute;
 
-.section-label {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  right: -35px;
+  top: 80px;
 
-  /* gap: 14px; */
+  color:
+    rgba(39, 136, 169, 0.035);
 
-  margin-bottom: 50px;
+  font-family: var(--display);
 
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: 40px;
-  font-weight: 700;
-
-  letter-spacing: 2.8px;
-
-  color: #090909;
-}
-
-.label-number {
-  color: #b68500;
-}
-
-
-/* =========================================
-   INTRO
-========================================= */
-
-.vision-intro {
-  display: grid;
-
-  /* grid-template-columns: 280px minmax(0, 1fr); */
-
-  /* gap: 100px; */
-
-  align-items: start;
-
-  margin-bottom: 115px;
-}
-
-.vision-number {
-  font-family: "DM Serif Display", Georgia, serif;
-
-  font-size: clamp(120px, 10vw, 190px);
+  font-size: 240px;
 
   line-height: 0.8;
 
-  letter-spacing: -6px;
+  letter-spacing: -0.08em;
 
-  color: #11100e;
-
-  white-space: nowrap;
+  pointer-events: none;
 }
 
-.vision-number span {
-  display: inline-block;
+.vision-header {
+  display: flex;
 
-  margin-left: 12px;
+  align-items: center;
+  justify-content: space-between;
 
-  color: #b59a67;
-
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: 0.42em;
-
-  font-weight: 400;
-
-  line-height: 1;
-
-  letter-spacing: 0;
-
-  vertical-align: top;
-
-  position: relative;
-
-  top: 0.08em;
+  margin-bottom: 60px;
 }
 
-.vision-number span {
-  color: #b59a67;
+.vision-index {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: var(--gray-light);
+
+  font-family: var(--body);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
 }
 
-.vision-heading {
-  max-width: 1100px;
+.vision-index span:first-child {
+  color: var(--blue);
+
+  font-family: var(--display);
+
+  font-size: 25px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
 }
 
-.eyebrow {
-  margin: 0 0 25px;
+.vision-index div {
+  width: 35px;
+  height: 1px;
 
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: 20px;
-  font-weight: 700;
-
-  letter-spacing: 3.5px;
-
-  color: #b59a67;
+  background: var(--blue);
 }
 
-.vision-heading h2 {
+.vision-kicker {
   margin: 0;
 
-  font-family: "DM Serif Display", Georgia, serif;
+  color: var(--gray-light);
 
-  font-size: clamp(2px, 6vw, 30px);
+  font-family: var(--body);
 
-  font-weight: 400;
+  font-size: 8px;
+  font-weight: 700;
 
-  line-height: 0.94;
+  letter-spacing: 0.22em;
 
   text-transform: uppercase;
 }
 
-.vision-heading h2 > span {
-  display: block;
-}
-
-.vision-line-one {
-  margin-left: 0;
-}
-
-.vision-line-two {
-  margin-left: clamp(25px, 3vw, 65px);
-
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: 0.62em;
-
-  font-weight: 300;
-
-  line-height: 1.05;
-
-  letter-spacing: -3px;
-}
-
-.vision-line-three {
-  margin-left: clamp(25px, 3vw, 65px);
-
-  margin-top: 4px;
-}
-
-.vision-heading h2 em {
-  display: block;
-
-  /* margin-left: clamp(80px, 9vw, 170px); */
-
-  margin-top: 2px;
-
-  font-style: italic;
-
-  color: #b59a67;
-
-  line-height: 0.95;
-}
-
-/* =========================================
-   MAIN STATEMENT
-========================================= */
-
-.vision-statement {
+.vision-layout {
   display: grid;
 
-  grid-template-columns: 0.85fr 1fr;
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(500px, 1.12fr);
 
-  gap: 250px;
+  gap:
+    clamp(
+      60px,
+      8vw,
+      130px
+    );
+
+  align-items: center;
+}
+
+.vision-content {
+  max-width: 620px;
+}
+
+.vision-tag {
+  display: flex;
 
   align-items: center;
 
-  max-width: 1440px;
-
-  /* margin-bottom: 40px; */
-
-  padding-top: 55px;
-
-  border-top: 1px solid rgba(244, 241, 233, 0.18);
-}
-
-.statement-image {
-  width: 100%;
-  height: 420px;
-
-  overflow: hidden;
-}
-
-.statement-image img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  filter: grayscale(15%);
-}
-
-.statement-label {
-  display: block;
+  gap: 9px;
 
   margin-bottom: 22px;
 
-  font-family: Inter, Arial, sans-serif;
+  color: var(--blue);
 
-  font-size: 42px;
-  font-weight: 700;
-
-  letter-spacing: 2.5px;
-
-  color: #090909;
-}
-
-/* =========================================
-   MISSION STATEMENT
-   (mirror of vision-statement: text left, image right)
-========================================= */
-
-.mission-statement {
-  display: grid;
-
-  grid-template-columns: 1fr 0.85fr;
-
-  gap: 90px;
-
-  align-items: center;
-
-  max-width: 1440px;
-
-  margin-bottom: 30px;
-
-  /* padding-top: 5px; */
-
-  border-top: 1px solid rgba(244, 241, 233, 0.18);
-}
-
-.statement-content p {
-  max-width: 560px;
-  
-  margin-bottom: 10px;
-
-  font-family: "DM Serif Display", Georgia, serif;
-
-  font-size: clamp(16px, 2.6vw, 20px);
-
-  line-height: 1.28;
-
-  letter-spacing: -1px;
-
-  color: #090909;
-}
-
-/* =========================================
-   SUPPORTING CONTENT
-========================================= */
-
-.vision-support {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: clamp(60px, 10vw, 170px);
-
-  margin-bottom: 150px;
-
-  padding-top: 75px;
-
-  border-top: 1px solid rgba(244, 241, 233, 0.18);
-}
-
-.support-left {
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-start;
-}
-
-.support-number {
-  margin-bottom: 35px;
-
-  font-family: Inter, Arial, sans-serif;
+  font-family: var(--body);
 
   font-size: 9px;
-  font-weight: 600;
+  font-weight: 800;
 
-  letter-spacing: 2px;
-
-  color: #b59a67;
-}
-
-.support-left h3 {
-  max-width: 650px;
-
-  margin: 0;
-
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: clamp(30px, 4vw, 58px);
-
-  font-weight: 300;
-
-  line-height: 0.98;
-
-  letter-spacing: -2.5px;
+  letter-spacing: 0.22em;
 
   text-transform: uppercase;
 }
 
-.support-left h3 span {
+.vision-tag span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--blue);
+}
+
+.vision-title {
+  margin: 0;
+
+  font-family: var(--display);
+
+  font-size:
+    clamp(
+      52px,
+      5.5vw,
+      82px
+    );
+
+  font-weight: 500;
+
+  line-height: 0.94;
+
+  letter-spacing: -0.055em;
+
+  color: var(--dark);
+}
+
+.vision-title span {
+  color: var(--blue);
+}
+
+.vision-title em {
   display: block;
 
-  margin-top: 8px;
+  margin-left:
+    clamp(
+      25px,
+      3vw,
+      60px
+    );
 
-  font-family: "DM Serif Display", Georgia, serif;
+  color: var(--gray);
 
   font-style: italic;
-
-  font-weight: 400;
-
-  color: #b59a67;
-
-  text-transform: none;
-
-  letter-spacing: -1px;
-}
-
-.support-right {
-  max-width: 520px;
-
-  padding-top: 5px;
-}
-
-.support-right p {
-  margin: 0 0 30px;
-
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: 14px;
-
-  line-height: 1.9;
-
-  color: rgba(34, 33, 31, 0.62);
-}
-
-.support-right p:last-child {
-  margin-bottom: 0;
-}
-
-.support-right strong {
-  color: #a38020;
 
   font-weight: 500;
 }
 
-/* =========================================
-   JOURNEY
-========================================= */
+.vision-lead {
+  max-width: 560px;
 
-.vision-journey {
-  padding: 70px 0;
+  margin:
+    30px
+    0
+    25px;
 
-  border-top: 1px solid rgba(244, 241, 233, 0.18);
+  color: var(--gray);
 
-  border-bottom: 1px solid rgba(244, 241, 233, 0.18);
-
-  margin-bottom: 150px;
-}
-
-.journey-header {
-  margin-bottom: 65px;
-
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: 9px;
-  font-weight: 700;
-
-  letter-spacing: 3px;
-
-  color: rgba(244, 241, 233, 0.4);
-}
-
-.journey {
-  display: flex;
-
-  align-items: center;
-
-  width: 100%;
-}
-
-/* =========================================
-   CLICKABLE JOURNEY ITEM
-========================================= */
-
-.journey-item {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-start;
-
-  gap: 16px;
-
-  flex-shrink: 0;
-
-  padding: 0;
-
-  border: 0;
-
-  background: transparent;
-
-  color: inherit;
-
-  font: inherit;
-
-  text-align: left;
-
-  cursor: pointer;
-
-  transition: transform 0.3s ease;
-}
-
-.journey-item:hover {
-  transform: translateY(-3px);
-}
-
-/* =========================================
-   DOT
-========================================= */
-
-.journey-dot {
-  width: 8px;
-  height: 8px;
-
-  flex-shrink: 0;
-
-  border: 1px solid #b59a67;
-
-  border-radius: 50%;
-
-  background: #090909;
-
-  box-shadow:
-    0 0 0 4px rgba(181, 154, 103, 0.08);
-
-  transform: scale(1);
-
-  transition:
-    transform 0.55s ease,
-    background 0.55s ease,
-    box-shadow 0.55s ease;
-}
-
-
-/* Active dot */
-
-.journey-item.active .journey-dot {
-  transform: scale(1.375);
-
-  background: #b59a67;
-
-  box-shadow:
-    0 0 0 5px rgba(181, 154, 103, 0.1),
-    0 0 25px rgba(181, 154, 103, 0.18);
-}
-
-/* =========================================
-   TEXT
-========================================= */
-
-.journey-text {
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: 9px;
-
-  font-weight: 600;
-
-  letter-spacing: 1.8px;
-
-  white-space: nowrap;
-
-  color: rgba(17, 17, 16, 0.45);
-
-  transition:
-    color 0.55s ease,
-    transform 0.55s ease;
-}
-
-.journey-item:hover .journey-text,
-.journey-item.active .journey-text {
-  color: #f4f1e9;
-}
-
-.journey-item.active .journey-text {
-  transform: translateX(2px);
-}
-
-/* =========================================
-   CONNECTOR
-========================================= */
-
-.journey-connector {
-  flex: 1;
-
-  min-width: 25px;
-
-  height: 1px;
-
-  margin: 0 15px 24px;
-
-  background: linear-gradient(
-    270deg,
-    rgba(181, 154, 103, 0.65),
-    rgba(181, 154, 103, 0.15)
-  );
-}
-
-/* =========================================
-   JOURNEY DETAIL
-========================================= */
-
-/* =========================================
-   JOURNEY DETAIL FRAME
-   LINE STAYS STATIC
-========================================= */
-
-.journey-detail {
-  margin-top: 65px;
-
-  padding-top: 35px;
-
-  border-top: 1px solid rgba(244, 241, 233, 0.12);
-}
-
-
-/* =========================================
-   JOURNEY DETAIL INNER
-   NUMBER + CONTENT + ARROW
-========================================= */
-
-.journey-detail-inner {
-  display: grid;
-
-  grid-template-columns: 80px minmax(0, 700px) 1fr;
-
-  align-items: start;
-
-  gap: 35px;
-
-  min-height: 215px;
-}
-
-
-.journey-detail-number {
-  font-family: "DM Serif Display", Georgia, serif;
-
-  font-size: 42px;
-
-  line-height: 1;
-
-  color: #b59a67;
-}
-
-.journey-detail-content {
-  max-width: 700px;
-}
-
-.journey-detail-label {
-  display: block;
-
-  margin-bottom: 15px;
-
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: 9px;
-
-  font-weight: 700;
-
-  letter-spacing: 3px;
-
-  color: rgba(244, 241, 233, 0.4);
-}
-
-.journey-detail-content h3 {
-  margin: 0 0 18px;
-
-  font-family: "DM Serif Display", Georgia, serif;
-
-  font-size: clamp(30px, 3.5vw, 52px);
-
-  font-weight: 400;
-
-  line-height: 0.98;
-
-  letter-spacing: -1.5px;
-
-  color: #22211f;
-}
-
-.journey-detail-content p {
-  max-width: 650px;
-
-  margin: 0;
-
-  font-family: Inter, Arial, sans-serif;
+  font-family: var(--body);
 
   font-size: 14px;
 
+  font-weight: 500;
+
   line-height: 1.8;
-
-  color: rgba(24, 23, 22, 0.58);
 }
 
-.journey-detail-arrow {
-  justify-self: end;
+.vision-divider {
+  width: 55px;
+  height: 2px;
 
-  font-size: 40px;
+  margin:
+    0
+    0
+    22px;
 
-  font-family: Arial, sans-serif;
-
-  font-weight: 200;
-
-  color: #b59a67;
+  background: var(--blue);
 }
 
-/* =========================================
-   CONTENT ANIMATION
-========================================= */
+.vision-description {
+  max-width: 520px;
 
-.journey-fade-enter-active,
-.journey-fade-leave-active {
-  transition: opacity 0.55s ease;
+  margin:
+    0
+    0
+    14px;
+
+  color: var(--gray-light);
+
+  font-family: var(--body);
+
+  font-size: 12px;
+
+  line-height: 1.8;
 }
 
-.journey-fade-enter-from,
-.journey-fade-leave-to {
-  opacity: 0;
+.vision-action {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  min-width: 235px;
+  min-height: 48px;
+
+  margin-top: 15px;
+
+  padding:
+    0
+    16px;
+
+  background: var(--blue);
+
+  color: var(--white);
+
+  border-radius: 3px;
+
+  text-decoration: none;
+
+  font-family: var(--body);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.045em;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-/* =========================================
-   CLOSING
-========================================= */
+.vision-action:hover {
+  background: var(--blue-dark);
 
-.vision-closing {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 25px
+    rgba(39, 136, 169, 0.2);
+}
+
+.vision-action span:last-child {
+  font-size: 17px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.vision-action:hover span:last-child {
+  transform:
+    translate(
+      3px,
+      -3px
+    );
+}
+
+.vision-visual {
+  width: 100%;
+}
+
+.visual-label,
+.visual-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--gray-light);
+
+  font-family: var(--body);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.visual-label {
+  margin-bottom: 12px;
+}
+
+.visual-label span:last-child {
+  color: var(--blue);
+}
+
+.image-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  height:
+    clamp(
+      320px,
+      35vw,
+      470px
+    );
+
+  overflow: hidden;
+
+  border-radius: 2px;
+
+  background: var(--dark);
+
+  box-shadow:
+    0 25px 55px
+    rgba(
+      48,
+      53,
+      56,
+      0.14
+    );
+}
+
+.vision-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  filter:
+    saturate(0.82)
+    contrast(1.04);
+
+  transition:
+    transform 0.8s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+.image-wrapper:hover .vision-image {
+  transform: scale(1.035);
+}
+
+.image-shade {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 35%,
+      rgba(
+        20,
+        27,
+        30,
+        0.7
+      ) 100%
+    );
+}
+
+.image-message {
+  position: absolute;
+
+  left: 24px;
+  bottom: 22px;
+
   display: flex;
   flex-direction: column;
 
+  gap: 3px;
+}
+
+.image-message span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.62
+    );
+
+  font-family: var(--body);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+}
+
+.image-message strong {
+  color: var(--white);
+
+  font-family: var(--display);
+
+  font-size: 29px;
+
+  font-weight: 500;
+}
+
+.image-corner {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 45px;
+  height: 45px;
+
+  border-top:
+    2px solid
+    var(--blue);
+
+  border-left:
+    2px solid
+    var(--blue);
+}
+
+.visual-footer {
+  justify-content: flex-start;
+
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+.visual-footer span:first-child,
+.visual-footer span:last-child {
+  color: var(--blue);
+}
+
+.visual-footer div {
+  width: 25px;
+  height: 1px;
+
+  background: var(--border);
+}
+
+.vision-bottom {
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(250px, 420px)
+    1fr;
+
   align-items: center;
 
-  text-align: center;
+  gap: 35px;
 
-  padding-top: 15px;
-  margin-bottom: 0px;
+  margin-top: 75px;
+
+  padding-top: 25px;
+
+  border-top:
+    1px solid
+    var(--border);
 }
 
-.closing-line {
-  width: 1px;
-  height: 70px;
+.bottom-number {
+  color: var(--blue);
 
-  margin-bottom: 35px;
-  
-  background: #201f1c;
+  font-family: var(--display);
+
+  font-size: 55px;
+
+  font-weight: 500;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.04em;
 }
 
-.vision-closing p {
-  margin: 0 0 15px;
+.bottom-number span {
+  font-family: var(--body);
 
-  font-family: Inter, Arial, sans-serif;
-
-  font-size: 20px;
-  font-weight: 600;
-
-  letter-spacing: 4px;
-
-  color: #090909;
+  font-size: 0.42em;
 }
 
-.vision-closing h3 {
-  max-width: 900px;
-
-  margin: 0;
-
-  font-family: "DM Serif Display", Georgia, serif;
-
-  font-size: clamp(20px, 5.2vw, 42px);
-
-  font-weight: 400;
-
-  line-height: 0.95;
-
-  letter-spacing: -2.5px;
-
-  text-transform: uppercase;
-}
-
-.vision-closing h3 span {
+.bottom-copy span {
   display: block;
 
-  font-family: Inter, Arial, sans-serif;
+  margin-bottom: 6px;
 
-  font-size: 0.52em;
+  color: var(--gray-light);
 
-  font-weight: 300;
+  font-family: var(--body);
 
-  letter-spacing: -1px;
+  font-size: 7px;
+  font-weight: 800;
 
-  color: #b68500;
+  letter-spacing: 0.18em;
 }
 
-/* =========================================
-   TABLET
-========================================= */
+.bottom-copy p {
+  margin: 0;
 
-@media (max-width: 1000px) {
+  color: var(--gray);
+
+  font-family: var(--body);
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+.bottom-mark {
+  justify-self: end;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: var(--gray-light);
+
+  font-family: var(--body);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.bottom-mark span {
+  width: 25px;
+  height: 2px;
+
+  background: var(--blue);
+}
+
+@media (max-width: 1050px) {
   .vision-container {
     width: calc(100% - 70px);
   }
 
-  .vision-intro {
-    grid-template-columns: 150px 1fr;
+  .vision-layout {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(400px, 1.1fr);
 
-    gap: 35px;
+    gap: 50px;
   }
 
-  .vision-number {
-    font-size: 130px;
-
-    letter-spacing: -6px;
+  .vision-title {
+    font-size:
+      clamp(
+        48px,
+        5.5vw,
+        68px
+      );
   }
 
-  .vision-support {
-    gap: 60px;
-  }
-
-  .vision-statement,
-  .mission-statement {
-    grid-template-columns: 0.9fr 1fr;
-
-    gap: 40px;
-  }
-
-  .statement-image {
-    height: 320px;
-  }
-
-  .journey-text {
-    font-size: 8px;
+  .image-wrapper {
+    height: 350px;
   }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 700px) {
-
-  .vision-statement,
-  .mission-statement {
-    grid-template-columns: 1fr;
-    margin-bottom: 20px;
-    gap: 30px;
-  }
-  .vision-section {
-    min-height: auto;
-  }
-
+@media (max-width: 800px) {
   .vision-container {
-    padding-top: 0;
-    padding-bottom: 0;
+    width: calc(100% - 40px);
+
+    padding:
+      75px
+      0
+      65px;
   }
 
-.vision-statement,
-  .mission-statement {
+  .vision-layout {
     grid-template-columns: 1fr;
-    gap: 30px;
+
+    gap: 45px;
   }
 
-  .vision-statement {
-    padding-top: 15px;
+  .vision-content {
+    max-width: 700px;
   }
 
-  .statement-image {
-    height: 260px;
+  .vision-title {
+    font-size:
+      clamp(
+        52px,
+        10vw,
+        76px
+      );
   }
 
-  .journey {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
+  .image-wrapper {
+    height:
+      clamp(
+        280px,
+        48vw,
+        380px
+      );
   }
 
-  .journey-item {
-    flex-direction: row;
-
-    align-items: center;
-
-    gap: 18px;
-
-    width: 100%;
+  .vision-bottom {
+    grid-template-columns:
+      auto
+      1fr;
   }
 
-  .journey-text {
-    font-size: 9px;
-  }
-
-  .journey-connector {
-    flex: none;
-
-    width: 1px;
-
-    height: 35px;
-
-    margin: 0 0 0 3.5px;
-
-    background: linear-gradient(
-      to bottom,
-      rgba(181, 154, 103, 0.65),
-      rgba(181, 154, 103, 0.15)
-    );
-  }
-
-  .journey-detail {
-    grid-template-columns: 45px 1fr;
-
-    gap: 20px;
-
-    margin-top: 45px;
-
-    padding-top: 30px;
-  }
-
-  .journey-detail-number {
-    font-size: 32px;
-  }
-
-  .journey-detail-content h3 {
-    font-size: 32px;
-
-    line-height: 1;
-  }
-
-  .journey-detail-content p {
-    font-size: 13px;
-
-    line-height: 1.75;
-  }
-
-  .journey-detail-arrow {
+  .bottom-mark {
     display: none;
   }
 }
 
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 420px) {
+@media (max-width: 520px) {
   .vision-container {
     width: calc(100% - 30px);
+
+    padding:
+      60px
+      0
+      55px;
   }
 
-  .vision-number {
-    font-size: 95px;
+  .vision-header {
+    margin-bottom: 40px;
   }
 
-  .vision-heading h2 {
-    font-size: 42px;
+  .vision-kicker {
+    display: none;
   }
 
-  .statement-content p {
-    font-size: 25px;
+  .vision-title {
+    font-size: 49px;
   }
 
-  .support-left h3 {
-    font-size: 31px;
+  .vision-title em {
+    margin-left: 18px;
   }
 
-  .vision-closing h3 {
-    font-size: 36px;
+  .vision-lead {
+    font-size: 11px;
+
+    line-height: 1.75;
+  }
+
+  .vision-description {
+    font-size: 10px;
+  }
+
+  .image-wrapper {
+    height: 240px;
+  }
+
+  .image-message strong {
+    font-size: 23px;
+  }
+
+  .vision-bottom {
+    gap: 18px;
+
+    margin-top: 55px;
+  }
+
+  .bottom-number {
+    font-size: 43px;
+  }
+
+  .bottom-copy p {
+    font-size: 8px;
   }
 }
 </style>

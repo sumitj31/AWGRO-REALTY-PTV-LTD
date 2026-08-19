@@ -1,32 +1,50 @@
 <template>
-  <footer class="footer" id="contact">
+  <footer id="footer" class="footer">
 
     <div class="footer-container">
 
-      <!-- =========================
-           MAIN FOOTER GRID
-      ========================== -->
+      <div class="footer-brand-row">
+        <a
+          href="#home"
+          class="footer-logo"
+          aria-label="AWGRO Realty"
+        >
+          <img
+            src="/public/images/awgro logo2.png"
+            alt="AWGRO Realty"
+            class="footer-logo-img"
+          />
+        </a>
 
-      <a href="#home" class="footer-logo">
-            <img src="/public/images/awgro logo2.png" alt="AWGRO Realty" class="footer-logo-img" />
-          </a>
+        <span class="footer-brand-meta">
+          REAL ESTATE · ENTREPRENEURSHIP
+        </span>
+      </div>
+
       <div class="footer-grid">
-        <!-- BRAND -->
+
         <div class="footer-brand">
+
           <span class="brand-label">
             AWGRO REALTY PVT. LTD.
           </span>
 
           <h2>
             BUILD YOUR
-            REAL ESTATE
-            FUTURE.
+            <span>REAL ESTATE</span>
+            <em>FUTURE.</em>
           </h2>
+
+          <div class="brand-line">
+            <span></span>
+            <p>
+              Building a stronger community
+              of real estate entrepreneurs.
+            </p>
+          </div>
 
         </div>
 
-
-        <!-- CTA -->
         <div class="footer-cta">
 
           <span class="footer-label">
@@ -36,72 +54,88 @@
           <p>
             Join a growing network of real estate
             entrepreneurs across Ahmedabad
-            & Gandhinagar.
+            and Gandhinagar.
           </p>
 
-          <a href="#contact" class="footer-button">
-            <span>Become An Associate Partner</span>
-            <span class="footer-arrow">↗</span>
+          <a
+            href="#contact"
+            class="footer-button"
+          >
+            <span>
+              Become An Associate Partner
+            </span>
+
+            <span class="footer-arrow">
+              ↗
+            </span>
           </a>
 
         </div>
 
-
-        <!-- COMPANY -->
         <div class="footer-column">
 
           <span class="column-title">
             COMPANY
           </span>
 
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#vision">Vision</a>
-          <a href="#mission">Mission</a>
+          <a href="#home">
+            Home
+          </a>
+
+          <a href="#vision">
+            Vision
+          </a>
+
+          <a href="#mission">
+            Mission
+          </a>
+
+          <a href="#faq">
+            FAQ
+          </a>
 
         </div>
 
-
-        <!-- GET STARTED -->
         <div class="footer-column">
 
           <span class="column-title">
             GET STARTED
           </span>
 
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact Us</a>
+          <a href="#contact">
+            Contact Us
+          </a>
+
           <a href="#contact">
             Become An Associate Partner
           </a>
 
+          <a href="#contact">
+            Talk To Our Team
+          </a>
+
         </div>
 
-
-        <!-- QUOTE -->
         <div class="footer-quote">
+
+          <span class="quote-number">
+            01
+          </span>
 
           <p>
             You build your real estate business.
             We build the system that helps you grow.
-            Together, we build a stronger real estate community.
           </p>
+
+          <span class="quote-accent">
+            TOGETHER, WE BUILD THE FUTURE.
+          </span>
 
         </div>
 
       </div>
 
-
-      <!-- =========================
-           DIVIDER
-      ========================== -->
-
       <div class="footer-divider"></div>
-
-
-      <!-- =========================
-           BOTTOM
-      ========================== -->
 
       <div class="footer-bottom">
 
@@ -136,56 +170,146 @@
   </footer>
 </template>
 
-
 <style scoped>
-/* =========================================
-   FOOTER
-========================================= */
-
 .footer {
+  --blue: #2788a9;
+  --blue-dark: #1f718d;
+  --blue-light: #55abc6;
+  --dark: #303538;
+  --gray: #50575b;
+  --gray-light: #737b80;
+  --surface: #f5f8f9;
+  --white: #ffffff;
+  --border: #dce5e8;
+
+  --display:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  --body:
+    "Manrope",
+    "Inter",
+    Arial,
+    sans-serif;
+
+  position: relative;
+
   width: 100%;
 
-  background: #050505;
-
-  color: #f4f1e9;
-
-  border-top: 1px solid rgba(244, 241, 233, 0.1);
-
   overflow: hidden;
+
+  background:
+    var(--dark);
+
+  color:
+    var(--white);
+
+  border-top:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
 }
-
-
-/* =========================================
-   CONTAINER
-========================================= */
 
 .footer-container {
-  width: min(1920px, calc(100% - 100px));
-  margin: 0 20px;
+  position: relative;
 
-  padding: 35px 0 30px;
+  z-index: 2;
+
+  width:
+    min(
+      calc(100% - 100px),
+      1440px
+    );
+
+  margin: 0 auto;
+
+  padding:
+    48px
+    0
+    30px;
 }
 
+.footer-brand-row {
+  display: flex;
 
-/* =========================================
-   MAIN GRID
-========================================= */
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-bottom: 32px;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+}
+
+.footer-logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  text-decoration: none;
+}
+
+.footer-logo-img {
+  display: block;
+
+  width: auto;
+
+  height: 44px;
+
+  object-fit: contain;
+}
+
+.footer-brand-meta {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.38
+    );
+
+  font-family:
+    var(--body);
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.2em;
+}
 
 .footer-grid {
   display: grid;
 
   grid-template-columns:
-    1.4fr 0.9fr 0.6fr 0.75fr 1.8fr;
+    1.45fr
+    0.9fr
+    0.65fr
+    0.8fr
+    1.35fr;
 
-  gap: 55px;
+  gap: 50px;
 
   align-items: start;
+
+  padding:
+    55px
+    0
+    65px;
 }
-
-
-/* =========================================
-   BRAND
-========================================= */
 
 .footer-brand {
   min-width: 0;
@@ -194,102 +318,167 @@
 .brand-label {
   display: block;
 
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 
-  font-family: Inter, Arial, sans-serif;
+  color:
+    var(--blue-light);
 
-  font-size: 10px;
+  font-family:
+    var(--body);
 
-  font-weight: 700;
+  font-size: 8px;
 
-  letter-spacing: 3px;
+  font-weight: 800;
 
-  line-height: 1.2;
-
-  color: #b59a67;
+  letter-spacing:
+    0.2em;
 }
 
 .footer-brand h2 {
   margin: 0;
 
-  font-family: Inter, Arial, sans-serif;
+  color:
+    var(--white);
 
-  font-size: clamp(52px, 5vw, 46px);
+  font-family:
+    var(--display);
 
-  font-weight: 400;
+  font-size:
+    clamp(
+      48px,
+      4.8vw,
+      76px
+    );
 
-  line-height: 0.86;
+  font-weight: 500;
 
-  letter-spacing: -4px;
+  line-height:
+    0.84;
 
-  text-transform: uppercase;
+  letter-spacing:
+    -0.055em;
 }
 
 .footer-brand h2 span {
   display: block;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.78
+    );
 }
 
-.footer-brand h2 span:nth-child(2),
-.footer-brand h2 span:nth-child(3) {
-  color: #b59a67;
+.footer-brand h2 em {
+  display: block;
 
-  font-style: italic;
+  margin-left:
+    clamp(
+      25px,
+      3vw,
+      60px
+    );
+
+  color:
+    var(--blue);
+
+  font-style:
+    italic;
+
+  font-weight: 500;
 }
 
+.brand-line {
+  display: flex;
 
-/* =========================================
-   CTA
-========================================= */
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.brand-line span {
+  width: 40px;
+  height: 2px;
+
+  flex-shrink: 0;
+
+  background:
+    var(--blue);
+}
+
+.brand-line p {
+  max-width: 230px;
+
+  margin: 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.45
+    );
+
+  font-family:
+    var(--body);
+
+  font-size: 9px;
+
+  line-height:
+    1.6;
+}
 
 .footer-cta {
-  padding-top: 3px;
+  padding-top: 2px;
 }
 
 .footer-label {
   display: block;
 
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 
-  font-family: Inter, Arial, sans-serif;
+  color:
+    var(--blue-light);
 
-  font-size: 10px;
+  font-family:
+    var(--body);
 
-  font-weight: 700;
+  font-size: 8px;
 
-  letter-spacing: 3px;
+  font-weight: 800;
 
-  color: #b59a67;
+  letter-spacing:
+    0.2em;
 }
 
 .footer-cta p {
-  margin: 0 0 28px;
+  max-width: 260px;
 
-  max-width: 280px;
+  margin:
+    0
+    0
+    25px;
 
-  font-family: Inter, Arial, sans-serif;
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
 
-  font-size: 14px;
+  font-family:
+    var(--body);
 
-  line-height: 1.7;
+  font-size: 11px;
 
-  color: rgba(244, 241, 233, 0.62);
+  line-height:
+    1.75;
 }
-.footer-logo {
-  display: inline-block;
-  margin-bottom: 28px;
-  text-decoration: none;
-}
-
-.footer-logo-img {
-  height: 38px;        /* You can adjust this */
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-
-/* =========================================
-   BUTTON
-========================================= */
 
 .footer-button {
   display: inline-flex;
@@ -298,56 +487,87 @@
 
   justify-content: space-between;
 
-  gap: 25px;
+  gap: 20px;
 
   width: 100%;
 
-  max-width: 245px;
+  max-width: 250px;
+
+  min-height: 47px;
 
   box-sizing: border-box;
 
-  padding: 15px 17px;
+  padding:
+    0
+    15px;
 
-  border: 1px solid rgba(181, 154, 103, 0.85);
+  background:
+    var(--blue);
 
-  color: #f4f1e9;
+  color:
+    var(--white);
+
+  border:
+    1px solid
+    var(--blue);
+
+  border-radius:
+    2px;
 
   text-decoration: none;
 
-  font-family: Inter, Arial, sans-serif;
+  font-family:
+    var(--body);
 
-  font-size: 12px;
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.05em;
 
   transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .footer-button:hover {
-  background: #b59a67;
+  background:
+    var(--blue-dark);
 
-  border-color: #b59a67;
+  border-color:
+    var(--blue-dark);
 
-  color: #050505;
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 25px
+    rgba(
+      39,
+      136,
+      169,
+      0.2
+    );
 }
 
 .footer-arrow {
-  font-size: 18px;
+  font-size: 17px;
 
-  line-height: 1;
-
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.25s ease;
 }
 
-.footer-button:hover .footer-arrow {
-  transform: translate(3px, -3px);
+.footer-button:hover
+.footer-arrow {
+  transform:
+    translate(
+      3px,
+      -3px
+    );
 }
-
-
-/* =========================================
-   NAVIGATION
-========================================= */
 
 .footer-column {
   display: flex;
@@ -356,113 +576,162 @@
 
   align-items: flex-start;
 
-  gap: 15px;
+  gap: 13px;
 
-  padding-top: 3px;
+  padding-top: 2px;
 }
 
 .column-title {
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 
-  font-family: Inter, Arial, sans-serif;
+  color:
+    var(--blue-light);
 
-  font-size: 10px;
+  font-family:
+    var(--body);
 
-  font-weight: 700;
+  font-size: 7px;
 
-  letter-spacing: 3px;
+  font-weight: 800;
 
-  color: #b59a67;
+  letter-spacing:
+    0.2em;
 }
 
 .footer-column a {
-  display: block;
-
-  color: rgba(244, 241, 233, 0.65);
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.52
+    );
 
   text-decoration: none;
 
-  font-family: Inter, Arial, sans-serif;
+  font-family:
+    var(--body);
 
-  font-size: 13px;
+  font-size: 9px;
 
-  line-height: 1.4;
+  line-height:
+    1.5;
 
   transition:
-    color 0.3s ease,
-    transform 0.3s ease;
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .footer-column a:hover {
-  color: #f4f1e9;
+  color:
+    var(--blue-light);
 
-  transform: translateX(4px);
+  transform:
+    translateX(4px);
 }
-
-
-/* =========================================
-   QUOTE
-========================================= */
 
 .footer-quote {
   position: relative;
 
-  padding-top: 3px;
+  min-height: 190px;
 
-  padding-left: 25px;
+  padding:
+    5px
+    0
+    5px
+    25px;
 
-  border-left: 1px solid rgba(181, 154, 103, 0.5);
+  border-left:
+    1px solid
+    rgba(
+      39,
+      136,
+      169,
+      0.55
+    );
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content:
+    space-between;
 }
 
-.quote-mark {
-  display: block;
+.quote-number {
+  color:
+    var(--blue);
 
-  margin-bottom: 8px;
+  font-family:
+    var(--display);
 
-  font-family: Georgia, serif;
+  font-size: 25px;
 
-  font-size: 40px;
+  font-weight: 500;
 
-  line-height: 0.5;
-
-  color: #b59a67;
+  line-height: 1;
 }
 
 .footer-quote p {
-  margin: 0;
+  max-width: 330px;
 
-  font-family: Inter, Arial, sans-serif;
+  margin: 20px 0;
 
-  font-size: clamp(18px, 1.7vw, 27px);
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
 
-  font-weight: 400;
+  font-family:
+    var(--display);
 
-  line-height: 1.35;
+  font-size:
+    clamp(
+      21px,
+      1.8vw,
+      29px
+    );
 
-  letter-spacing: -0.7px;
+  font-weight: 500;
 
-  color: rgba(244, 241, 233, 0.9);
+  line-height:
+    1.2;
+
+  letter-spacing:
+    -0.025em;
 }
 
+.quote-accent {
+  color:
+    var(--blue-light);
 
-/* =========================================
-   DIVIDER
-========================================= */
+  font-family:
+    var(--body);
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.18em;
+}
 
 .footer-divider {
   width: 100%;
 
   height: 1px;
 
-  margin-top: 85px;
-
-  background: rgba(244, 241, 233, 0.12);
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
 }
-
-
-/* =========================================
-   BOTTOM
-========================================= */
 
 .footer-bottom {
   display: flex;
@@ -473,17 +742,26 @@
 
   gap: 30px;
 
-  padding-top: 24px;
+  padding-top: 22px;
 }
 
 .footer-bottom p {
   margin: 0;
 
-  font-family: Inter, Arial, sans-serif;
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
 
-  font-size: 11px;
+  font-family:
+    var(--body);
 
-  color: rgba(244, 241, 233, 0.4);
+  font-size: 7px;
+
+  font-weight: 500;
 }
 
 .footer-tagline {
@@ -493,210 +771,228 @@
 
   justify-content: flex-end;
 
-  gap: 12px;
-
   flex-wrap: wrap;
 
-  font-family: Inter, Arial, sans-serif;
+  gap: 10px;
 
-  font-size: 9px;
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
 
-  letter-spacing: 1.7px;
+  font-family:
+    var(--body);
 
-  text-transform: uppercase;
+  font-size: 6px;
 
-  color: rgba(244, 241, 233, 0.4);
+  font-weight: 700;
+
+  letter-spacing:
+    0.13em;
+
+  text-transform:
+    uppercase;
 }
 
 .dot {
   width: 3px;
-
   height: 3px;
 
   flex-shrink: 0;
 
   border-radius: 50%;
 
-  background: #b59a67;
+  background:
+    var(--blue);
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
-
 @media (max-width: 1150px) {
-
   .footer-container {
-    width: calc(100% - 70px);
+    width:
+      calc(100% - 70px);
   }
 
   .footer-grid {
     grid-template-columns:
-      1.4fr 1fr 0.7fr 0.8fr;
+      1.4fr
+      1fr
+      0.7fr
+      0.8fr;
 
     gap: 45px;
   }
 
   .footer-quote {
-    grid-column: 1 / -1;
+    grid-column:
+      1 / -1;
 
-    max-width: 800px;
+    min-height:
+      auto;
 
-    margin-top: 30px;
+    margin-top: 15px;
   }
-
-  .footer-divider {
-    margin-top: 65px;
-  }
-
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
-
 @media (max-width: 750px) {
-
   .footer-container {
-    width: calc(100% - 40px);
+    width:
+      calc(100% - 40px);
 
-    padding: 65px 0 25px;
+    padding:
+      55px
+      0
+      25px;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-
-    gap: 45px 30px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .footer-brand h2 {
-    font-size: clamp(40px, 12vw, 58px);
-
-    line-height: 0.92;
-
-    letter-spacing: -2.5px;
-  }
-
-  .footer-cta {
-    grid-column: 1 / -1;
-  }
-
-  .footer-cta p {
-    max-width: 350px;
-  }
-
-  .footer-column {
-    padding-top: 0;
-  }
-
-  .footer-quote {
-    grid-column: 1 / -1;
-
-    margin-top: 10px;
-
-    padding-left: 20px;
-  }
-
-  .footer-quote p {
-    font-size: 21px;
-
-    line-height: 1.4;
-  }
-
-  .footer-divider {
-    margin-top: 55px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-
-    align-items: flex-start;
+  .footer-brand-row {
+    align-items:
+      flex-start;
 
     gap: 20px;
   }
 
-  .footer-tagline {
-    justify-content: flex-start;
+  .footer-brand-meta {
+    max-width: 130px;
 
-    line-height: 1.8;
-  }
+    text-align: right;
 
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 430px) {
-
-  .footer-container {
-    width: calc(100% - 30px);
+    line-height: 1.5;
   }
 
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr
+      1fr;
 
-    gap: 40px;
+    gap:
+      42px
+      30px;
+
+    padding:
+      45px
+      0
+      50px;
   }
 
-  .footer-brand {
-    grid-column: auto;
+  .footer-brand,
+  .footer-cta,
+  .footer-quote {
+    grid-column:
+      1 / -1;
   }
 
-  .footer-cta {
-    grid-column: auto;
+  .footer-brand h2 {
+    font-size:
+      clamp(
+        45px,
+        12vw,
+        70px
+      );
   }
 
-  .footer-column {
-    grid-column: auto;
+  .footer-cta p {
+    max-width:
+      350px;
   }
 
   .footer-quote {
-    grid-column: auto;
+    min-height:
+      150px;
 
-    margin-top: 0;
+    padding-left:
+      20px;
+  }
+
+  .footer-quote p {
+    max-width:
+      500px;
+
+    font-size:
+      23px;
+  }
+
+  .footer-bottom {
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+    gap: 18px;
   }
 
   .footer-tagline {
-    flex-direction: column;
+    justify-content:
+      flex-start;
 
-    align-items: flex-start;
+    line-height:
+      1.8;
+  }
+}
+
+@media (max-width: 430px) {
+  .footer-container {
+    width:
+      calc(100% - 30px);
+  }
+
+  .footer-logo-img {
+    height:
+      38px;
+  }
+
+  .footer-grid {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      38px;
+  }
+
+  .footer-column {
+    grid-column:
+      auto;
+  }
+
+  .footer-brand h2 {
+    font-size:
+      48px;
+
+    line-height:
+      0.9;
+  }
+
+  .footer-brand h2 em {
+    margin-left:
+      20px;
+  }
+
+  .footer-quote {
+    grid-column:
+      auto;
+  }
+
+  .footer-quote p {
+    font-size:
+      21px;
+  }
+
+  .footer-tagline {
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
 
     gap: 5px;
   }
 
   .dot {
-    display: none;
+    display:
+      none;
   }
-
-  @media (max-width: 700px) {
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 42px 30px;
-    }
-
-    /* Full width */
-    .footer-brand,
-    .footer-cta,
-    .footer-quote {
-      grid-column: 1 / -1;
-    }
-
-    /* Side by side */
-    .footer-column {
-      grid-column: auto;
-    }
-
-  }
-
 }
 </style>

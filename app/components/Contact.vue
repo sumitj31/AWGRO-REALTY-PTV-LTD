@@ -1,94 +1,190 @@
 <template>
   <section id="contact" class="contact-section">
+    <div class="contact-background-mark">
+      CONNECT
+    </div>
 
     <div class="contact-container">
-
-      <!-- Left: Info -->
       <div class="contact-info">
-
         <div class="section-label">
+          <span class="label-dot"></span>
           <span>CONTACT US</span>
         </div>
 
-        <h2>
-          START YOUR JOURNEY AS A
-          <span>REAL ESTATE ENTREPRENEUR.</span>
-        </h2>
+        <div class="contact-heading">
+          <span class="heading-small">READY TO BUILD</span>
+
+          <h2>
+            START YOUR
+            <span>JOURNEY.</span>
+          </h2>
+
+          <div class="heading-accent">
+            <span></span>
+            <p>
+              Become a real estate entrepreneur
+              with AWGRO Realty.
+            </p>
+          </div>
+        </div>
 
         <p class="contact-copy">
-          Tell us a little about yourself — our team will walk you through
-          the Associate Partner program, training, and next steps.
+          Tell us a little about yourself. Our team will walk you
+          through the Associate Partner program, training,
+          support, and next steps.
         </p>
 
         <div class="contact-image">
-          <img src="/public/images/about.jpg" alt="Awgro Realty associate partner meeting a client" />
+          <img
+            src="/public/images/about.jpg"
+            alt="Awgro Realty associate partner meeting a client"
+          />
+
+          <div class="image-overlay"></div>
+
+          <div class="image-caption">
+            <span>AWGRO REALTY</span>
+            <strong>Build Your Own Future.</strong>
+          </div>
         </div>
 
         <div class="contact-details">
-
           <div class="detail-row">
             <span class="detail-label">OFFICE</span>
-            <span class="detail-value">Ahmedabad, Gujarat, India</span>
+            <span class="detail-value">
+              Ahmedabad, Gujarat, India
+            </span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">EMAIL</span>
-            <span class="detail-value">partners@awgrorealty.com</span>
+            <span class="detail-value">
+              partners@awgrorealty.com
+            </span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">PHONE</span>
-            <span class="detail-value">+91 00000 00000</span>
+            <span class="detail-value">
+              +91 00000 00000
+            </span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">MARKETS</span>
-            <span class="detail-value">Ahmedabad &amp; Gandhinagar</span>
+            <span class="detail-value">
+              Ahmedabad &amp; Gandhinagar
+            </span>
           </div>
-
         </div>
-
       </div>
 
-      <!-- Right: Form -->
       <div class="contact-form-wrap">
-        <form class="contact-form" @submit.prevent="handleSubmit">
+        <div class="form-header">
+          <div>
+            <span class="form-number">04</span>
 
+            <h3>
+              Let's start
+              <em>something.</em>
+            </h3>
+          </div>
+
+          <span class="form-label">
+            ASSOCIATE PARTNER
+          </span>
+        </div>
+
+        <div class="form-line"></div>
+
+        <form
+          class="contact-form"
+          @submit.prevent="handleSubmit"
+        >
           <div class="form-row">
             <div class="field">
-              <label for="fname">Full Name</label>
-              <input id="fname" v-model="form.name" type="text" required placeholder="Your name" />
+              <label for="fname">
+                Full Name
+              </label>
+
+              <input
+                id="fname"
+                v-model="form.name"
+                type="text"
+                required
+                placeholder="Your name"
+              />
             </div>
 
             <div class="field">
-              <label for="fphone">Phone</label>
-              <input id="fphone" v-model="form.phone" type="tel" required placeholder="+91" />
+              <label for="fphone">
+                Phone
+              </label>
+
+              <input
+                id="fphone"
+                v-model="form.phone"
+                type="tel"
+                required
+                placeholder="+91"
+              />
             </div>
           </div>
 
           <div class="field">
-            <label for="femail">Email</label>
-            <input id="femail" v-model="form.email" type="email" required placeholder="you@email.com" />
+            <label for="femail">
+              Email
+            </label>
+
+            <input
+              id="femail"
+              v-model="form.email"
+              type="email"
+              required
+              placeholder="you@email.com"
+            />
           </div>
 
           <div class="field">
-            <label for="fmsg">Message</label>
+            <label for="fmsg">
+              Message
+            </label>
+
             <textarea
               id="fmsg"
               v-model="form.message"
-              placeholder="Tell us why you'd like to join Awgro Realty..."
+              placeholder="Tell us why you'd like to join AWGRO Realty..."
             ></textarea>
           </div>
 
-          <button type="submit" class="submit-button" :disabled="submitted">
-            {{ submitted ? 'Request Sent ✓' : 'Request a Callback' }}
+          <button
+            type="submit"
+            class="submit-button"
+            :disabled="submitted"
+          >
+            <span>
+              {{
+                submitted
+                  ? 'Request Sent ✓'
+                  : 'Request a Callback'
+              }}
+            </span>
+
+            <strong v-if="!submitted">
+              ↗
+            </strong>
           </button>
 
-          <p class="form-note">We'll get back to you within 24 hours.</p>
-
+          <p class="form-note">
+            We'll get back to you within 24 hours.
+          </p>
         </form>
-      </div>
 
+        <div class="form-footer">
+          <span>AWGRO REALTY</span>
+          <span>AHMEDABAD · GANDHINAGAR</span>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -106,13 +202,15 @@ const form = reactive({
 const submitted = ref(false)
 
 const handleSubmit = () => {
-  // TODO: wire this up to your backend / API endpoint
-  console.log('Contact form submitted:', { ...form })
+  console.log('Contact form submitted:', {
+    ...form
+  })
 
   submitted.value = true
 
   setTimeout(() => {
     submitted.value = false
+
     form.name = ''
     form.phone = ''
     form.email = ''
@@ -122,269 +220,971 @@ const handleSubmit = () => {
 </script>
 
 <style scoped>
-/* =========================================
-   CONTACT SECTION
-========================================= */
-
 .contact-section {
+  --blue: #2788a9;
+  --blue-dark: #1f718d;
+  --blue-light: #55abc6;
+  --dark: #303538;
+  --gray: #50575b;
+  --gray-light: #737b80;
+  --surface: #f5f8f9;
+  --white: #ffffff;
+  --border: #dce5e8;
+
+  --display:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  --body:
+    "Manrope",
+    "Inter",
+    Arial,
+    sans-serif;
+
   position: relative;
 
   width: 100%;
 
-  padding: 50px 0;
+  overflow: hidden;
 
-  background: #f4f1e9;
+  padding:
+    95px
+    0
+    80px;
 
-  color: #090909;
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f5f8f9 100%
+    );
+
+  color: var(--dark);
+}
+
+.contact-background-mark {
+  position: absolute;
+
+  right: -40px;
+  bottom: -60px;
+
+  color:
+    rgba(
+      39,
+      136,
+      169,
+      0.035
+    );
+
+  font-family: var(--display);
+
+  font-size: 230px;
+
+  font-weight: 500;
+
+  line-height: 0.8;
+
+  letter-spacing:
+    -0.08em;
+
+  pointer-events: none;
+
+  user-select: none;
 }
 
 .contact-container {
-  width: min(100% - 40px, 1440px);
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      calc(100% - 100px),
+      1440px
+    );
+
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 80px;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(500px, 1.1fr);
+
+  gap:
+    clamp(
+      60px,
+      8vw,
+      120px
+    );
+
   align-items: start;
 }
 
-/* =========================================
-   LEFT: INFO
-========================================= */
+.contact-info {
+  max-width: 620px;
+}
 
 .section-label {
   display: flex;
+
   align-items: center;
-  gap: 12px;
 
-  margin-bottom: 28px;
+  gap: 9px;
 
-  font-family: Inter, Arial, sans-serif;
-  font-size: 42px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: #090909;
+  margin-bottom: 30px;
+
+  color: var(--blue);
+
+  font-family: var(--body);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.22em;
+
+  text-transform:
+    uppercase;
 }
 
-.label-line {
-  width: 40px;
-  height: 1px;
+.label-dot {
+  width: 7px;
+  height: 7px;
 
-  background: #b68500;
+  background:
+    var(--blue);
+
+  border-radius: 50%;
+}
+
+.contact-heading {
+  margin-bottom: 25px;
+}
+
+.heading-small {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--gray-light);
+
+  font-family: var(--body);
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.2em;
 }
 
 .contact-info h2 {
-  font-family: "DM Serif Display", Georgia, serif;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 1.2;
+  margin: 0;
 
-  margin-bottom: 24px;
+  color: var(--dark);
+
+  font-family: var(--display);
+
+  font-size:
+    clamp(
+      55px,
+      6vw,
+      86px
+    );
+
+  font-weight: 500;
+
+  line-height:
+    0.88;
+
+  letter-spacing:
+    -0.055em;
 }
 
 .contact-info h2 span {
   display: block;
-  color: #b68500;
+
+  margin-left:
+    clamp(
+      30px,
+      4vw,
+      75px
+    );
+
+  color:
+    var(--blue);
+
+  font-style:
+    italic;
+}
+
+.heading-accent {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 27px;
+}
+
+.heading-accent span {
+  width: 48px;
+  height: 2px;
+
+  flex-shrink: 0;
+
+  background:
+    var(--blue);
+}
+
+.heading-accent p {
+  max-width: 270px;
+
+  margin: 0;
+
+  color:
+    var(--gray-light);
+
+  font-family:
+    var(--body);
+
+  font-size: 9px;
+
+  line-height: 1.6;
+
+  letter-spacing:
+    0.02em;
 }
 
 .contact-copy {
-  font-family: Inter, Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.75;
-  color: rgba(9, 9, 9, 0.62);
+  max-width: 500px;
 
-  max-width: 440px;
-  margin-bottom: 40px;
+  margin:
+    0
+    0
+    30px;
+
+  color:
+    var(--gray);
+
+  font-family:
+    var(--body);
+
+  font-size: 12px;
+
+  line-height: 1.8;
 }
 
 .contact-image {
+  position: relative;
+
   width: 100%;
-  height: 270px;
+
+  height:
+    clamp(
+      230px,
+      24vw,
+      320px
+    );
 
   overflow: hidden;
 
-  margin-bottom: 40px;
+  margin-bottom: 35px;
+
+  background:
+    var(--dark);
+
+  border-radius: 2px;
 }
 
 .contact-image img {
   width: 100%;
   height: 100%;
+
+  display: block;
+
   object-fit: cover;
+
+  filter:
+    saturate(0.82)
+    contrast(1.04);
+
+  transition:
+    transform 0.8s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+.contact-image:hover img {
+  transform:
+    scale(1.035);
+}
+
+.image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 30%,
+      rgba(
+        20,
+        27,
+        30,
+        0.78
+      ) 100%
+    );
+}
+
+.image-caption {
+  position: absolute;
+
+  left: 22px;
+  bottom: 19px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.image-caption span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.6
+    );
+
+  font-family:
+    var(--body);
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.2em;
+}
+
+.image-caption strong {
+  color:
+    var(--white);
+
+  font-family:
+    var(--display);
+
+  font-size: 25px;
+
+  font-weight: 500;
 }
 
 .contact-details {
   display: flex;
+
   flex-direction: column;
 
-  border-top: 1px solid rgba(9, 9, 9, 0.12);
+  border-top:
+    1px solid
+    var(--border);
 }
 
 .detail-row {
   display: flex;
+
   align-items: baseline;
+
   gap: 20px;
 
-  padding: 18px 0;
+  padding:
+    15px
+    0;
 
-  border-bottom: 1px solid rgba(9, 9, 9, 0.12);
+  border-bottom:
+    1px solid
+    var(--border);
 }
 
 .detail-label {
   flex-shrink: 0;
-  width: 80px;
 
-  font-family: Inter, Arial, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: #b68500;
+  width: 65px;
+
+  color:
+    var(--blue);
+
+  font-family:
+    var(--body);
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.15em;
 }
 
 .detail-value {
-  font-family: Inter, Arial, sans-serif;
-  font-size: 15px;
+  color:
+    var(--gray);
+
+  font-family:
+    var(--body);
+
+  font-size: 10px;
+
   font-weight: 500;
-  color: #090909;
 }
 
-/* =========================================
-   RIGHT: FORM
-========================================= */
-
 .contact-form-wrap {
-  background: #fff;
+  position: relative;
 
-  padding: 48px;
+  padding:
+    40px;
 
-  border: 1px solid rgba(9, 9, 9, 0.08);
+  background:
+    var(--white);
+
+  border:
+    1px solid
+    var(--border);
+
+  box-shadow:
+    0 20px 55px
+    rgba(
+      48,
+      53,
+      56,
+      0.07
+    );
+}
+
+.form-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.form-number {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    var(--blue);
+
+  font-family:
+    var(--display);
+
+  font-size: 25px;
+
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+.form-header h3 {
+  margin: 0;
+
+  color:
+    var(--dark);
+
+  font-family:
+    var(--display);
+
+  font-size:
+    clamp(
+      34px,
+      3.5vw,
+      52px
+    );
+
+  font-weight: 500;
+
+  line-height:
+    0.95;
+
+  letter-spacing:
+    -0.045em;
+}
+
+.form-header h3 em {
+  display: block;
+
+  color:
+    var(--blue);
+
+  font-style:
+    italic;
+}
+
+.form-label {
+  padding-top: 8px;
+
+  color:
+    var(--gray-light);
+
+  font-family:
+    var(--body);
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.18em;
+
+  white-space:
+    nowrap;
+}
+
+.form-line {
+  width: 100%;
+  height: 1px;
+
+  margin:
+    30px
+    0
+    28px;
+
+  background:
+    var(--border);
 }
 
 .contact-form {
   display: flex;
+
   flex-direction: column;
+
   gap: 20px;
 }
 
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 18px;
 }
 
 .field {
   display: flex;
+
   flex-direction: column;
+
   gap: 8px;
 }
 
 .field label {
-  font-family: Inter, Arial, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(9, 9, 9, 0.5);
+  color:
+    var(--gray-light);
+
+  font-family:
+    var(--body);
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.16em;
+
+  text-transform:
+    uppercase;
 }
 
 .field input,
 .field textarea {
-  padding: 14px 16px;
+  width: 100%;
 
-  background: #f4f1e9;
-  border: 1px solid rgba(9, 9, 9, 0.1);
-  border-radius: 2px;
+  box-sizing: border-box;
 
-  font-family: Inter, Arial, sans-serif;
-  font-size: 14px;
-  color: #090909;
+  padding:
+    13px
+    14px;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:
+    2px;
+
+  color:
+    var(--dark);
+
+  font-family:
+    var(--body);
+
+  font-size: 11px;
 
   outline: none;
 
-  transition: border-color 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.field input {
+  height: 47px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color:
+    rgba(
+      80,
+      87,
+      91,
+      0.4
+    );
 }
 
 .field input:focus,
 .field textarea:focus {
-  border-color: #b68500;
+  background:
+    var(--white);
+
+  border-color:
+    var(--blue);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(
+      39,
+      136,
+      169,
+      0.07
+    );
 }
 
 .field textarea {
-  min-height: 110px;
+  min-height: 125px;
+
   resize: vertical;
 }
 
 .submit-button {
   width: 100%;
 
-  padding: 17px;
-  margin-top: 6px;
+  min-height: 52px;
 
-  background: #090909;
-  color: #f4f1e9;
+  display: flex;
 
-  border: none;
-  border-radius: 2px;
+  align-items: center;
 
-  font-family: Inter, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+  justify-content: space-between;
+
+  padding:
+    0
+    17px;
+
+  margin-top: 3px;
+
+  background:
+    var(--blue);
+
+  color:
+    var(--white);
+
+  border:
+    1px solid
+    var(--blue);
+
+  border-radius:
+    2px;
+
+  font-family:
+    var(--body);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.08em;
 
   cursor: pointer;
 
-  transition: background 0.25s ease, color 0.25s ease;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .submit-button:hover:not(:disabled) {
-  background: #b68500;
-  color: #090909;
+  background:
+    var(--blue-dark);
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 25px
+    rgba(
+      39,
+      136,
+      169,
+      0.2
+    );
+}
+
+.submit-button strong {
+  font-size: 18px;
+
+  font-weight: 400;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.submit-button:hover:not(:disabled) strong {
+  transform:
+    translate(
+      3px,
+      -3px
+    );
 }
 
 .submit-button:disabled {
-  background: #3f7a4e;
-  color: #fff;
-  cursor: default;
+  background:
+    var(--gray);
+
+  border-color:
+    var(--gray);
+
+  cursor:
+    default;
 }
 
 .form-note {
+  margin: 0;
+
   text-align: center;
 
-  font-family: Inter, Arial, sans-serif;
-  font-size: 12px;
-  color: rgba(9, 9, 9, 0.45);
+  color:
+    var(--gray-light);
+
+  font-family:
+    var(--body);
+
+  font-size: 8px;
+
+  line-height: 1.5;
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+.form-footer {
+  display: flex;
 
-@media (max-width: 900px) {
+  align-items: center;
 
+  justify-content: space-between;
+
+  margin-top: 28px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid
+    var(--border);
+
+  color:
+    var(--gray-light);
+
+  font-family:
+    var(--body);
+
+  font-size: 6px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.16em;
+}
+
+.form-footer span:first-child {
+  color:
+    var(--blue);
+}
+
+@media (max-width: 1050px) {
   .contact-container {
-    grid-template-columns: 1fr;
-    gap: 50px;
+    width:
+      calc(100% - 70px);
+
+    gap: 55px;
   }
 
   .contact-form-wrap {
     padding: 32px;
   }
+
+  .contact-info h2 {
+    font-size:
+      clamp(
+        48px,
+        6vw,
+        70px
+      );
+  }
 }
 
-@media (max-width: 560px) {
-
+@media (max-width: 800px) {
   .contact-section {
-    padding: 25px 0 20px;
+    padding:
+      75px
+      0
+      65px;
+  }
+
+  .contact-container {
+    width:
+      calc(100% - 40px);
+
+    grid-template-columns:
+      1fr;
+
+    gap: 55px;
+  }
+
+  .contact-info {
+    max-width: 700px;
+  }
+
+  .contact-image {
+    height:
+      clamp(
+        260px,
+        45vw,
+        350px
+      );
   }
 
   .contact-form-wrap {
-    background: transparent;
+    max-width: 700px;
+  }
+}
 
-    padding: 0;
+@media (max-width: 520px) {
+  .contact-section {
+    padding:
+      60px
+      0
+      55px;
+  }
 
-    border: none;
+  .contact-container {
+    width:
+      calc(100% - 30px);
+
+    gap: 45px;
+  }
+
+  .section-label {
+    margin-bottom: 22px;
+
+    font-size: 8px;
+  }
+
+  .contact-info h2 {
+    font-size: 49px;
+  }
+
+  .contact-info h2 span {
+    margin-left: 20px;
+  }
+
+  .contact-copy {
+    font-size: 10px;
+
+    line-height: 1.75;
+  }
+
+  .contact-image {
+    height: 220px;
+
+    margin-bottom: 25px;
+  }
+
+  .image-caption strong {
+    font-size: 22px;
+  }
+
+  .detail-row {
+    gap: 12px;
+
+    padding:
+      13px
+      0;
+  }
+
+  .detail-label {
+    width: 55px;
+
+    font-size: 6px;
+  }
+
+  .detail-value {
+    font-size: 8px;
+  }
+
+  .contact-form-wrap {
+    padding:
+      25px
+      18px;
+  }
+
+  .form-header h3 {
+    font-size: 35px;
+  }
+
+  .form-label {
+    display: none;
   }
 
   .form-row {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
+
+    gap: 20px;
+  }
+
+  .form-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 6px;
+  }
+
+  .contact-background-mark {
+    font-size: 150px;
+
+    right: -20px;
+
+    bottom: -25px;
   }
 }
 </style>
