@@ -3,37 +3,104 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import awgroLogoNavbar from "../imports/awgro_logo.png";
 import awgroLogoFooter from "../imports/awgro_logo2.png";
 import {
-  GraduationCap, BookOpen, TrendingUp, Laptop, Megaphone, Users,
-  CheckCircle2, XCircle, ChevronDown, ArrowRight, Target,
-  Shield, Eye, Lightbulb, Award, Share2, Star,
-  Briefcase, ExternalLink, MapPin,
+  GraduationCap,
+  BookOpen,
+  TrendingUp,
+  Laptop,
+  Megaphone,
+  Users,
+  CheckCircle2,
+  XCircle,
+  ChevronDown,
+  ArrowRight,
+  Target,
+  Shield,
+  Eye,
+  Lightbulb,
+  Award,
+  Share2,
+  Star,
+  Briefcase,
+  ExternalLink,
+  MapPin,
 } from "lucide-react";
 import { clsx } from "clsx";
 
 // ─── WhatsApp icon ────────────────────────────────────────────────────────────
 const WA = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] fill-current flex-shrink-0">
+  <svg
+    viewBox="0 0 24 24"
+    className="w-[18px] h-[18px] fill-current flex-shrink-0"
+  >
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
   </svg>
 );
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const BENEFITS = [
-  { icon: GraduationCap, title: "Training", desc: "Structured onboarding and ongoing real estate education programs." },
-  { icon: BookOpen, title: "Knowledge", desc: "Deep insights into Ahmedabad and Gandhinagar real estate markets." },
-  { icon: Target, title: "Systems", desc: "Proven scripts, objection handling, and deal-closing frameworks." },
-  { icon: Laptop, title: "Technology", desc: "CRM tools, listing platforms, and business management systems." },
-  { icon: Megaphone, title: "Marketing Support", desc: "Brand assets, campaigns, and digital marketing resources." },
-  { icon: Share2, title: "Business Ecosystem", desc: "Developer connections, partner referrals, and professional community." },
+  {
+    icon: GraduationCap,
+    title: "Training",
+    desc: "Structured onboarding and ongoing real estate education programs.",
+  },
+  {
+    icon: BookOpen,
+    title: "Knowledge",
+    desc: "Deep insights into Ahmedabad and Gandhinagar real estate markets.",
+  },
+  {
+    icon: Target,
+    title: "Systems",
+    desc: "Proven scripts, objection handling, and deal-closing frameworks.",
+  },
+  {
+    icon: Laptop,
+    title: "Technology",
+    desc: "CRM tools, listing platforms, and business management systems.",
+  },
+  {
+    icon: Megaphone,
+    title: "Marketing Support",
+    desc: "Brand assets, campaigns, and digital marketing resources.",
+  },
+  {
+    icon: Share2,
+    title: "Business Ecosystem",
+    desc: "Developer connections, partner referrals, and professional community.",
+  },
 ];
 
 const JOURNEY = [
-  { num: "01", label: "Join", desc: "Apply and complete your onboarding with Awgro Realty." },
-  { num: "02", label: "Learn", desc: "Complete structured training in real estate and business." },
-  { num: "03", label: "Build", desc: "Develop your client network and personal brand." },
-  { num: "04", label: "Start", desc: "Close your first deals with mentor and system support." },
-  { num: "05", label: "Grow", desc: "Scale your network, income, and market presence." },
-  { num: "06", label: "Lead", desc: "Build your own team and expand your enterprise." },
+  {
+    num: "01",
+    label: "Join",
+    desc: "Apply and complete your onboarding with Awgro Realty.",
+  },
+  {
+    num: "02",
+    label: "Learn",
+    desc: "Complete structured training in real estate and business.",
+  },
+  {
+    num: "03",
+    label: "Build",
+    desc: "Develop your client network and personal brand.",
+  },
+  {
+    num: "04",
+    label: "Start",
+    desc: "Close your first deals with mentor and system support.",
+  },
+  {
+    num: "05",
+    label: "Grow",
+    desc: "Scale your network, income, and market presence.",
+  },
+  {
+    num: "06",
+    label: "Lead",
+    desc: "Build your own team and expand your enterprise.",
+  },
 ];
 
 const LADDER = [
@@ -105,17 +172,40 @@ const FAQS = [
 ];
 
 // ─── Section label ─────────────────────────────────────────────────────────────
-function SectionLabel({ text, light = false }: { text: string; light?: boolean }) {
+function SectionLabel({
+  text,
+  light = false,
+}: {
+  text: string;
+  light?: boolean;
+}) {
   return (
     <div className="flex items-center justify-center gap-3 mb-5">
       <div className={clsx("h-px w-8", light ? "bg-accent/50" : "bg-accent")} />
-      <span className={clsx("text-[22px] font-bold uppercase tracking-[0.2em]", light ? "text-accent/80" : "text-accent")}>
+      <span
+        className={clsx(
+          "text-[22px] font-bold uppercase tracking-[0.2em]",
+          light ? "text-accent/80" : "text-accent",
+        )}
+      >
         {text}
       </span>
       <div className={clsx("h-px w-8", light ? "bg-accent/50" : "bg-accent")} />
     </div>
   );
 }
+const scrollToSection = (id: string) => {
+  const section = document.getElementById(id);
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    window.history.pushState(null, "", `/${id}`);
+  }
+};
 
 // ─── Header ────────────────────────────────────────────────────────────────────
 function Header() {
@@ -123,35 +213,40 @@ function Header() {
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a
-  href="/"
-  onClick={(e) => {
-    e.preventDefault();
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
 
-    window.history.replaceState(null, "", "/");
-  }}
-  className="flex items-center"
->
-  <img
-    src={awgroLogoNavbar}
-    alt="Awgro Realty"
-    className="h-10 w-auto object-contain"
-  />
-</a>
+            window.history.replaceState(null, "", "/");
+          }}
+          className="flex items-center"
+        >
+          <img
+            src={awgroLogoNavbar}
+            alt="Awgro Realty"
+            className="h-10 w-auto object-contain"
+          />
+        </a>
         <nav className="hidden lg:flex items-center gap-6">
-          <a
-            href="#vision"
+          <button
+            type="button"
+            onClick={() => scrollToSection("vision")}
             className="text-sm font-semibold text-primary hover:text-accent transition-colors"
           >
             Vision & Mission
-          </a>
+          </button>
 
           <a
             href="#promise"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("promise");
+            }}
             className="text-sm font-semibold text-primary hover:text-accent transition-colors"
           >
             Promise
@@ -159,12 +254,20 @@ function Header() {
 
           <a
             href="#dream"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("dream");
+            }}
             className="text-sm font-semibold text-primary hover:text-accent transition-colors"
           >
             Dream
           </a>
           <a
             href="#partner-mission"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("partner-mission");
+            }}
             className="text-sm font-semibold text-primary hover:text-accent transition-colors"
           >
             Partner Mission
@@ -172,6 +275,10 @@ function Header() {
 
           <a
             href="#core-values"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("core-values");
+            }}
             className="text-sm font-semibold text-primary hover:text-accent transition-colors"
           >
             Core Values
@@ -179,6 +286,10 @@ function Header() {
 
           <a
             href="#faq"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("faq");
+            }}
             className="text-sm font-semibold text-primary hover:text-accent transition-colors"
           >
             FAQs
@@ -186,6 +297,10 @@ function Header() {
 
           <a
             href="#apply"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("apply");
+            }}
             className="bg-primary text-primary-foreground text-sm font-semibold px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
           >
             Contact Us
@@ -219,7 +334,6 @@ function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
           {/* Left */}
           <div className="order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-7">
@@ -239,7 +353,8 @@ function Hero() {
             </h1>
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-md">
-              <b>Awgro Realty Pvt. Ltd.</b> is building a new generation of <b>Real Estate Entrepreneurs</b> across Ahmedabad and Gandhinagar.
+              <b>Awgro Realty Pvt. Ltd.</b> is building a new generation of{" "}
+              <b>Real Estate Entrepreneurs</b> across Ahmedabad and Gandhinagar.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-9">
@@ -288,10 +403,14 @@ function Hero() {
               <div className="absolute bottom-4 left-4 right-4 bg-card/96 backdrop-blur-sm rounded-xl p-4">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p className="text-xs text-muted-foreground font-medium">Active Partners in Network</p>
+                    <p className="text-xs text-muted-foreground font-medium">
+                      Active Partners in Network
+                    </p>
                     <p className="text-xl font-extrabold text-primary mt-0.5">
                       100+
-                      <span className="text-sm font-semibold text-accent ml-1.5">& growing</span>
+                      <span className="text-sm font-semibold text-accent ml-1.5">
+                        & growing
+                      </span>
                     </p>
                   </div>
                   {/* <div className="flex -space-x-2">
@@ -333,10 +452,12 @@ function Positioning() {
             You build your real estate business.
           </p>
           <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug mb-3">
-            We build the system that helps you <span className="text-accent">grow.</span>
+            We build the system that helps you{" "}
+            <span className="text-accent">grow.</span>
           </p>
           <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug">
-            Together, we build a stronger <span className="text-accent">real estate community</span>
+            Together, we build a stronger{" "}
+            <span className="text-accent">real estate community</span>
           </p>
         </div>
 
@@ -345,20 +466,34 @@ function Positioning() {
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center mb-4">
               <Briefcase className="w-5 h-5 text-secondary" />
             </div>
-            <h3 className="font-bold text-primary text-[15px] mb-2">Our Vision</h3>
+            <h3 className="font-bold text-primary text-[15px] mb-2">
+              Our Vision
+            </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-             To create India's most trusted community of real estate entrepreneurs, starting with a network of 100+ successful Associate Partners across Ahmedabad and Gandhinagar.
-              Our vision is to make <b>real estate entrepreneurship accessible, professional, and scalable</b> for the right individuals.
+              To create India's most trusted community of real estate
+              entrepreneurs, starting with a network of 100+ successful
+              Associate Partners across Ahmedabad and Gandhinagar. Our vision is
+              to make{" "}
+              <b>
+                real estate entrepreneurship accessible, professional, and
+                scalable
+              </b>{" "}
+              for the right individuals.
             </p>
           </div>
           <div className="bg-[#F8F6F0] rounded-2xl p-6 border border-border">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center mb-4">
               <TrendingUp className="w-5 h-5 text-secondary" />
             </div>
-            <h3 className="font-bold text-primary text-[15px] mb-2">Our mission</h3>
+            <h3 className="font-bold text-primary text-[15px] mb-2">
+              Our mission
+            </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              To empower individuals to start, build, and grow their own real estate business through professional training, proven systems, technology, marketing support, and a strong network.
-              Provide practical knowledge about the <b>Ahmedabad and Gandhinagar real estate markets</b>.
+              To empower individuals to start, build, and grow their own real
+              estate business through professional training, proven systems,
+              technology, marketing support, and a strong network. Provide
+              practical knowledge about the{" "}
+              <b>Ahmedabad and Gandhinagar real estate markets</b>.
             </p>
           </div>
         </div>
@@ -370,7 +505,7 @@ function Positioning() {
 // ─── Benefits ──────────────────────────────────────────────────────────────────
 function Benefits() {
   return (
-    <section  id="promise" className="py-20 md:py-28 bg-[#F8F6F0]">
+    <section id="promise" className="py-20 md:py-28 bg-[#F8F6F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <SectionLabel text="Our Promise" />
@@ -386,14 +521,20 @@ function Benefits() {
               You Bring
             </p>
             <ul className="space-y-3">
-              {["Your Ambition", "Your Hard Work", "Your Network", "Your Commitment"].map(
-                (item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm font-medium text-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
-                    {item}
-                  </li>
-                )
-              )}
+              {[
+                "Your Ambition",
+                "Your Hard Work",
+                "Your Network",
+                "Your Commitment",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-sm font-medium text-foreground"
+                >
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -410,7 +551,10 @@ function Benefits() {
                 "Marketing Support",
                 "Business Ecosystem",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm font-medium text-primary-foreground/85">
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-sm font-medium text-primary-foreground/85"
+                >
                   <div className="w-4 h-4 rounded-full bg-accent/15 border border-accent/40 flex items-center justify-center flex-shrink-0">
                     <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                   </div>
@@ -431,8 +575,12 @@ function Benefits() {
               <div className="w-11 h-11 rounded-xl bg-primary/5 group-hover:bg-primary flex items-center justify-center mb-4 transition-colors">
                 <Icon className="w-5 h-5 text-primary group-hover:text-secondary transition-colors" />
               </div>
-              <h3 className="font-bold text-primary text-[15px] mb-2">{title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+              <h3 className="font-bold text-primary text-[15px] mb-2">
+                {title}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {desc}
+              </p>
             </div>
           ))}
         </div>
@@ -507,14 +655,14 @@ function Journey() {
                     i < 2
                       ? "bg-primary border-primary"
                       : i < 4
-                      ? "bg-accent/15 border-accent"
-                      : "bg-[#F8F6F0] border-border"
+                        ? "bg-accent/15 border-accent"
+                        : "bg-[#F8F6F0] border-border",
                   )}
                 >
                   <span
                     className={clsx(
                       "text-[9px] font-bold leading-none mb-0.5",
-                      i < 2 ? "text-accent/70" : "text-muted-foreground"
+                      i < 2 ? "text-accent/70" : "text-muted-foreground",
                     )}
                   >
                     {s.num}
@@ -522,7 +670,7 @@ function Journey() {
                   <span
                     className={clsx(
                       "text-xs font-extrabold leading-none",
-                      i < 2 ? "text-primary-foreground" : "text-primary"
+                      i < 2 ? "text-primary-foreground" : "text-primary",
                     )}
                   >
                     {s.label}
@@ -532,9 +680,18 @@ function Journey() {
                   <div className="w-px flex-1 my-2 bg-gradient-to-b from-accent/50 to-accent/10 min-h-[2rem]" />
                 )}
               </div>
-              <div className={clsx("flex-1 pt-2.5", i < JOURNEY.length - 1 ? "pb-5" : "pb-0")}>
-                <p className="text-sm font-semibold text-primary mb-0.5">{s.label}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+              <div
+                className={clsx(
+                  "flex-1 pt-2.5",
+                  i < JOURNEY.length - 1 ? "pb-5" : "pb-0",
+                )}
+              >
+                <p className="text-sm font-semibold text-primary mb-0.5">
+                  {s.label}
+                </p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {s.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -547,7 +704,11 @@ function Journey() {
 // ─── Campaign (dark) ────────────────────────────────────────────────────────────
 function Campaign() {
   return (
-    <section id="partner-mission" className="py-20 md:py-32 relative overflow-hidden" style={{ background: "#0D1B2A" }}>
+    <section
+      id="partner-mission"
+      className="py-20 md:py-32 relative overflow-hidden"
+      style={{ background: "#0D1B2A" }}
+    >
       <div
         className="absolute inset-0 opacity-[0.07]"
         style={{
@@ -560,12 +721,13 @@ function Campaign() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-
           {/* Left */}
           <div>
             <div className="flex items-center gap-3 mb-7">
               <div className="h-px w-8 bg-accent" />
-              <span className="text-accent text-[11px] font-bold uppercase tracking-[0.2em]">OUR 100 ASSOCIATE PARTNER MISSION</span>
+              <span className="text-accent text-[11px] font-bold uppercase tracking-[0.2em]">
+                OUR 100 ASSOCIATE PARTNER MISSION
+              </span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-[1.1] mb-8">
               <span className="text-accent">100</span> Associate Partners.
@@ -575,8 +737,9 @@ function Campaign() {
               <span className="text-white/70">One Powerful Network.</span>
             </h2>
             <p className="text-white/55 text-base leading-relaxed max-w-sm mb-10">
-              We are building a community of empowered real estate entrepreneurs across Ahmedabad and Gandhinagar.
-              Every partner who joins strengthens the entire ecosystem.
+              We are building a community of empowered real estate entrepreneurs
+              across Ahmedabad and Gandhinagar. Every partner who joins
+              strengthens the entire ecosystem.
             </p>
             <a
               href="#apply"
@@ -591,7 +754,9 @@ function Campaign() {
           <div>
             <div className="flex items-center gap-3 mb-7">
               <div className="h-px w-8 bg-accent/40" />
-              <span className="text-accent/70 text-[11px] font-bold uppercase tracking-[0.2em]">The Entrepreneur Journey</span>
+              <span className="text-accent/70 text-[11px] font-bold uppercase tracking-[0.2em]">
+                The Entrepreneur Journey
+              </span>
             </div>
             <div className="relative pl-7">
               <div className="absolute left-[8px] top-3 bottom-3 w-px bg-gradient-to-b from-accent via-accent/40 to-white/5" />
@@ -607,8 +772,8 @@ function Campaign() {
                           isGoal
                             ? "bg-accent border-accent shadow-md shadow-accent/40"
                             : isNear
-                            ? "bg-accent/30 border-accent/60"
-                            : "bg-white/5 border-white/15 group-hover:border-accent/40"
+                              ? "bg-accent/30 border-accent/60"
+                              : "bg-white/5 border-white/15 group-hover:border-accent/40",
                         )}
                       />
                       <div
@@ -617,20 +782,22 @@ function Campaign() {
                           isGoal
                             ? "bg-accent/15 border-accent/40"
                             : isNear
-                            ? "bg-white/5 border-white/10"
-                            : "bg-white/[0.03] border-white/5 group-hover:bg-white/[0.06]"
+                              ? "bg-white/5 border-white/10"
+                              : "bg-white/[0.03] border-white/5 group-hover:bg-white/[0.06]",
                         )}
                       >
                         <span
                           className={clsx(
                             "text-sm font-semibold",
-                            isGoal ? "text-accent" : "text-white/75"
+                            isGoal ? "text-accent" : "text-white/75",
                           )}
                         >
                           {item}
                         </span>
                       </div>
-                      {isGoal && <Star className="w-4 h-4 text-accent flex-shrink-0" />}
+                      {isGoal && (
+                        <Star className="w-4 h-4 text-accent flex-shrink-0" />
+                      )}
                     </div>
                   );
                 })}
@@ -654,7 +821,6 @@ function Eligibility() {
   //           Is This Opportunity Right for You?
   //         </h2>
   //       </div> */}
-
   //       {/* <div className="grid md:grid-cols-2 gap-5">
   //         <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm">
   //           <div className="bg-primary px-6 py-4 flex items-center gap-2.5">
@@ -672,7 +838,6 @@ function Eligibility() {
   //             ))}
   //           </ul>
   //         </div>
-
   //         <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm">
   //           <div className="bg-muted px-6 py-4 flex items-center gap-2.5">
   //             <XCircle className="w-[18px] h-[18px] text-muted-foreground flex-shrink-0" />
@@ -712,13 +877,15 @@ function ValuesSection() {
               key={label}
               className={clsx(
                 "rounded-2xl p-5 border border-border bg-[#F8F6F0] flex flex-col items-center text-center gap-3 hover:-translate-y-0.5 hover:shadow-md transition-all cursor-default",
-                i === 7 ? "lg:col-start-2" : ""
+                i === 7 ? "lg:col-start-2" : "",
               )}
             >
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
                 <Icon className="w-5 h-5 text-accent hover:text-secondary" />
               </div>
-              <span className="text-sm font-bold text-primary leading-tight">{label}</span>
+              <span className="text-sm font-bold text-primary leading-tight">
+                {label}
+              </span>
             </div>
           ))}
         </div>
@@ -734,9 +901,15 @@ function FAQ() {
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <SectionLabel text="FAQ's" />
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-primary">Questions & Answers</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-primary">
+            Questions & Answers
+          </h2>
         </div>
-        <AccordionPrimitive.Root type="single" collapsible className="space-y-3">
+        <AccordionPrimitive.Root
+          type="single"
+          collapsible
+          className="space-y-3"
+        >
           {FAQS.map((faq, i) => (
             <AccordionPrimitive.Item
               key={i}
@@ -752,7 +925,9 @@ function FAQ() {
               <AccordionPrimitive.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
                 <div className="px-6 pb-5">
                   <div className="w-full h-px bg-border mb-4" />
-                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {faq.a}
+                  </p>
                 </div>
               </AccordionPrimitive.Content>
             </AccordionPrimitive.Item>
@@ -771,7 +946,13 @@ function ConversionForm({
   submitted,
 }: {
   form: Record<string, string>;
-  set: (f: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
+  set: (
+    f: string,
+  ) => (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => void;
   onSubmit: (e: React.FormEvent) => void;
   submitted: boolean;
 }) {
@@ -787,20 +968,24 @@ function ConversionForm({
             <div className="w-20 h-20 rounded-2xl bg-primary mx-auto flex items-center justify-center mb-6 shadow-xl">
               <CheckCircle2 className="w-10 h-10 text-accent" />
             </div>
-            <h2 className="text-3xl font-extrabold text-primary mb-3">Application Received!</h2>
+            <h2 className="text-3xl font-extrabold text-primary mb-3">
+              Application Received!
+            </h2>
             <p className="text-muted-foreground leading-relaxed max-w-sm mx-auto">
-              Thank you for applying. Our team will review your application and reach out within 1–2 business days to
-              schedule your introductory call.
+              Thank you for applying. Our team will review your application and
+              reach out within 1–2 business days to schedule your introductory
+              call.
             </p>
           </div>
         ) : (
           <>
             {/* Form header */}
-            <span className="text-accent/70 text-[22px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 mb-4">Contact us</span>
+            <span className="text-accent/70 text-[22px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 mb-4">
+              Contact us
+            </span>
             <div className="bg-primary rounded-t-2xl px-8 pt-8 pb-7 text-center relative overflow-hidden">
               {/* <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent" /> */}
-              <div className="flex items-center justify-center gap-2.5 mb-4">
-              </div>
+              <div className="flex items-center justify-center gap-2.5 mb-4"></div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-primary-foreground leading-tight mb-2">
                 Ready to Start Your Real Estate Business?
               </h2>
@@ -840,7 +1025,12 @@ function ConversionForm({
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className={label}>City *</label>
-                    <select className={input} value={form.city} onChange={set("city")} required>
+                    <select
+                      className={input}
+                      value={form.city}
+                      onChange={set("city")}
+                      required
+                    >
                       <option value="">Select your city</option>
                       <option>Ahmedabad</option>
                       <option>Gandhinagar</option>
@@ -862,7 +1052,11 @@ function ConversionForm({
 
                 <div>
                   <label className={label}>Real Estate Experience</label>
-                  <select className={input} value={form.experience} onChange={set("experience")}>
+                  <select
+                    className={input}
+                    value={form.experience}
+                    onChange={set("experience")}
+                  >
                     <option value="">Select your experience level</option>
                     <option>No experience (complete fresher)</option>
                     <option>Less than 1 year</option>
@@ -872,7 +1066,9 @@ function ConversionForm({
                 </div>
 
                 <div>
-                  <label className={label}>Why do you want to build a real estate business? *</label>
+                  <label className={label}>
+                    Why do you want to build a real estate business? *
+                  </label>
                   <textarea
                     className={clsx(input, "resize-none")}
                     value={form.reason}
@@ -885,7 +1081,11 @@ function ConversionForm({
 
                 <div>
                   <label className={label}>Preferred Call Time</label>
-                  <select className={input} value={form.callTime} onChange={set("callTime")}>
+                  <select
+                    className={input}
+                    value={form.callTime}
+                    onChange={set("callTime")}
+                  >
                     <option value="">Select a preferred time</option>
                     <option>Morning (9 AM – 12 PM)</option>
                     <option>Afternoon (12 PM – 4 PM)</option>
@@ -903,13 +1103,16 @@ function ConversionForm({
               </form>
 
               <p className="text-center text-xs text-muted-foreground mt-5 leading-relaxed">
-                Your information is confidential and will only be used to evaluate your application.
+                Your information is confidential and will only be used to
+                evaluate your application.
                 <br />
                 We do not share your details with any third party.
               </p>
 
               <div className="mt-6 pt-5 border-t border-border text-center">
-                <p className="text-sm text-muted-foreground mb-3">Prefer to speak with someone first?</p>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Prefer to speak with someone first?
+                </p>
                 <a
                   href="https://wa.me/919099999999"
                   target="_blank"
@@ -935,27 +1138,27 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center">
-  <a
-  href="/"
-  onClick={(e) => {
-    e.preventDefault();
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
 
-    window.history.replaceState(null, "", "/");
-  }}
-  className="bg-transparent rounded-xl px-3 py-1.5"
->
-  <img
-    src={awgroLogoFooter}
-    alt="Awgro Realty"
-    className="h-8 w-auto object-contain"
-  />
-</a>
-</div>
+                window.history.replaceState(null, "", "/");
+              }}
+              className="bg-transparent rounded-xl px-3 py-1.5"
+            >
+              <img
+                src={awgroLogoFooter}
+                alt="Awgro Realty"
+                className="h-8 w-auto object-contain"
+              />
+            </a>
+          </div>
 
           <div className="flex items-center gap-5 text-sm">
             <a href="#" className="hover:text-foreground">
@@ -1015,7 +1218,11 @@ export default function App() {
 
   const set =
     (field: string) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    (
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      >,
+    ) =>
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
   const onSubmit = (e: React.FormEvent) => {
@@ -1034,7 +1241,12 @@ export default function App() {
       <Eligibility />
       <ValuesSection />
       <FAQ />
-      <ConversionForm form={form} set={set} onSubmit={onSubmit} submitted={submitted} />
+      <ConversionForm
+        form={form}
+        set={set}
+        onSubmit={onSubmit}
+        submitted={submitted}
+      />
       <Footer />
       <StickyMobileCTA />
       <div className="h-16 sm:hidden" aria-hidden />
