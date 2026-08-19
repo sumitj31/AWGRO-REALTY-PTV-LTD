@@ -349,7 +349,6 @@ function Hero() {
                 <span className="relative z-10">Real Estate Business</span>
                 <span className="absolute -bottom-1.5 left-0 right-0 h-[3px] rounded-full bg-accent" />
               </span>
-              .
             </h1>
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-md">
