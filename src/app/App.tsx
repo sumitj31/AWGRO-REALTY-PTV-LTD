@@ -762,45 +762,48 @@ function Campaign() {
               <div className="absolute left-[8px] top-3 bottom-3 w-px bg-gradient-to-b from-accent via-accent/40 to-white/5" />
               <div className="space-y-3">
                 {LADDER.map((item, i) => {
-                  const isGoal = i === 0;
-                  const isNear = i === 1;
-                  return (
-                    <div key={item} className="flex items-center gap-3 group">
-                      <div
-                        className={clsx(
-                          "w-[18px] h-[18px] rounded-full border-2 flex-shrink-0 relative z-10 transition-all",
-                          isGoal
-                            ? "bg-accent border-accent shadow-md shadow-accent/40"
-                            : isNear
-                              ? "bg-accent/30 border-accent/60"
-                              : "bg-white/5 border-white/15 group-hover:border-accent/40",
-                        )}
-                      />
-                      <div
-                        className={clsx(
-                          "flex-1 px-4 py-2.5 rounded-xl border transition-all",
-                          isGoal
-                            ? "bg-accent/15 border-accent/40"
-                            : isNear
-                              ? "bg-white/5 border-white/10"
-                              : "bg-white/[0.03] border-white/5 group-hover:bg-white/[0.06]",
-                        )}
-                      >
-                        <span
-                          className={clsx(
-                            "text-sm font-semibold",
-                            isGoal ? "text-accent" : "text-white/75",
-                          )}
-                        >
-                          {item}
-                        </span>
-                      </div>
-                      {isGoal && (
-                        <Star className="w-4 h-4 text-accent flex-shrink-0" />
-                      )}
-                    </div>
-                  );
-                })}
+  const isGoal = i === -1;
+
+  return (
+    <div key={item} className="flex items-center gap-3 group">
+      {/* Circle */}
+      <div
+        className={clsx(
+          "w-[18px] h-[18px] rounded-full border-2 flex-shrink-0 relative z-10 transition-all duration-300",
+          isGoal
+            ? "bg-accent border-accent shadow-md shadow-accent/40 group-hover:bg-accent group-hover:border-accent"
+            : "bg-white/5 border-white/15 group-hover:bg-accent group-hover:border-accent group-hover:shadow-md group-hover:shadow-accent/40"
+        )}
+      />
+
+      {/* Content */}
+      <div
+        className={clsx(
+          "flex-1 px-4 py-2.5 rounded-xl border transition-all duration-300",
+          isGoal
+            ? "bg-accent/15 border-accent/40 group-hover:bg-accent/15 group-hover:border-accent/40"
+            : "bg-white/[0.03] border-white/5 group-hover:bg-accent/15 group-hover:border-accent/40"
+        )}
+      >
+        <span
+          className={clsx(
+            "text-sm font-semibold transition-colors duration-300",
+            isGoal
+              ? "text-accent"
+              : "text-white/75 group-hover:text-accent"
+          )}
+        >
+          {item}
+        </span>
+      </div>
+
+      {/* Star only for first item */}
+      {isGoal && (
+        <Star className="w-4 h-4 text-accent flex-shrink-0" />
+      )}
+    </div>
+  );
+})}
               </div>
             </div>
           </div>
@@ -1161,9 +1164,9 @@ function Footer() {
           </div>
 
           <div className="flex items-center gap-5 text-sm">
-            <a href="#" className="hover:text-foreground">
+            <div className="hover:text-foreground">
               Privacy Policy
-            </a>
+            </div>
             {/* <span>·</span> */}
             {/* <a href="#" className="flex items-center gap-1">
               Visit Main Website <ExternalLink className="w-3 h-3" />
