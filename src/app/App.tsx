@@ -210,7 +210,7 @@ const scrollToSection = (id: string) => {
 // ─── Header ────────────────────────────────────────────────────────────────────
 function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
+    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a
           href="/"
@@ -338,12 +338,12 @@ function Hero() {
           <div className="order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-7">
               <MapPin className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-              <span className="text-accent text-[11px] font-bold uppercase tracking-wide">
+              <span className="text-accent text-[12px] font-bold uppercase tracking-wide">
                 Ahmedabad & Gandhinagar · Associate Partner Program
               </span>
             </div>
 
-            <h1 className="text-[2.5rem] sm:text-[3rem] lg:text-[3rem] xl:text-[3.4rem] font-extrabold text-primary leading-[1.08] tracking-[-0.02em] mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-primary leading-[1.08] tracking-[-0.02em] mb-6">
               Start and Build Your Own{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">Real Estate Business</span>
@@ -914,7 +914,7 @@ function FAQ() {
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <SectionLabel text="FAQ's" />
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-primary">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary">
             Questions & Answers
           </h2>
         </div>
@@ -1115,7 +1115,7 @@ function ConversionForm({
                 </button>
               </form>
 
-              <p className="text-center text-xs text-muted-foreground mt-5 leading-relaxed">
+              <p className="text-center text-md text-muted-foreground mt-5 leading-relaxed">
                 Your information is confidential and will only be used to
                 evaluate your application.
                 <br />
@@ -1130,7 +1130,7 @@ function ConversionForm({
                   href="https://wa.me/919099999999"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border-2 border-[#25D366] text-[#25D366] font-semibold px-5 py-2.5 rounded-xl hover:bg-[#25D366]/8 transition-all text-sm"
+                  className="inline-flex items-center gap-2 border-2 border-[#25D366] text-[#25D366] font-semibold px-5 py-2.5 rounded-xl hover:bg-[#25D366]/8 transition-all text-md"
                 >
                   <WA />
                   Chat on WhatsApp
@@ -1235,7 +1235,7 @@ function Footer() {
                 href="https://wa.me/919099999999"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-2 border border-[#25D366]/50 text-[#25D366] font-semibold px-4 py-2.5 rounded-xl hover:bg-[#25D366]/10 transition-all text-sm"
+                className="inline-flex items-center gap-2 border-2 border-[#25D366] text-[#25D366] font-semibold px-5 py-3.5 rounded-xl hover:bg-[#25D366]/8 transition-all text-sm sm:text-base"
               >
                 <WA />
                 Chat on WhatsApp
