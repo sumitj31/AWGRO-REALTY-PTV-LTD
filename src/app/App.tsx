@@ -1173,7 +1173,7 @@ function Footer() {
             </a> */}
           </div>
 
-          <p className="text-primary-foreground/25 text-xs">
+          <p className="text-primary-secondary">
             © {new Date().getFullYear()} Awgro Realty Pvt. Ltd.
           </p>
         </div>
