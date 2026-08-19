@@ -644,7 +644,7 @@ function Journey() {
         </div> */}
 
         {/* Mobile vertical timeline */}
-        <div className="md:hidden">
+        {/* <div className="md:hidden">
           {JOURNEY.map((s, i) => (
             <div key={s.label} className="flex gap-4">
               <div className="flex flex-col items-center">
@@ -694,7 +694,7 @@ function Journey() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
