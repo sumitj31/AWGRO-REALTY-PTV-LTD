@@ -632,7 +632,7 @@ function Benefits() {
             </h3>
           </div>
 
-          <div className="flex aspect-square items-center justify-end bg-switch-background p-8 sm:p-12 lg:p-16">
+          <div className="flex aspect-square items-center justify-end bg-input-background p-8 sm:p-12 lg:p-16">
             <ul className="ml-auto w-fit max-w-xs space-y-5 text-right">
               {[
                 "Your Ambition",
@@ -651,7 +651,7 @@ function Benefits() {
             </ul>
           </div>
 
-          <div className="order-4 flex aspect-square items-center bg-switch-background p-8 sm:p-12 lg:order-3 lg:p-16">
+          <div className="order-4 flex aspect-square items-center bg-input-background p-8 sm:p-12 lg:order-3 lg:p-16">
             <ul className="mr-auto space-y-5">
               {[
                 "Training",
