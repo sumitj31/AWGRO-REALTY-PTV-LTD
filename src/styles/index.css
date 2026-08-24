@@ -58,3 +58,11 @@ html {
 .dream-slide-in-backward {
   animation: dream-slide-in-backward 150ms linear;
 }
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

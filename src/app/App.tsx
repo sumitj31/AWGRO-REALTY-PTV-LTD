@@ -266,13 +266,23 @@ const scrollToSection = (id: string) => {
 
 // ─── Header ────────────────────────────────────────────────────────────────────
 function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMobileNavigation = (id: string) => {
+    setMobileMenuOpen(false);
+    scrollToSection(id);
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm ">
+    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm">
       <div className="max-w-8xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+        {/* Logo */}
         <a
           href="/"
           onClick={(e) => {
             e.preventDefault();
+            setMobileMenuOpen(false);
 
             window.scrollTo({
               top: 0,
@@ -289,6 +299,8 @@ function Header() {
             className="h-10 w-auto object-contain"
           />
         </a>
+
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-6">
 
           <a
@@ -331,6 +343,7 @@ function Header() {
           >
             Dream
           </a>
+
           <a
             href="#partner-mission"
             onClick={(e) => {
@@ -363,22 +376,89 @@ function Header() {
           >
             Contact Us
           </a>
+
         </nav>
 
-        {/* <a
-          href="#"
-          className="hidden sm:flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors group"
+        {/* Mobile Menu Button */}
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-border text-primary"
+          aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
         >
-          Visit Main Website
-          <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-        </a> */}
-        <a
-          href="#apply"
-          className="sm:hidden bg-primary text-primary-foreground text-xs font-semibold px-4 py-2 rounded-lg"
-        >
-          Apply Now
-        </a>
+          {mobileMenuOpen ? (
+            <XCircle className="w-5 h-5" />
+          ) : (
+            <span className="text-xl leading-none">☰</span>
+          )}
+        </button>
       </div>
+
+      {/* Mobile Dropdown */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden border-t border-border bg-card shadow-lg">
+          <nav className="flex flex-col p-3">
+
+            <button
+              type="button"
+              onClick={() => handleMobileNavigation("core-values")}
+              className="w-full text-left px-4 py-3 text-sm font-semibold text-primary hover:bg-muted rounded-lg"
+            >
+              Core Values
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleMobileNavigation("vision")}
+              className="w-full text-left px-4 py-3 text-sm font-semibold text-primary hover:bg-muted rounded-lg"
+            >
+              Vision & Mission
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleMobileNavigation("promise")}
+              className="w-full text-left px-4 py-3 text-sm font-semibold text-primary hover:bg-muted rounded-lg"
+            >
+              Promise
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleMobileNavigation("dream")}
+              className="w-full text-left px-4 py-3 text-sm font-semibold text-primary hover:bg-muted rounded-lg"
+            >
+              Dream
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleMobileNavigation("partner-mission")}
+              className="w-full text-left px-4 py-3 text-sm font-semibold text-primary hover:bg-muted rounded-lg"
+            >
+              Partner Mission
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleMobileNavigation("faq")}
+              className="w-full text-left px-4 py-3 text-sm font-semibold text-primary hover:bg-muted rounded-lg"
+            >
+              FAQs
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleMobileNavigation("apply")}
+              className="w-full text-left px-4 py-3 text-sm font-semibold bg-primary text-primary-foreground rounded-lg mt-2"
+            >
+              Contact Us
+            </button>
+
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
@@ -497,7 +577,7 @@ function CoreValues() {
         <SectionLabel text="Core Values" />
         <div className="grid gap-y-10 sm:grid-cols-2 pt-12 lg:grid-cols-4">
           {VALUES.slice(0, 4).map(({ label, desc }, index) => (
-            <div key={label} className="border-l border-border px-6 first:border-l-0">
+            <div key={label} className="px-6 lg:border-l lg:border-border lg:first:border-l-0">
               <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
                 {String(index + 1).padStart(2, "0")}
               </p>
@@ -512,7 +592,7 @@ function CoreValues() {
         </div>
         <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 pt-12 lg:max-w-[75%] lg:mx-auto mt-10">
           {VALUES.slice(4).map(({ label, desc }, index) => (
-            <div key={label} className="border-l border-border px-6 first:border-l-0">
+            <div key={label} className="px-6 lg:border-l lg:border-border lg:first:border-l-0">
               <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
                 {String(index + 5).padStart(2, "0")}
               </p>
