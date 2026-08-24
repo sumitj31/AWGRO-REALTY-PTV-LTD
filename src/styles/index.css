@@ -26,11 +26,11 @@ html {
 }
 
 .dream-slide-out-forward {
-  animation: dream-slide-out-forward 100ms linear;
+  animation: dream-slide-out-forward 150ms linear;
 }
 
 .dream-slide-in-forward {
-  animation: dream-slide-in-forward 100ms linear;
+  animation: dream-slide-in-forward 150ms linear;
 }
 
 @keyframes dream-slide-out-backward {
@@ -52,9 +52,9 @@ html {
 }
 
 .dream-slide-out-backward {
-  animation: dream-slide-out-backward 100ms linear;
+  animation: dream-slide-out-backward 150ms linear;
 }
 
 .dream-slide-in-backward {
-  animation: dream-slide-in-backward 100ms linear;
+  animation: dream-slide-in-backward 150ms linear;
 }

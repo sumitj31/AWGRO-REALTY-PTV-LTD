@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import awgroLogoNavbar from "../imports/awgro_logo.png";
 import awgroLogoFooter from "../imports/awgro_logo2.png";
+import missionlogo from "../imports/ourmissionimage.jpg";
+import visionlogo from "../imports/ourvisionimage.jpg";
+import dream1 from "../imports/dream1.jpg";
+import dream2 from "../imports/dream2.jpg";
+import dream3 from "../imports/dream3.jpg";
+import hero1 from "../imports/hero1.jpg";
+import hero2 from "../imports/hero2.jpg";
 import {
   GraduationCap,
   BookOpen,
@@ -109,22 +116,19 @@ const DREAM_SLIDES = [
     eyebrow: "The first step",
     title: "From 1 Associate Partner to 100 Real Estate Entrepreneurs",
     desc: "We begin by helping one determined individual build the knowledge, confidence, and systems needed to create a lasting real estate business.",
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&h=900&fit=crop&auto=format",
+    image: dream1,
   },
   {
     eyebrow: "The community",
     title: "From 100 Entrepreneurs to 1 Powerful Real Estate Community.",
     desc: "Every successful Associate Partner adds strength to a connected community where knowledge, referrals, and opportunity can move further together.",
-    image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900&h=900&fit=crop&auto=format",
+    image: dream2,
   },
   {
     eyebrow: "The bigger vision",
     title: "From Ahmedabad & Gandhinagar to a Larger Real Estate Network.",
     desc: "Our long-term ambition is to grow a trusted real estate network that begins locally and creates meaningful opportunity across a much wider community.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=900&fit=crop&auto=format",
+    image: dream3,
   },
 ];
 
@@ -382,11 +386,18 @@ function Header() {
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-white">
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+    <section id="home" className="relative overflow-hidden bg-white mb-30">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-20"
+        style={{
+          backgroundImage: `url(${dream3})`,
+        }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-white/5" aria-hidden="true" />
       {/* <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent/[0.04] pointer-events-none" /> */}
 
-      <div className="max-w-8xl py-16 md:py-20">
+      <div className="relative z-10 max-w-8xl py-16 md:pb-45 py-20">
         <div className="grid lg:grid-cols-1 gap-12 lg:gap-16 items-center">
           {/* Left */}
           <div className="order-2 lg:order-1 mx-auto max-w-7xl text-center py-5" >
@@ -410,7 +421,7 @@ function Hero() {
               <b>Real Estate Entrepreneurs</b> across Ahmedabad and Gandhinagar.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-3 mb-9 mt-16">
+            <div className="flex flex-wrap justify-center gap-3  mt-16">
               <a
                 href="#apply"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-3.5 rounded-xl hover:bg-primary/90 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm sm:text-base"
@@ -429,38 +440,6 @@ function Hero() {
               </a>
             </div>
 
-            <div id="core-values" className="mt-16 scroll-mt-24 text-left">
-              <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-                {VALUES.slice(0, 4).map(({ label, desc }, index) => (
-                  <div key={label} className="border-l border-border px-6 first:border-l-0">
-                    <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="text-xl font-medium text-primary mb-4">
-                      {label}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:max-w-[75%] lg:mx-auto mt-10">
-                {VALUES.slice(4).map(({ label, desc }, index) => (
-                  <div key={label} className="border-l border-border px-6 first:border-l-0">
-                    <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
-                      {String(index + 5).padStart(2, "0")}
-                    </p>
-                    <h3 className="text-xl font-medium text-primary mb-4">
-                      {label}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right: Image */}
@@ -511,6 +490,46 @@ function Hero() {
 }
 
 // ─── Positioning ───────────────────────────────────────────────────────────────
+function CoreValues() {
+  return (
+    <section id="core-values" className="bg-white scroll-mt-24">
+      <div className="mx-auto max-w-7xl px-4 text-left sm:px-6 lg:px-8">
+        <SectionLabel text="Core Values" />
+        <div className="grid gap-y-10 sm:grid-cols-2 pt-12 lg:grid-cols-4">
+          {VALUES.slice(0, 4).map(({ label, desc }, index) => (
+            <div key={label} className="border-l border-border px-6 first:border-l-0">
+              <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 className="text-xl font-medium text-primary mb-4">
+                {label}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {desc}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 pt-12 lg:max-w-[75%] lg:mx-auto mt-10">
+          {VALUES.slice(4).map(({ label, desc }, index) => (
+            <div key={label} className="border-l border-border px-6 first:border-l-0">
+              <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
+                {String(index + 5).padStart(2, "0")}
+              </p>
+              <h3 className="text-xl font-medium text-primary mb-4">
+                {label}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Positioning() {
   return (
     <section id="vision" className="py-20 md:py-24 bg-card">
@@ -557,7 +576,7 @@ function Positioning() {
 
           <div data-image-slot="vision" className="aspect-square overflow-hidden bg-white p-12">
             <img
-              src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&h=900&fit=crop&auto=format"
+              src={visionlogo}
               alt="Modern home representing Awgro Realty's real estate vision"
               className="h-full w-full object-cover"
             />
@@ -568,7 +587,7 @@ function Positioning() {
             className="order-4 aspect-square overflow-hidden bg-white p-12 md:order-3"
           >
             <img
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=900&fit=crop&auto=format"
+              src={missionlogo}
               alt="Professionals collaborating to represent the real estate mission"
               className="h-full w-full object-cover"
             />
@@ -690,7 +709,7 @@ function Journey() {
     window.setTimeout(() => {
       setActiveSlide(nextSlide);
       setIncomingSlide(null);
-    }, 100);
+    }, 150);
   };
 
   const changeSlide = (direction: 1 | -1) => {
@@ -1054,9 +1073,7 @@ function ConversionForm({
         ) : (
           <>
             {/* Form header */}
-            <span className="text-accent text-[12px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 mb-4">
-              Contact us
-            </span>
+            <SectionLabel text="Contact us" />
             <div className="bg-primary rounded-t-2xl px-8 pt-8 pb-7 text-center relative overflow-hidden">
               {/* <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent" /> */}
               <div className="flex items-center justify-center gap-2.5 mb-4"></div>
@@ -1414,9 +1431,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-white text-foreground">
       <Header />
       <Hero />
+      <CoreValues />
       <Positioning />
       <Benefits />
       <Journey />
