@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import awgroLogoNavbar from "../imports/awgro_logo.png";
 import awgroLogoFooter from "../imports/awgro_logo2.png";
@@ -23,6 +23,7 @@ import {
   Briefcase,
   ExternalLink,
   MapPin,
+  ArrowLeft,
 } from "lucide-react";
 import { clsx } from "clsx";
 
@@ -103,6 +104,30 @@ const JOURNEY = [
   },
 ];
 
+const DREAM_SLIDES = [
+  {
+    eyebrow: "The first step",
+    title: "From 1 Associate Partner to 100 Real Estate Entrepreneurs",
+    desc: "We begin by helping one determined individual build the knowledge, confidence, and systems needed to create a lasting real estate business.",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&h=900&fit=crop&auto=format",
+  },
+  {
+    eyebrow: "The community",
+    title: "From 100 Entrepreneurs to 1 Powerful Real Estate Community.",
+    desc: "Every successful Associate Partner adds strength to a connected community where knowledge, referrals, and opportunity can move further together.",
+    image:
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900&h=900&fit=crop&auto=format",
+  },
+  {
+    eyebrow: "The bigger vision",
+    title: "From Ahmedabad & Gandhinagar to a Larger Real Estate Network.",
+    desc: "Our long-term ambition is to grow a trusted real estate network that begins locally and creates meaningful opportunity across a much wider community.",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=900&fit=crop&auto=format",
+  },
+];
+
 const LADDER = [
   "Real Estate Knowledge",
   "Sales & Negotiation Skills",
@@ -131,13 +156,41 @@ const APPLY_NO = [
 ];
 
 const VALUES = [
-  { icon: Lightbulb, label: "Entrepreneurship" },
-  { icon: BookOpen, label: "Learning" },
-  { icon: Shield, label: "Trust" },
-  { icon: Users, label: "Teamwork" },
-  { icon: Award, label: "Professionalism" },
-  { icon: Eye, label: "Transparency" },
-  { icon: TrendingUp, label: "Growth" },
+  {
+    icon: Lightbulb,
+    label: "Entrepreneurship",
+    desc: "We encourage every Associate Partner to think and act like a business owner.",
+  },
+  {
+    icon: BookOpen,
+    label: "Learning",
+    desc: "The real estate industry is constantly changing. Continuous learning is the foundation of long-term success.",
+  },
+  {
+    icon: Shield,
+    label: "Trust",
+    desc: "We build businesses through relationships, and relationships are built through trust.",
+  },
+  {
+    icon: Users,
+    label: "Teamwork",
+    desc: "Your business may be your own, but your growth becomes stronger when you have the right team and ecosystem around you.",
+  },
+  {
+    icon: Award,
+    label: "Professionalism",
+    desc: "We believe real estate should be treated as a serious profession and a long-term business.",
+  },
+  {
+    icon: Eye,
+    label: "Transparency",
+    desc: "We believe in honest communication with clients, developers, investors, and our Associate Partners.",
+  },
+  {
+    icon: TrendingUp,
+    label: "Growth",
+    desc: "We want our Associate Partners to grow financially, professionally, and personally.",
+  },
 ];
 
 const FAQS = [
@@ -211,7 +264,7 @@ const scrollToSection = (id: string) => {
 function Header() {
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="max-w-8xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <a
           href="/"
           onClick={(e) => {
@@ -233,6 +286,18 @@ function Header() {
           />
         </a>
         <nav className="hidden lg:flex items-center gap-6">
+
+          <a
+            href="#core-values"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("core-values");
+            }}
+            className="text-sm font-semibold text-primary hover:text-accent transition-colors"
+          >
+            Core Values
+          </a>
+
           <button
             type="button"
             onClick={() => scrollToSection("vision")}
@@ -271,17 +336,6 @@ function Header() {
             className="text-sm font-semibold text-primary hover:text-accent transition-colors"
           >
             Partner Mission
-          </a>
-
-          <a
-            href="#core-values"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("core-values");
-            }}
-            className="text-sm font-semibold text-primary hover:text-accent transition-colors"
-          >
-            Core Values
           </a>
 
           <a
@@ -328,22 +382,22 @@ function Header() {
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-[#F8F6F0]">
+    <section id="home" className="relative overflow-hidden bg-white">
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
       {/* <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent/[0.04] pointer-events-none" /> */}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-8xl py-16 md:py-20">
+        <div className="grid lg:grid-cols-1 gap-12 lg:gap-16 items-center">
           {/* Left */}
-          <div className="order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-7">
+          <div className="order-2 lg:order-1 mx-auto max-w-7xl text-center py-5" >
+            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 my-7">
               <MapPin className="w-3.5 h-3.5 text-accent flex-shrink-0" />
               <span className="text-accent text-[12px] font-bold uppercase tracking-wide">
                 Ahmedabad & Gandhinagar · Associate Partner Program
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-primary leading-[1.08] tracking-[-0.02em] mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-primary leading-[1.08] tracking-[-0.02em] mt-8 mb-6 mx-4">
               Start and Build Your Own{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">Real Estate Business</span>
@@ -351,12 +405,12 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-md">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 mt-18 max-w-md mx-auto">
               <b>Awgro Realty Pvt. Ltd.</b> is building a new generation of{" "}
               <b>Real Estate Entrepreneurs</b> across Ahmedabad and Gandhinagar.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-9">
+            <div className="flex flex-wrap justify-center gap-3 mb-9 mt-16">
               <a
                 href="#apply"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-3.5 rounded-xl hover:bg-primary/90 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm sm:text-base"
@@ -375,21 +429,42 @@ function Hero() {
               </a>
             </div>
 
-            <div className="flex flex-wrap gap-2">
-              {["Training", "Systems", "Network", "Growth"].map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center gap-1.5 bg-card border border-border rounded-full px-3.5 py-1.5 text-xs font-semibold text-primary shadow-sm"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                  {tag}
-                </span>
-              ))}
+            <div id="core-values" className="mt-16 scroll-mt-24 text-left">
+              <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+                {VALUES.slice(0, 4).map(({ label, desc }, index) => (
+                  <div key={label} className="border-l border-border px-6 first:border-l-0">
+                    <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="text-xl font-medium text-primary mb-4">
+                      {label}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:max-w-[75%] lg:mx-auto mt-10">
+                {VALUES.slice(4).map(({ label, desc }, index) => (
+                  <div key={label} className="border-l border-border px-6 first:border-l-0">
+                    <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
+                      {String(index + 5).padStart(2, "0")}
+                    </p>
+                    <h3 className="text-xl font-medium text-primary mb-4">
+                      {label}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Right: Image */}
-          <div className="order-1 lg:order-2 relative">
+          {/* <div className="order-1 lg:order-2 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-muted ring-1 ring-accent/20">
               <img
                 src="https://images.unsplash.com/photo-1781246212288-7fa538344718?w=700&h=500&fit=crop&auto=format"
@@ -398,7 +473,6 @@ function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/55 via-primary/10 to-transparent" />
 
-              {/* Floating stat */}
               <div className="absolute bottom-4 left-4 right-4 bg-card/96 backdrop-blur-sm rounded-xl p-4">
                 <div className="flex items-center justify-between gap-3">
                   <div>
@@ -412,22 +486,13 @@ function Hero() {
                       </span>
                     </p>
                   </div>
-                  {/* <div className="flex -space-x-2">
-                    {["#C9A84C", "#0D1B2A", "#8B7355", "#4A6741", "#C97A3A"].map((c, i) => (
-                      <div
-                        key={i}
-                        className="w-8 h-8 rounded-full border-2 border-card flex-shrink-0"
-                        style={{ backgroundColor: c }}
-                      />
-                    ))}
-                  </div> */}
                 </div>
               </div>
             </div>
 
             <div className="absolute -bottom-5 -right-5 w-28 h-28 rounded-2xl bg-accent/12 -z-10" />
             <div className="absolute -top-5 -left-5 w-20 h-20 rounded-xl bg-primary/5 -z-10" />
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -448,8 +513,8 @@ function Hero() {
 // ─── Positioning ───────────────────────────────────────────────────────────────
 function Positioning() {
   return (
-    <section id="vision" className="py-20 md:py-28 bg-card">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="vision" className="py-20 md:py-24 bg-card">
+      <div className="max-w-7xl mx-auto ">
         <div className="text-center mb-12">
           <SectionLabel text="The Associate Partner Model" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight">
@@ -457,7 +522,7 @@ function Positioning() {
           </h2>
         </div>
 
-        <div className="border-l-[3px] border-accent pl-8 md:pl-12 mb-14 max-w-3xl mx-auto">
+        <div className=" border-accent mb-14 max-w-4xl mx-auto text-center">
           <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug mb-3">
             You build your real estate business.
           </p>
@@ -471,15 +536,13 @@ function Positioning() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
-          <div className="bg-[#F8F6F0] rounded-2xl p-6 border border-border">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center mb-4">
-              <Briefcase className="w-5 h-5 text-secondary" />
-            </div>
-            <h3 className="font-bold text-primary text-[15px] mb-2">
+        <div className="grid md:grid-cols-2 max-w-7xl mx-auto -mb-20 md:-mb-24">
+          <div className="flex min-h-[22rem] flex-col justify-center bg-white p-8 sm:p-12 md:aspect-square md:min-h-0 lg:p-16">
+            <Briefcase className="mb-6 h-8 w-8 text-accent" />
+            <h3 className="mb-4 text-2xl font-bold text-primary sm:text-3xl">
               Our Vision
             </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="max-w-md text-base leading-relaxed text-muted-foreground">
               To create India's most trusted community of real estate
               entrepreneurs, starting with a network of 100+ successful
               Associate Partners across Ahmedabad and Gandhinagar. Our vision is
@@ -491,14 +554,32 @@ function Positioning() {
               for the right individuals.
             </p>
           </div>
-          <div className="bg-[#F8F6F0] rounded-2xl p-6 border border-border">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center mb-4">
-              <TrendingUp className="w-5 h-5 text-secondary" />
-            </div>
-            <h3 className="font-bold text-primary text-[15px] mb-2">
-              Our mission
+
+          <div data-image-slot="vision" className="aspect-square overflow-hidden bg-white p-12">
+            <img
+              src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&h=900&fit=crop&auto=format"
+              alt="Modern home representing Awgro Realty's real estate vision"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div
+            data-image-slot="mission"
+            className="order-4 aspect-square overflow-hidden bg-white p-12 md:order-3"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=900&fit=crop&auto=format"
+              alt="Professionals collaborating to represent the real estate mission"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div className="order-3 flex min-h-[22rem] flex-col justify-center bg-white p-8 sm:p-12 md:order-4 md:aspect-square md:min-h-0 lg:p-16">
+            <TrendingUp className="mb-6 h-8 w-8 text-accent" />
+            <h3 className="mb-4 text-2xl font-bold text-primary sm:text-3xl">
+              Our Mission
             </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="max-w-md text-base leading-relaxed text-muted-foreground">
               To empower individuals to start, build, and grow their own real
               estate business through professional training, proven systems,
               technology, marketing support, and a strong network. Provide
@@ -515,8 +596,8 @@ function Positioning() {
 // ─── Benefits ──────────────────────────────────────────────────────────────────
 function Benefits() {
   return (
-    <section id="promise" className="py-20 md:py-28 bg-[#F8F6F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="promise" className="py-20 md:py-24 bg-white">
+      <div className="max-w-7xl mx-auto ">
         <div className="text-center mb-14">
           <SectionLabel text="Our Promise" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight max-w-2xl mx-auto">
@@ -525,12 +606,15 @@ function Benefits() {
         </div>
 
         {/* Comparison */}
-        <div className="grid md:grid-cols-2 gap-5 mb-16 max-w-3xl mx-auto">
-          <div className="bg-card rounded-2xl p-7 border border-border shadow-sm">
-            <p className="text-[14px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-4">
+        <div className="grid gap-0 md:grid-cols-2 max-w-7xl mx-auto ">
+          <div className="flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
+            <h3 className="text-3xl font-bold text-primary sm:text-4xl">
               You Bring
-            </p>
-            <ul className="space-y-3">
+            </h3>
+          </div>
+
+          <div className="flex aspect-square items-center justify-end bg-switch-background p-8 sm:p-12 lg:p-16">
+            <ul className="ml-auto w-fit max-w-xs space-y-5 text-right">
               {[
                 "Your Ambition",
                 "Your Hard Work",
@@ -539,20 +623,17 @@ function Benefits() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3 text-sm font-medium text-foreground"
+                  className="flex flex-row-reverse items-start gap-3 text-sm font-medium text-foreground sm:text-base"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
                   {item}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="bg-primary rounded-2xl p-7 shadow-lg">
-            <p className="text-[14px] font-bold text-secondary uppercase tracking-[0.2em] mb-4">
-              We Provide
-            </p>
-            <ul className="space-y-3">
+          <div className="order-4 flex aspect-square items-center bg-switch-background p-8 sm:p-12 lg:order-3 lg:p-16">
+            <ul className="mr-auto space-y-5">
               {[
                 "Training",
                 "Knowledge",
@@ -563,37 +644,22 @@ function Benefits() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3 text-sm font-medium text-primary-foreground/85"
+                  className="flex items-start gap-3 text-sm font-medium text-foreground sm:text-base"
                 >
-                  <div className="w-4 h-4 rounded-full bg-accent/15 border border-accent/40 flex items-center justify-center flex-shrink-0">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  </div>
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
                   {item}
                 </li>
               ))}
             </ul>
           </div>
+
+          <div className="order-3 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:order-4 lg:p-16">
+            <h3 className="text-3xl font-bold text-primary sm:text-4xl">
+              We Provide
+            </h3>
+          </div>
         </div>
 
-        {/* Six icon cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {BENEFITS.map(({ icon: Icon, title, desc }) => (
-            <div
-              key={title}
-              className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md hover:-translate-y-0.5  transition-all group cursor-default"
-            >
-              <div className="w-11 h-11 rounded-xl bg-primary/5 group-hover:bg-primary flex items-center justify-center mb-4 transition-colors">
-                <Icon className="w-5 h-5 text-primary group-hover:text-secondary transition-colors" />
-              </div>
-              <h3 className="font-bold text-primary text-[15px] mb-2">
-                {title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {desc}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -601,111 +667,136 @@ function Benefits() {
 
 // ─── Journey timeline ──────────────────────────────────────────────────────────
 function Journey() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<1 | -1>(1);
+  const [incomingSlide, setIncomingSlide] = useState<number | null>(null);
+
+  useEffect(() => {
+    DREAM_SLIDES.forEach(({ image }) => {
+      const preload = new Image();
+      preload.src = image;
+    });
+  }, []);
+
+  const goToSlide = (nextSlide: number) => {
+    if (nextSlide === activeSlide || incomingSlide !== null) return;
+
+    const movingForward =
+      (nextSlide - activeSlide + DREAM_SLIDES.length) % DREAM_SLIDES.length ===
+      1;
+    setSlideDirection(movingForward ? 1 : -1);
+    setIncomingSlide(nextSlide);
+
+    window.setTimeout(() => {
+      setActiveSlide(nextSlide);
+      setIncomingSlide(null);
+    }, 100);
+  };
+
+  const changeSlide = (direction: 1 | -1) => {
+    goToSlide(
+      (activeSlide + direction + DREAM_SLIDES.length) % DREAM_SLIDES.length,
+    );
+  };
+
+  const slide = DREAM_SLIDES[activeSlide];
+  const nextSlide = incomingSlide === null ? null : DREAM_SLIDES[incomingSlide];
+
+  const slideContent = (currentSlide: (typeof DREAM_SLIDES)[number]) => (
+    <>
+      <div className="aspect-square overflow-hidden bg-muted">
+        <img
+          src={currentSlide.image}
+          alt={currentSlide.title}
+          className="h-full w-full object-cover"
+        />
+      </div>
+
+      <div className="flex min-h-[22rem] flex-col justify-center">
+        <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          {currentSlide.eyebrow}
+        </p>
+        <h3 className="max-w-xl text-3xl font-extrabold leading-tight text-primary sm:text-4xl">
+          {currentSlide.title}
+        </h3>
+        <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
+          {currentSlide.desc}
+        </p>
+      </div>
+    </>
+  );
+
   return (
-    <section id="dream" className="py-20 md:py-28 bg-card overflow-hidden">
+    <section id="dream" className="overflow-hidden bg-card py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="mb-12 text-center">
           <SectionLabel text="Our Dream" />
-          <h2 className="text-3xl sm:text-4xl md:text-[1.5rem] mb-4 font-extrabold text-primary leading-tight">
-            From 1 Associate Partner to 100 Real Estate Entrepreneurs
-          </h2>
-          <h2 className="text-3xl sm:text-4xl md:text-[1.5rem] mb-4 font-extrabold text-primary leading-tight">
-            From 100 Entrepreneurs to 1 Powerful Real Estate Community.
-          </h2>
-          <h2 className="text-3xl sm:text-4xl md:text-[1.5rem] mb-4 font-extrabold text-primary leading-tight">
-            From Ahmedabad & Gandhinagar to a Larger Real Estate Network.
-          </h2>
         </div>
 
-        {/* Desktop horizontal timeline
-        <div className="hidden md:grid grid-cols-6 gap-3 relative">
-          <div className="absolute top-[29px] left-[8%] right-[8%] h-[2px] bg-gradient-to-r from-accent via-accent/50 to-accent/20" />
-          {JOURNEY.map((s, i) => (
-            <div key={s.label} className="flex flex-col items-center text-center">
-              <div
-                className={clsx(
-                  "relative z-10 w-[62px] h-[62px] rounded-2xl flex flex-col items-center justify-center mb-5 border-2 transition-all",
-                  i < 2
-                    ? "bg-primary border-primary shadow-lg shadow-primary/25"
-                    : i < 4
-                    ? "bg-accent/15 border-accent"
-                    : "bg-[#F8F6F0] border-border"
-                )}
-              >
-                <span
-                  className={clsx(
-                    "text-[10px] font-bold leading-none mb-1",
-                    i < 2 ? "text-accent/70" : "text-muted-foreground"
-                  )}
-                >
-                  {s.num}
-                </span>
-                <span
-                  className={clsx(
-                    "text-sm font-extrabold leading-none",
-                    i < 2 ? "text-primary-foreground" : "text-primary"
-                  )}
-                >
-                  {s.label}
-                </span>
-              </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+        <div className="relative overflow-hidden">
+          <div
+            className={clsx(
+              "grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16",
+              nextSlide &&
+                (slideDirection === 1
+                  ? "dream-slide-out-forward"
+                  : "dream-slide-out-backward"),
+            )}
+          >
+            {slideContent(slide)}
+          </div>
+          {nextSlide && (
+            <div
+              className={clsx(
+                "absolute inset-0 grid items-center gap-10 bg-card lg:grid-cols-[1fr_1.1fr] lg:gap-16",
+                slideDirection === 1
+                  ? "dream-slide-in-forward"
+                  : "dream-slide-in-backward",
+              )}
+            >
+              {slideContent(nextSlide)}
             </div>
-          ))}
-        </div> */}
+          )}
+        </div>
 
-        {/* Mobile vertical timeline */}
-        {/* <div className="md:hidden">
-          {JOURNEY.map((s, i) => (
-            <div key={s.label} className="flex gap-4">
-              <div className="flex flex-col items-center">
-                <div
-                  className={clsx(
-                    "w-12 h-12 rounded-xl flex flex-col items-center justify-center flex-shrink-0 border-2",
-                    i < 2
-                      ? "bg-primary border-primary"
-                      : i < 4
-                        ? "bg-accent/15 border-accent"
-                        : "bg-[#F8F6F0] border-border",
-                  )}
-                >
-                  <span
-                    className={clsx(
-                      "text-[9px] font-bold leading-none mb-0.5",
-                      i < 2 ? "text-accent/70" : "text-muted-foreground",
-                    )}
-                  >
-                    {s.num}
-                  </span>
-                  <span
-                    className={clsx(
-                      "text-xs font-extrabold leading-none",
-                      i < 2 ? "text-primary-foreground" : "text-primary",
-                    )}
-                  >
-                    {s.label}
-                  </span>
-                </div>
-                {i < JOURNEY.length - 1 && (
-                  <div className="w-px flex-1 my-2 bg-gradient-to-b from-accent/50 to-accent/10 min-h-[2rem]" />
-                )}
-              </div>
-              <div
+        <div className="mt-10 flex items-center justify-between gap-6">
+          <div className="flex items-center gap-2" aria-label="Dream slides">
+            {DREAM_SLIDES.map((item, index) => (
+              <button
+                key={item.title}
+                type="button"
+                onClick={() => goToSlide(index)}
+                aria-label={`Show dream slide ${index + 1}`}
+                aria-current={activeSlide === index ? "true" : undefined}
                 className={clsx(
-                  "flex-1 pt-2.5",
-                  i < JOURNEY.length - 1 ? "pb-5" : "pb-0",
+                  "h-2 rounded-full transition-all",
+                  activeSlide === index
+                    ? "w-2 bg-primary"
+                    : "w-2 bg-border hover:bg-accent",
                 )}
-              >
-                <p className="text-sm font-semibold text-primary mb-0.5">
-                  {s.label}
-                </p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {s.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div> */}
+              />
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => changeSlide(-1)}
+              aria-label="Previous dream slide"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-primary transition-colors hover:border-primary hover:bg-muted"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => changeSlide(1)}
+              aria-label="Next dream slide"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-primary transition-colors hover:border-primary hover:bg-muted"
+            >
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -716,7 +807,7 @@ function Campaign() {
   return (
     <section
       id="partner-mission"
-      className="py-20 md:py-32 relative overflow-hidden"
+      className="relative overflow-hidden py-20 md:py-24"
       style={{ background: "#0D1B2A" }}
     >
       <div
@@ -727,10 +818,10 @@ function Campaign() {
           backgroundPosition: "center",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0D1B2A]/90 via-[#0D1B2A]/70 to-[#0D1B2A]/95" />
+      <div className="absolute inset-0 bg-white" />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+      <div className="relative mx-auto max-w-8xl bg-primary px-16 py-20 md:py-24">
+        <div className="grid items-start gap-16 lg:grid-cols-2">
           {/* Left */}
           <div>
             <div className="flex items-center gap-3 mb-7">
@@ -762,55 +853,25 @@ function Campaign() {
 
           {/* Right: Growth ladder (Enterprise at top = goal) */}
           <div>
-            <div className="flex items-center gap-3 mb-7">
+            <div className="flex items-center ml-16 gap-3 mb-7">
               <div className="h-px w-8 bg-secondary" />
               <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.2em]">
                 The Entrepreneur Journey
               </span>
             </div>
-            <div className="relative pl-7">
-              <div className="absolute left-[8px] top-3 bottom-3 w-px bg-gradient-to-b from-accent via-accent/40 to-white/5" />
-              <div className="space-y-3">
+            <div className="relative pl-16">
+              <div className="absolute left-0 top-3 bottom-3 w-px bg-gradient-to-b from-accent via-accent/40 to-white/5" />
+              <div className="space-y-0">
                 {LADDER.map((item, i) => {
-  const isGoal = i === -1;
-
   return (
-    <div key={item} className="flex items-center gap-3 group">
-      {/* Circle */}
-      <div
-        className={clsx(
-          "w-[18px] h-[18px] rounded-full border-2 flex-shrink-0 relative z-10 transition-all duration-300",
-          isGoal
-            ? "bg-accent border-accent shadow-md shadow-accent/40 group-hover:bg-accent group-hover:border-accent"
-            : "bg-white/5 border-white/15 group-hover:bg-accent group-hover:border-accent group-hover:shadow-md group-hover:shadow-accent/40"
-        )}
-      />
-
-      {/* Content */}
-      <div
-        className={clsx(
-          "flex-1 px-4 py-2.5 rounded-xl border transition-all duration-300",
-          isGoal
-            ? "bg-accent/15 border-accent/40 group-hover:bg-accent/15 group-hover:border-accent/40"
-            : "bg-white/[0.03] border-white/5 group-hover:bg-accent/15 group-hover:border-accent/40"
-        )}
-      >
-        <span
-          className={clsx(
-            "text-sm font-semibold transition-colors duration-300",
-            isGoal
-              ? "text-accent"
-              : "text-white/75 group-hover:text-accent"
-          )}
-        >
-          {item}
-        </span>
-      </div>
-
-      {/* Star only for first item */}
-      {isGoal && (
-        <Star className="w-4 h-4 text-accent flex-shrink-0" />
-      )}
+    <div
+      key={item}
+      className="flex items-center justify-between gap-4 border-b border-white/10 py-4 first:pt-0 last:border-b-0"
+    >
+      <span className="text-sm font-semibold text-white/75">{item}</span>
+      <span className="text-xs font-bold tracking-[0.18em] text-white/35">
+        {String(i + 1).padStart(2, "0")}
+      </span>
     </div>
   );
 })}
@@ -910,8 +971,8 @@ function ValuesSection() {
 // ─── FAQ ───────────────────────────────────────────────────────────────────────
 function FAQ() {
   return (
-    <section id="faq" className="py-20 md:py-28 bg-[#F8F6F0]">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-20 md:py-24 bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <SectionLabel text="FAQ's" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary">
@@ -974,8 +1035,8 @@ function ConversionForm({
   const label = "block text-sm font-semibold text-primary mb-1.5";
 
   return (
-    <section id="apply" className="py-20 md:py-28 bg-card">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="apply" className="py-20 md:py-24 bg-card">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {submitted ? (
           <div className="text-center py-10">
             <div className="w-20 h-20 rounded-2xl bg-primary mx-auto flex items-center justify-center mb-6 shadow-xl">
@@ -1147,23 +1208,41 @@ function ConversionForm({
 // ─── Footer ────────────────────────────────────────────────────────────────────
 function Footer() {
   const footerNav = [
+    { label: "Core Values", id: "core-values" },
     { label: "Vision & Mission", id: "vision" },
     { label: "Promise", id: "promise" },
     { label: "Dream", id: "dream" },
     { label: "Partner Mission", id: "partner-mission" },
-    { label: "Core Values", id: "core-values" },
     { label: "FAQs", id: "faq" },
   ];
 
   return (
     <footer className="bg-[#F8F6F0] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1600px] px-8 text-center sm:px-12 lg:px-20">
 
         {/* Main Footer */}
-        <div className="grid md:grid-cols-3 gap-12 py-14 md:py-16">
+        <div className="grid gap-16 py-14 text-center md:grid-cols-2 md:justify-between md:text-left md:py-16">
 
-          {/* Brand */}
-          <div className="max-w-sm">
+          {/* Get started and brand */}
+          <div className="flex min-h-[28rem] flex-col items-center md:items-start">
+            <div className="max-w-sm">
+              <h3 className="mb-5 text-xl font-bold text-primary">
+                Ready to build your own real estate business?
+              </h3>
+              <p className="mt-1.5 text-sm text-primary">
+                Take the first step toward becoming an Awgro Associate Partner.
+              </p>
+              <button
+                type="button"
+                onClick={() => scrollToSection("apply")}
+                className="mt-6 inline-flex items-center gap-2 bg-accent px-6 py-3 font-bold text-secondary rounded-xl hover:bg-accent/90 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/20 whitespace-nowrap"
+              >
+                Become a Partner
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="mt-auto max-w-sm">
             <a
               href="/"
               onClick={(e) => {
@@ -1176,7 +1255,7 @@ function Footer() {
 
                 window.history.replaceState(null, "", "/");
               }}
-              className="inline-flex items-center mb-5"
+              className="mb-5 inline-flex items-center"
             >
               <img
                 src={awgroLogoFooter}
@@ -1185,86 +1264,65 @@ function Footer() {
               />
             </a>
 
-            <p className="text-primary text-sm leading-relaxed max-w-xs">
+            <p className="max-w-xs text-sm leading-relaxed text-primary">
               Building a community of real estate entrepreneurs across
               Ahmedabad and Gandhinagar.
             </p>
 
-            <div className="flex items-center gap-2 mt-6 text-sm text-primary">
+            <div className="mt-6 flex items-center justify-center gap-2 text-sm text-primary md:justify-start">
               <MapPin className="w-4 h-4 text-primary" />
               Ahmedabad & Gandhinagar
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-primary mb-5">
-              Quick Links
-            </h3>
-
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-              {footerNav.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-left text-sm text-primary hover:text-accent transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
             </div>
           </div>
 
-          {/* Get In Touch */}
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-primary mb-5">
-              Get In Touch
-            </h3>
-
-            <div className="space-y-3">
-              <p className="text-sm text-primary">
-                Ahmedabad & Gandhinagar
-              </p>
-
-              <p className="text-sm text-primary">
-                Associate Partner Program
-              </p>
-
-              <a
-                href="https://wa.me/919099999999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border-2 border-[#25D366] text-[#25D366] font-semibold px-5 py-3.5 rounded-xl hover:bg-[#25D366]/8 transition-all text-sm sm:text-base"
-              >
-                <WA />
-                Chat on WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Banner */}
-        <div className="border border-accent/25 bg-accent/[0.07] rounded-2xl p-6 md:p-7 mb-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="grid gap-12 sm:grid-cols-2 md:justify-self-end md:pt-1">
+            {/* Quick Links */}
             <div>
-              <h3 className="text-xl md:text-2xl font-extrabold text-primary">
-                Ready to build your own real estate business?
+              <h3 className="mb-5 text-sm font-bold uppercase tracking-[0.18em] text-primary">
+                Quick Links
               </h3>
 
-              <p className="text-sm text-primary mt-1.5">
-                Take the first step toward becoming an Awgro Associate Partner.
-              </p>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-center md:text-left">
+                {footerNav.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-center text-sm text-primary hover:text-accent transition-colors md:text-left"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => scrollToSection("apply")}
-              className="inline-flex items-center gap-2 bg-accent text-secondary font-bold px-6 py-3 rounded-xl hover:bg-accent/90 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/20 whitespace-nowrap"
-            >
-              Become a Partner
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            {/* Get In Touch */}
+            <div>
+              <h3 className="mb-5 text-sm font-bold uppercase tracking-[0.18em] text-primary">
+                Get In Touch
+              </h3>
+
+              <div className="space-y-3">
+                <p className="text-sm text-primary">
+                  Ahmedabad & Gandhinagar
+                </p>
+
+                <p className="text-sm text-primary">
+                  Associate Partner Program
+                </p>
+
+                <a
+                  href="https://wa.me/919099999999"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-2 border-2 border-[#25D366] px-5 py-3.5 font-semibold text-[#25D366] rounded-xl hover:bg-[#25D366]/8 transition-all text-sm sm:text-base"
+                >
+                  <WA />
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1363,8 +1421,7 @@ export default function App() {
       <Benefits />
       <Journey />
       <Campaign />
-      <Eligibility />
-      <ValuesSection />
+      {/* <Eligibility /> */}
       <FAQ />
       <ConversionForm
         form={form}

@@ -3,4 +3,58 @@
 @import './theme.css';
 html {
   scroll-behavior: smooth;
-}   
+}
+
+@keyframes dream-slide-out-forward {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes dream-slide-in-forward {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.dream-slide-out-forward {
+  animation: dream-slide-out-forward 100ms linear;
+}
+
+.dream-slide-in-forward {
+  animation: dream-slide-in-forward 100ms linear;
+}
+
+@keyframes dream-slide-out-backward {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes dream-slide-in-backward {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.dream-slide-out-backward {
+  animation: dream-slide-out-backward 100ms linear;
+}
+
+.dream-slide-in-backward {
+  animation: dream-slide-in-backward 100ms linear;
+}
