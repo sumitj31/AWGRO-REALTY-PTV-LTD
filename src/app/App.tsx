@@ -673,19 +673,30 @@ function Positioning() {
             />
           </div>
 
-          <div className="order-3 flex min-h-[22rem] flex-col items-end justify-center bg-white p-8 text-right sm:p-12 md:order-4 md:aspect-square md:min-h-0 lg:p-16">
-            <TrendingUp className="mb-6 h-8 w-8 text-accent" />
-            <h3 className="mb-4 text-2xl font-bold text-primary sm:text-3xl">
-              Our Mission
-            </h3>
-            <p className="max-w-md text-xl leading-relaxed text-muted-foreground">
-              To empower individuals to start, build, and grow their own real
-              estate business through professional training, proven systems,
-              technology, marketing support, and a strong network. Provide
-              practical knowledge about the{" "}
-              <b>Ahmedabad and Gandhinagar real estate markets</b>.
-            </p>
-          </div>
+          <div className="order-3 relative flex min-h-[22rem] flex-col items-end justify-center bg-white p-8 text-right sm:p-12 md:order-4 md:aspect-square md:min-h-0 lg:p-16">
+  <TrendingUp className="mb-6 h-8 w-8 text-accent" />
+
+  <h3 className="mb-4 text-2xl font-bold text-primary sm:text-3xl">
+    Our Mission
+  </h3>
+
+  <p className="max-w-md text-xl leading-relaxed text-muted-foreground">
+    To empower individuals to start, build, and grow their own real
+    estate business through professional training, proven systems,
+    technology, marketing support, and a strong network. Provide
+    practical knowledge about the{" "}
+    <b>Ahmedabad and Gandhinagar real estate markets</b>.
+  </p>
+
+  <button
+    type="button"
+    onClick={() => scrollToSection("apply")}
+    className="absolute bottom-8 right-8 inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-all hover:-translate-y-0.5 hover:shadow-lg sm:bottom-12 sm:right-12 lg:bottom-16 lg:right-16"
+  >
+    Get Started
+    <ArrowRight className="w-4 h-4" />
+  </button>
+</div>
         </div>
       </div>
     </section>
@@ -1415,7 +1426,7 @@ function Footer() {
               Ahmedabad and Gandhinagar.
             </p>
 
-            <div className="mt-6 flex gap-2 text-sm text-primary md:justify-self-end md:text-right">
+            <div className="mt-6 flex gap-2 text-sm text-primary md:justify-self-end md:text-rightAhmedabad and Gandhinagar real estate markets.">
               <MapPin className="w-4 h-4 text-primary"/>
               Ahmedabad & Gandhinagar
             </div>
