@@ -470,7 +470,7 @@ function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{
-          backgroundImage: `url(${dream3})`,
+          backgroundImage: `url(${hero1})`,
         }}
         aria-hidden="true"
       />
@@ -572,8 +572,8 @@ function Hero() {
 // ─── Positioning ───────────────────────────────────────────────────────────────
 function CoreValues() {
   return (
-    <section id="core-values" className="bg-white scroll-mt-24">
-      <div className="mx-auto max-w-7xl px-4 text-left sm:px-6 lg:px-8">
+    <section id="core-values" className="bg-white scroll-mt-24 pb-24">
+      <div className="mx-auto max-w-8xl px-4 text-left sm:px-6 lg:px-8 ">
         <SectionLabel text="Core Values" />
         <div className="grid gap-y-10 sm:grid-cols-2 pt-12 lg:grid-cols-4">
           {VALUES.slice(0, 4).map(({ label, desc }, index) => (
@@ -613,7 +613,7 @@ function CoreValues() {
 function Positioning() {
   return (
     <section id="vision" className="py-20 md:py-24 bg-card">
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-8xl mx-auto ">
         <div className="text-center mb-12">
           <SectionLabel text="The Associate Partner Model" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight">
@@ -635,13 +635,13 @@ function Positioning() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 max-w-7xl mx-auto -mb-20 md:-mb-24">
+        <div className="grid md:grid-cols-2 max-w-8xl mx-auto -mb-20 md:-mb-24">
           <div className="flex min-h-[22rem] flex-col justify-center bg-white p-8 sm:p-12 md:aspect-square md:min-h-0 lg:p-16">
             <Briefcase className="mb-6 h-8 w-8 text-accent" />
             <h3 className="mb-4 text-2xl font-bold text-primary sm:text-3xl">
               Our Vision
             </h3>
-            <p className="max-w-md text-base leading-relaxed text-muted-foreground">
+            <p className="max-w-md  text-xl leading-relaxed text-muted-foreground">
               To create India's most trusted community of real estate
               entrepreneurs, starting with a network of 100+ successful
               Associate Partners across Ahmedabad and Gandhinagar. Our vision is
@@ -654,7 +654,7 @@ function Positioning() {
             </p>
           </div>
 
-          <div data-image-slot="vision" className="aspect-square overflow-hidden bg-white p-12">
+          <div data-image-slot="vision"  className="aspect-square overflow-hidden bg-white mx-auto md:pr-16 md:pt-16">
             <img
               src={visionlogo}
               alt="Modern home representing Awgro Realty's real estate vision"
@@ -664,7 +664,7 @@ function Positioning() {
 
           <div
             data-image-slot="mission"
-            className="order-4 aspect-square overflow-hidden bg-white p-12 md:order-3"
+            className="order-4 aspect-square overflow-hidden bg-white mx-auto md:order-3 md:pl-16 md:pb-16"
           >
             <img
               src={missionlogo}
@@ -673,12 +673,12 @@ function Positioning() {
             />
           </div>
 
-          <div className="order-3 flex min-h-[22rem] flex-col justify-center bg-white p-8 sm:p-12 md:order-4 md:aspect-square md:min-h-0 lg:p-16">
+          <div className="order-3 flex min-h-[22rem] flex-col items-end justify-center bg-white p-8 text-right sm:p-12 md:order-4 md:aspect-square md:min-h-0 lg:p-16">
             <TrendingUp className="mb-6 h-8 w-8 text-accent" />
             <h3 className="mb-4 text-2xl font-bold text-primary sm:text-3xl">
               Our Mission
             </h3>
-            <p className="max-w-md text-base leading-relaxed text-muted-foreground">
+            <p className="max-w-md text-xl leading-relaxed text-muted-foreground">
               To empower individuals to start, build, and grow their own real
               estate business through professional training, proven systems,
               technology, marketing support, and a strong network. Provide
@@ -696,7 +696,7 @@ function Positioning() {
 function Benefits() {
   return (
     <section id="promise" className="py-20 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-8xl mx-auto ">
         <div className="text-center mb-14">
           <SectionLabel text="Our Promise" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight max-w-2xl mx-auto">
@@ -705,15 +705,15 @@ function Benefits() {
         </div>
 
         {/* Comparison */}
-        <div className="grid gap-0 md:grid-cols-2 max-w-7xl mx-auto ">
-          <div className="flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
+        <div className="grid gap-0 md:grid-cols-2 max-w-8xl mx-auto px-16">
+          <div className="order-1 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
             <h3 className="text-3xl font-bold text-primary sm:text-4xl">
               You Bring
             </h3>
           </div>
 
-          <div className="flex aspect-square items-center justify-end bg-input-background p-8 sm:p-12 lg:p-16">
-            <ul className="ml-auto w-fit max-w-xs space-y-5 text-right">
+          <div className="order-2 flex aspect-square items-center justify-end bg-input-background p-8 sm:p-12 lg:p-16">
+            <ul className="ml-auto w-fit max-w-xs space-y-5 text-right text-xl">
               {[
                 "Your Ambition",
                 "Your Hard Work",
@@ -721,17 +721,17 @@ function Benefits() {
                 "Your Commitment",
               ].map((item) => (
                 <li
-                  key={item}
-                  className="flex flex-row-reverse items-start gap-3 text-sm font-medium text-foreground sm:text-base"
-                >
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
-                  {item}
-                </li>
+  key={item}
+  className="flex flex-row-reverse items-center gap-3 text-xl font-medium text-foreground sm:text-xl"
+>
+  <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-accent" />
+  {item}
+</li>
               ))}
             </ul>
           </div>
 
-          <div className="order-4 flex aspect-square items-center bg-input-background p-8 sm:p-12 lg:order-3 lg:p-16">
+          <div className="order-4 md:order-3 flex min-w-0 aspect-square items-center overflow-hidden bg-input-background p-6 sm:p-8 lg:p-16">
             <ul className="mr-auto space-y-5">
               {[
                 "Training",
@@ -742,17 +742,17 @@ function Benefits() {
                 "Business Ecosystem",
               ].map((item) => (
                 <li
-                  key={item}
-                  className="flex items-start gap-3 text-sm font-medium text-foreground sm:text-base"
-                >
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                  {item}
-                </li>
+  key={item}
+  className="flex items-center gap-3 text-sm font-medium text-foreground sm:text-xl"
+>
+  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+  {item}
+</li>
               ))}
             </ul>
           </div>
 
-          <div className="order-3 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:order-4 lg:p-16">
+          <div className="order-3 md:order-4 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
             <h3 className="text-3xl font-bold text-primary sm:text-4xl">
               We Provide
             </h3>
@@ -827,7 +827,7 @@ function Journey() {
 
   return (
     <section id="dream" className="overflow-hidden bg-card py-20 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-16">
         <div className="mb-12 text-center">
           <SectionLabel text="Our Dream" />
         </div>
@@ -952,14 +952,13 @@ function Campaign() {
 
           {/* Right: Growth ladder (Enterprise at top = goal) */}
           <div>
-            <div className="flex items-center ml-16 gap-3 mb-7">
+            <div className="flex items-center gap-3 mb-7">
               <div className="h-px w-8 bg-secondary" />
               <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.2em]">
                 The Entrepreneur Journey
               </span>
             </div>
-            <div className="relative pl-16">
-              <div className="absolute left-0 top-3 bottom-3 w-px bg-gradient-to-b from-accent via-accent/40 to-white/5" />
+            <div className="relative">
               <div className="space-y-0">
                 {LADDER.map((item, i) => {
   return (
@@ -1315,13 +1314,13 @@ function Footer() {
 
   return (
     <footer className="bg-[#F8F6F0] text-white">
-      <div className="mx-auto max-w-[1600px] px-8 text-center sm:px-12 lg:px-20">
+      <div className="mx-auto max-w-8xl px-8 text-center sm:px-12 lg:px-20">
 
         {/* Main Footer */}
-        <div className="grid gap-16 py-14 text-center md:grid-cols-2 md:justify-between md:text-left md:py-16">
+        <div className="grid gap-16 py-14 text-center md:grid-cols-3 md:justify-between md:text-left md:py-16">
 
           {/* Get started and brand */}
-          <div className="flex min-h-[28rem] flex-col items-center md:items-start">
+          <div className="flex min-h-[6rem] flex-col items-center md:items-start">
             <div className="max-w-sm">
               <h3 className="mb-5 text-xl font-bold text-primary">
                 Ready to build your own real estate business?
@@ -1337,39 +1336,6 @@ function Footer() {
                 Become a Partner
                 <ArrowRight className="w-4 h-4" />
               </button>
-            </div>
-
-            <div className="mt-auto max-w-sm">
-            <a
-              href="/"
-              onClick={(e) => {
-                e.preventDefault();
-
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                });
-
-                window.history.replaceState(null, "", "/");
-              }}
-              className="mb-5 inline-flex items-center"
-            >
-              <img
-                src={awgroLogoFooter}
-                alt="Awgro Realty"
-                className="h-10 w-auto object-contain"
-              />
-            </a>
-
-            <p className="max-w-xs text-sm leading-relaxed text-primary">
-              Building a community of real estate entrepreneurs across
-              Ahmedabad and Gandhinagar.
-            </p>
-
-            <div className="mt-6 flex items-center justify-center gap-2 text-sm text-primary md:justify-start">
-              <MapPin className="w-4 h-4 text-primary" />
-              Ahmedabad & Gandhinagar
-            </div>
             </div>
           </div>
 
@@ -1421,6 +1387,39 @@ function Footer() {
               </div>
             </div>
           </div>
+
+          <div className="max-w-sm md:justify-self-end md:text-right">
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+
+                window.history.replaceState(null, "", "/");
+              }}
+              className="mb-5 inline-flex"
+            >
+              <img
+                src={awgroLogoFooter}
+                alt="Awgro Realty"
+                className="h-10 w-auto object-contain"
+              />
+            </a>
+
+            <p className="max-w-xs text-sm leading-relaxed text-primary">
+              Building a community of real estate entrepreneurs across
+              Ahmedabad and Gandhinagar.
+            </p>
+
+            <div className="mt-6 flex gap-2 text-sm text-primary md:justify-self-end md:text-right">
+              <MapPin className="w-4 h-4 text-primary"/>
+              Ahmedabad & Gandhinagar
+            </div>
+            </div>
         </div>
 
         {/* Bottom Bar */}
