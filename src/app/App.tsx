@@ -20,6 +20,7 @@ import {
   XCircle,
   ChevronDown,
   ArrowRight,
+  ArrowDown,
   Target,
   Shield,
   Eye,
@@ -508,7 +509,7 @@ function Hero() {
       <div className="hero-overlay absolute inset-0 bg-black/30" aria-hidden="true" />
       {/* <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent/[0.04] pointer-events-none" /> */}
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-5rem)] max-w-8xl items-center px-4 py-20 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto  min-h-[calc(100svh-5rem)] max-w-8xl items-center px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-1 gap-12 lg:gap-16 items-center">
           {/* Left */}
           <div className="hero-content order-2 lg:order-1 mx-auto max-w-7xl text-center py-5" >
@@ -816,149 +817,91 @@ if (
 
 // ─── Benefits ──────────────────────────────────────────────────────────────────
 function Benefits() {
-  const sectionRef = useRef<HTMLElement | null>(null);
+  const youBring = [
+    "Your Ambition",
+    "Your Hard Work",
+    "Your Network",
+    "Your Commitment",
+  ];
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const youBringHeading = section.querySelector(".you-bring-title");
-const weProvideHeading = section.querySelector(".we-provide-title");
-
-    const youBringPoints = section.querySelector(".benefits-bring-points");
-    const weProvidePoints = section.querySelector(".benefits-provide-points");
-
-    let ticking = false;
-
-    const checkPosition = () => {
-      const screenMiddle = window.innerHeight / 2;
-
-      // YOU BRING HEADING → YOU BRING POINTS
-      if (
-        youBringHeading &&
-        youBringPoints &&
-        !youBringPoints.classList.contains("points-visible")
-      ) {
-        const rect = youBringHeading.getBoundingClientRect();
-
-        if (rect.top <= screenMiddle) {
-          youBringPoints.classList.add("points-visible");
-        }
-      }
-
-      // WE PROVIDE HEADING → WE PROVIDE POINTS
-      if (
-        weProvideHeading &&
-        weProvidePoints &&
-        !weProvidePoints.classList.contains("points-visible")
-      ) {
-        const rect = weProvideHeading.getBoundingClientRect();
-
-        if (rect.top <= screenMiddle) {
-          weProvidePoints.classList.add("points-visible");
-        }
-      }
-
-      ticking = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(checkPosition);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    checkPosition();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const weProvide = [
+    "Training",
+    "Knowledge",
+    "Systems",
+    "Technology",
+    "Marketing Support",
+    "Business Ecosystem",
+  ];
 
   return (
     <section
       id="promise"
-      ref={sectionRef}
-      className="benefits-section section-shell py-24 md:py-32 bg-white"
+      className="moving-promise-section relative overflow-hidden bg-white py-24 md:py-32"
     >
-      <div className="max-w-8xl mx-auto">
+      <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-10">
 
-        <div className="reveal text-center mb-14">
+        {/* SECTION HEADING */}
+        <div className="mb-16 text-center md:mb-20">
           <SectionLabel text="Our Promise" />
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight max-w-2xl mx-auto">
-            You Build the Business. We Build the System That Helps You Grow.
+          <h2 className="mx-auto mt-5 max-w-4xl text-3xl font-extrabold leading-[1.08] tracking-tight text-primary sm:text-4xl md:text-5xl">
+            You Build the Business.
+            <br />
+            We Build the System That Helps You Grow.
           </h2>
         </div>
 
-        <div className="promise-grid grid gap-0 md:grid-cols-2 max-w-8xl mx-auto px-4 sm:px-8 lg:px-16">
+        {/* ═══════════════════════════════════════════════════════
+            YOU BRING
+        ═══════════════════════════════════════════════════════ */}
+        <div className="moving-promise-row">
 
-          {/* YOU BRING HEADING */}
-          <div className="reveal promise-panel you-bring-heading order-1 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
-            <h3 className="you-bring-title text-3xl font-bold text-primary sm:text-4xl">
-              You Bring
-            </h3>
+          {/* Fixed label */}
+          <div className="moving-promise-label">
+            <span>You Bring</span>
           </div>
 
-          {/* YOU BRING POINTS */}
-          <div className="reveal promise-panel benefits-bring-points order-2 flex aspect-square items-center justify-end bg-input-background p-8 sm:p-12 lg:p-16">
-            <ul className="ml-auto w-fit max-w-xs space-y-5 text-right text-xl">
-              {[
-                "Your Ambition",
-                "Your Hard Work",
-                "Your Network",
-                "Your Commitment",
-              ].map((item, index) => (
-                <li
-                  key={item}
-                  className="benefit-point flex flex-row-reverse items-center gap-3 text-xl font-medium text-foreground sm:text-xl"
-                  style={{
-                    transitionDelay: `${index * 120}ms`,
-                  }}
+          {/* Moving content */}
+          <div className="moving-promise-track moving-promise-track-forward">
+            <div className="moving-promise-items">
+              {[...youBring, ...youBring].map((item, index) => (
+                <div
+                  key={`bring-${index}`}
+                  className="moving-promise-item"
                 >
-                  <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-accent" />
-                  {item}
-                </li>
+                  <span>{item}</span>
+                  <i />
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
-
-          {/* WE PROVIDE POINTS */}
-          <div className="reveal promise-panel benefits-provide-points order-4 md:order-3 flex min-w-0 aspect-square items-center overflow-hidden bg-input-background p-6 sm:p-8 lg:p-16">
-            <ul className="mr-auto space-y-5">
-              {[
-                "Training",
-                "Knowledge",
-                "Systems",
-                "Technology",
-                "Marketing Support",
-                "Business Ecosystem",
-              ].map((item, index) => (
-                <li
-                  key={item}
-                  className="benefit-point flex items-center gap-3 text-sm font-medium text-foreground sm:text-xl"
-                  style={{
-                    transitionDelay: `${index * 120}ms`,
-                  }}
-                >
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* WE PROVIDE HEADING */}
-          <div className="reveal promise-panel we-provide-heading order-3 md:order-4 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
-            <h3 className="we-provide-title text-3xl font-bold text-primary sm:text-4xl">
-              We Provide
-            </h3>
-          </div>
-
         </div>
+
+        {/* WE PROVIDE */}
+<div className="moving-promise-row moving-promise-row-right mt-8 md:mt-10">
+
+  {/* Moving content */}
+  <div className="moving-promise-track moving-promise-track-reverse">
+    <div className="moving-promise-items">
+      {[...weProvide, ...weProvide].map((item, index) => (
+        <div
+          key={`provide-${index}`}
+          className="moving-promise-item"
+        >
+          <span>{item}</span>
+          <i />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Fixed label on RIGHT */}
+  <div className="moving-promise-label moving-promise-label-right">
+    <span>We Provide</span>
+  </div>
+
+</div>
+
       </div>
     </section>
   );

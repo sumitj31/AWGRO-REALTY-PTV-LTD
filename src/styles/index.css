@@ -326,3 +326,1033 @@ body { overflow-x: hidden; }
   .dream-slide-out-backward,
   .dream-slide-in-backward { animation: none !important; }
 }
+
+/* =========================================================
+   OUR PROMISE — PREMIUM REDESIGN
+   ========================================================= */
+
+.promise-reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition:
+    opacity 800ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.promise-reveal.promise-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ─────────────────────────────────────────
+   YOU BRING ITEMS
+   ───────────────────────────────────────── */
+
+.promise-bring-item {
+  opacity: 0;
+  transform: translateX(-25px);
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.promise-visible .promise-bring-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* ─────────────────────────────────────────
+   WE PROVIDE CARDS
+   ───────────────────────────────────────── */
+
+.promise-reveal .group {
+  will-change: transform;
+}
+
+
+/* ─────────────────────────────────────────
+   SUBTLE BACKGROUND MOVEMENT
+   ───────────────────────────────────────── */
+
+.benefits-section::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1px solid rgba(39, 136, 169, 0.06);
+  top: 8%;
+  right: -180px;
+  pointer-events: none;
+}
+
+
+/* ─────────────────────────────────────────
+   REDUCED MOTION
+   ───────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .promise-reveal,
+  .promise-bring-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   MOBILE
+   ───────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .benefits-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .promise-bring-item {
+    transform: translateY(20px);
+  }
+
+  .promise-visible .promise-bring-item {
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   MODERN YOU BRING / WE PROVIDE
+   ========================================================= */
+
+.modern-promise-section {
+  isolation: isolate;
+}
+
+
+/* ─────────────────────────────────────────
+   GENERAL REVEAL
+   ───────────────────────────────────────── */
+
+.promise-modern-reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition:
+    opacity 900ms ease,
+    transform 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.promise-modern-reveal.promise-modern-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ─────────────────────────────────────────
+   YOU BRING ROWS
+   ───────────────────────────────────────── */
+
+.promise-bring-row {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  min-height: 72px;
+
+  border-top: 1px solid rgba(13, 27, 42, 0.1);
+
+  opacity: 0;
+  transform: translateX(-30px);
+
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    padding 300ms ease;
+}
+
+.promise-modern-visible .promise-bring-row {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.promise-bring-row:last-child {
+  border-bottom: 1px solid rgba(13, 27, 42, 0.1);
+}
+
+.promise-row-number {
+  width: 30px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+
+  color: #2788a9;
+
+  flex-shrink: 0;
+}
+
+.promise-row-text {
+  font-size: 17px;
+  font-weight: 600;
+
+  color: #0d1b2a;
+
+  transition:
+    transform 300ms ease,
+    color 300ms ease;
+}
+
+.promise-row-arrow {
+  width: 16px;
+  height: 16px;
+
+  margin-left: auto;
+
+  color: rgba(13, 27, 42, 0.2);
+
+  transition:
+    transform 300ms ease,
+    color 300ms ease;
+}
+
+.promise-bring-row:hover {
+  padding-left: 8px;
+}
+
+.promise-bring-row:hover .promise-row-text {
+  color: #2788a9;
+}
+
+.promise-bring-row:hover .promise-row-arrow {
+  color: #2788a9;
+  transform: translateX(5px);
+}
+
+
+/* ─────────────────────────────────────────
+   PROVIDE ROWS
+   ───────────────────────────────────────── */
+
+.promise-provide-row {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 18px;
+
+  padding: 20px 18px;
+
+  border: 1px solid rgba(13, 27, 42, 0.07);
+  border-radius: 16px;
+
+  background: #f8f6f0;
+
+  opacity: 0;
+  transform: translateY(25px);
+
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 350ms ease,
+    border-color 350ms ease,
+    background 350ms ease;
+}
+
+.promise-modern-visible .promise-provide-row {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.promise-provide-row:hover {
+  background: white;
+
+  border-color: rgba(39, 136, 169, 0.25);
+
+  box-shadow:
+    0 15px 35px rgba(13, 27, 42, 0.07);
+
+  transform: translateX(5px);
+}
+
+
+/* Icon */
+
+.promise-provide-icon {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  width: 54px;
+  height: 54px;
+
+  flex-shrink: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #0d1b2a;
+
+  transition:
+    transform 350ms ease,
+    background 350ms ease;
+}
+
+.promise-provide-row:hover .promise-provide-icon {
+  transform: scale(1.08) rotate(3deg);
+  background: #0d1b2a;
+}
+
+
+/* ─────────────────────────────────────────
+   DECORATIVE BACKGROUND
+   ───────────────────────────────────────── */
+
+.modern-promise-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -260px;
+  top: 18%;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(39, 136, 169, 0.06);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* ─────────────────────────────────────────
+   MOBILE
+   ───────────────────────────────────────── */
+
+@media (max-width: 767px) {
+
+  .promise-bring-row {
+    min-height: 64px;
+  }
+
+  .promise-row-text {
+    font-size: 15px;
+  }
+
+  .promise-provide-row {
+    padding: 16px;
+  }
+
+  .promise-provide-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+
+  .promise-provide-row:hover {
+    transform: translateY(-2px);
+  }
+
+}
+
+
+/* ─────────────────────────────────────────
+   REDUCED MOTION
+   ───────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .promise-modern-reveal,
+  .promise-bring-row,
+  .promise-provide-row {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+}
+
+/* =========================================================
+   OUR PROMISE
+   Editorial / Asymmetric Design
+   ========================================================= */
+
+.promise-editorial-section {
+  position: relative;
+}
+
+
+/* ─────────────────────────────────────────
+   SCROLL REVEAL
+   ───────────────────────────────────────── */
+
+.promise-editorial-item {
+  opacity: 0;
+  transform: translateY(32px);
+
+  transition:
+    opacity 750ms ease,
+    transform 850ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.promise-editorial-item.promise-editorial-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ─────────────────────────────────────────
+   MAIN LAYOUT
+   ───────────────────────────────────────── */
+
+.promise-editorial-layout {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+
+  border-top: 1px solid rgba(13, 27, 42, 0.14);
+  border-bottom: 1px solid rgba(13, 27, 42, 0.14);
+}
+
+
+/* ─────────────────────────────────────────
+   LEFT SIDE
+   ───────────────────────────────────────── */
+
+.promise-editorial-bring {
+  padding-right: clamp(40px, 6vw, 100px);
+}
+
+
+/* ─────────────────────────────────────────
+   RIGHT SIDE
+   ───────────────────────────────────────── */
+
+.promise-editorial-provide {
+  padding-left: clamp(40px, 6vw, 100px);
+
+  border-left: 1px solid rgba(13, 27, 42, 0.14);
+}
+
+
+/* ─────────────────────────────────────────
+   HEADINGS
+   ───────────────────────────────────────── */
+
+.promise-editorial-heading {
+  display: flex;
+  align-items: center;
+
+  min-height: 130px;
+
+  border-bottom: 1px solid rgba(13, 27, 42, 0.14);
+}
+
+.promise-editorial-heading h3 {
+  margin: 0;
+
+  color: #0D1B2A;
+
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+
+/* ─────────────────────────────────────────
+   YOU BRING
+   LARGE TYPOGRAPHY
+   ───────────────────────────────────────── */
+
+.promise-bring-list {
+  padding-top: 8px;
+}
+
+.promise-bring-item {
+  display: flex;
+  align-items: center;
+
+  min-height: 92px;
+
+  border-bottom: 1px solid rgba(13, 27, 42, 0.10);
+
+  overflow: hidden;
+
+  transition:
+    padding-left 350ms ease,
+    color 350ms ease;
+}
+
+.promise-bring-item:last-child {
+  border-bottom: none;
+}
+
+.promise-bring-item span {
+  color: #0D1B2A;
+
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+
+  transition:
+    color 350ms ease,
+    transform 350ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.promise-bring-item:hover {
+  padding-left: 12px;
+}
+
+.promise-bring-item:hover span {
+  color: #2788a9;
+  transform: translateX(4px);
+}
+
+
+/* ─────────────────────────────────────────
+   WE PROVIDE
+   CLEAN CATALOGUE
+   ───────────────────────────────────────── */
+
+.promise-provide-list {
+  padding-top: 8px;
+}
+
+.promise-provide-item {
+  display: flex;
+  align-items: center;
+
+  min-height: 76px;
+
+  border-bottom: 1px solid rgba(13, 27, 42, 0.10);
+
+  transition:
+    padding-left 350ms ease,
+    color 350ms ease;
+}
+
+.promise-provide-item:last-child {
+  border-bottom: none;
+}
+
+.promise-provide-item span {
+  color: #0D1B2A;
+
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.2;
+
+  transition:
+    color 350ms ease,
+    transform 350ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.promise-provide-item:hover {
+  padding-left: 12px;
+}
+
+.promise-provide-item:hover span {
+  color: #2788a9;
+  transform: translateX(4px);
+}
+
+
+/* ─────────────────────────────────────────
+   TABLET
+   ───────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+
+  .promise-editorial-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .promise-editorial-bring {
+    padding-right: 40px;
+  }
+
+  .promise-editorial-provide {
+    padding-left: 40px;
+  }
+
+  .promise-editorial-heading {
+    min-height: 110px;
+  }
+
+  .promise-bring-item {
+    min-height: 80px;
+  }
+
+  .promise-provide-item {
+    min-height: 68px;
+  }
+
+}
+
+
+/* ─────────────────────────────────────────
+   MOBILE
+   ───────────────────────────────────────── */
+
+@media (max-width: 767px) {
+
+  .promise-editorial-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .promise-editorial-layout {
+    display: block;
+  }
+
+  .promise-editorial-bring,
+  .promise-editorial-provide {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .promise-editorial-provide {
+    margin-top: 64px;
+
+    border-left: none;
+    border-top: 1px solid rgba(13, 27, 42, 0.14);
+  }
+
+  .promise-editorial-heading {
+    min-height: 90px;
+  }
+
+  .promise-editorial-heading h3 {
+    font-size: 2.6rem;
+  }
+
+  .promise-bring-item {
+    min-height: 72px;
+  }
+
+  .promise-bring-item span {
+    font-size: 1.35rem;
+  }
+
+  .promise-provide-item {
+    min-height: 62px;
+  }
+
+  .promise-provide-item span {
+    font-size: 1.05rem;
+  }
+
+  .promise-bring-item:hover,
+  .promise-provide-item:hover {
+    padding-left: 5px;
+  }
+
+}
+
+
+/* ─────────────────────────────────────────
+   REDUCED MOTION
+   ───────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .promise-editorial-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+}
+
+/* =========================================================
+   YOU BRING / WE PROVIDE — MOVING MARQUEE
+   ========================================================= */
+
+.moving-promise-section {
+  position: relative;
+  isolation: isolate;
+}
+
+/* ---------------------------------------------------------
+   ROW
+   --------------------------------------------------------- */
+
+.moving-promise-row {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  border-top: 1px solid rgba(13, 27, 42, 0.08);
+  border-bottom: 1px solid rgba(13, 27, 42, 0.08);
+
+  background: #ffffff;
+}
+
+/* ---------------------------------------------------------
+   MOVING CONTENT
+   --------------------------------------------------------- */
+
+.moving-promise-track {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+.moving-promise-items {
+  display: flex;
+  align-items: center;
+
+  width: max-content;
+  flex-shrink: 0;
+
+  white-space: nowrap;
+
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------
+   YOU BRING
+   LEFT → RIGHT
+   --------------------------------------------------------- */
+
+.moving-promise-track-forward .moving-promise-items {
+  animation: promise-marquee-forward 22s linear infinite;
+}
+
+/* ---------------------------------------------------------
+   WE PROVIDE
+   RIGHT → LEFT
+   --------------------------------------------------------- */
+
+.moving-promise-track-reverse .moving-promise-items {
+  animation: promise-marquee-reverse 26s linear infinite;
+}
+
+/* ---------------------------------------------------------
+   INDIVIDUAL ITEMS
+   --------------------------------------------------------- */
+
+.moving-promise-item {
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  padding: 0 42px;
+
+  color: #0d1b2a;
+
+  font-size: clamp(1.4rem, 2.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.moving-promise-item i {
+  display: block;
+
+  width: 7px;
+  height: 7px;
+
+  margin-left: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #2788a9;
+}
+
+/* ---------------------------------------------------------
+   FIXED LABEL
+   --------------------------------------------------------- */
+
+/*
+   The label is intentionally the same height as the row.
+   No border, radius, or shadow — it behaves as part of
+   the flowing strip instead of looking like a button/card.
+*/
+
+.moving-promise-label {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 230px;
+  height: 100%;
+
+  flex-shrink: 0;
+
+  margin-left: 0;
+
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  
+  background: #0D1B2A;
+}
+
+/* Label text */
+
+.moving-promise-label span {
+  position: relative;
+  z-index: 2;
+
+  color: white;
+
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   LABEL → FLOW FADE
+   --------------------------------------------------------- */
+
+/*
+   You Bring:
+   Moving content fades smoothly as it passes behind
+   the fixed label on the left.
+*/
+
+
+
+/*
+   We Provide:
+   Moving content fades smoothly as it passes behind
+   the fixed label on the right.
+*/
+
+/* ---------------------------------------------------------
+   SMOOTH WHITE MARQUEE EDGE FADE
+   --------------------------------------------------------- */
+
+.moving-promise-track::before,
+.moving-promise-track::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 150px;
+
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* LEFT END — smoothly fades into white */
+.moving-promise-track::before {
+  left: 0;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.98) 15%,
+    rgba(255, 255, 255, 0.90) 30%,
+    rgba(255, 255, 255, 0.70) 48%,
+    rgba(255, 255, 255, 0.42) 65%,
+    rgba(255, 255, 255, 0.18) 82%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* RIGHT END — smoothly fades into white */
+.moving-promise-track::after {
+  right: 0;
+
+  background: linear-gradient(
+    270deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.98) 15%,
+    rgba(255, 255, 255, 0.90) 30%,
+    rgba(255, 255, 255, 0.70) 48%,
+    rgba(255, 255, 255, 0.42) 65%,
+    rgba(255, 255, 255, 0.18) 82%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* ---------------------------------------------------------
+   HOVER — PAUSE
+   --------------------------------------------------------- */
+
+.moving-promise-row:hover
+.moving-promise-track-forward .moving-promise-items,
+.moving-promise-row:hover
+.moving-promise-track-reverse .moving-promise-items {
+  animation-play-state: paused;
+}
+
+/* ---------------------------------------------------------
+   WE PROVIDE ROW
+   --------------------------------------------------------- */
+
+.moving-promise-row-right {
+  justify-content: flex-end;
+}
+
+.moving-promise-label-right {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.moving-promise-row-right .moving-promise-track {
+  z-index: 1;
+}
+
+.moving-promise-row-right .moving-promise-label {
+  z-index: 5;
+}
+
+/* ---------------------------------------------------------
+   MARQUEE ANIMATIONS
+   --------------------------------------------------------- */
+
+@keyframes promise-marquee-forward {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes promise-marquee-reverse {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .moving-promise-row {
+    height: 110px;
+  }
+
+  .moving-promise-label {
+    width: 200px;
+    height: 100%;
+  }
+
+  .moving-promise-item {
+    padding: 0 32px;
+    font-size: 1.6rem;
+  }
+
+  .moving-promise-item i {
+    margin-left: 32px;
+  }
+
+  .moving-promise-row:not(.moving-promise-row-right)
+  .moving-promise-label::after,
+  .moving-promise-label-right::before {
+    width: 75px;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .moving-promise-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .moving-promise-row {
+    height: 92px;
+  }
+
+  .moving-promise-label {
+    width: 145px;
+    height: 100%;
+
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .moving-promise-label span {
+    font-size: 1.05rem;
+  }
+
+  .moving-promise-item {
+    padding: 0 24px;
+    font-size: 1.25rem;
+  }
+
+  .moving-promise-item i {
+    width: 5px;
+    height: 5px;
+
+    margin-left: 24px;
+  }
+
+  .moving-promise-track::before,
+  .moving-promise-track::after {
+    width: 55px;
+  }
+
+  .moving-promise-row:not(.moving-promise-row-right)
+  .moving-promise-label::after,
+  .moving-promise-label-right::before {
+    width: 55px;
+  }
+
+  .moving-promise-track-forward .moving-promise-items {
+    animation-duration: 18s;
+  }
+
+  .moving-promise-track-reverse .moving-promise-items {
+    animation-duration: 21s;
+  }
+}
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .moving-promise-track-forward .moving-promise-items,
+  .moving-promise-track-reverse .moving-promise-items {
+    animation: none;
+    transform: translateX(0);
+  }
+}
