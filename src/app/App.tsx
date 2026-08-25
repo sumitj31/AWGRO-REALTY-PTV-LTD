@@ -1110,9 +1110,9 @@ function Campaign() {
       className="flex items-center justify-between gap-4 border-b border-white/10 py-4 first:pt-0 last:border-b-0"
     >
       <span className="text-sm font-semibold text-white/75">{item}</span>
-      <span className="text-xs font-bold tracking-[0.18em] text-white/35">
+      {/* <span className="text-xs font-bold tracking-[0.18em] text-white/35">
         {String(i + 1).padStart(2, "0")}
-      </span>
+      </span> */}
     </div>
   );
 })}
