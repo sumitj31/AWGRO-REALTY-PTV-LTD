@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import awgroLogoNavbar from "../imports/awgro_logo.png";
 import awgroLogoFooter from "../imports/awgro_logo2.png";
@@ -8,7 +8,7 @@ import dream1 from "../imports/dream1.jpg";
 import dream2 from "../imports/dream2.jpg";
 import dream3 from "../imports/dream3.jpg";
 import hero1 from "../imports/hero1.jpg";
-import hero2 from "../imports/hero2.jpg";
+import herovideo from "../imports/herovideo.mp4";
 import {
   GraduationCap,
   BookOpen,
@@ -264,6 +264,35 @@ const scrollToSection = (id: string) => {
   }
 };
 
+// ─── Scroll reveal observer ─────────────────────────────────────────────────────
+function useScrollReveal() {
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+    if (!elements.length) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      elements.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -8% 0px" },
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+}
+
 // ─── Header ────────────────────────────────────────────────────────────────────
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -274,8 +303,8 @@ function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm">
-      <div className="max-w-8xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <header className="site-header sticky top-0 z-50 bg-card/90 backdrop-blur-xl">
+      <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
         {/* Logo */}
         <a
@@ -466,29 +495,31 @@ function Header() {
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-white mb-30">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{
-          backgroundImage: `url(${hero1})`,
-        }}
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-white/5" aria-hidden="true" />
+    <section id="home" className="hero-section relative min-h-[calc(100svh-5rem)] overflow-hidden bg-white">
+      <video
+  className="hero-video absolute inset-0 w-full h-full object-cover z-0"
+  src={herovideo}
+  autoPlay
+  muted
+  loop
+  playsInline
+  aria-hidden="true"
+/>
+      <div className="hero-overlay absolute inset-0 bg-black/30" aria-hidden="true" />
       {/* <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent/[0.04] pointer-events-none" /> */}
 
-      <div className="relative z-10 max-w-8xl py-16 md:pb-45 py-20">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-5rem)] max-w-8xl items-center px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-1 gap-12 lg:gap-16 items-center">
           {/* Left */}
-          <div className="order-2 lg:order-1 mx-auto max-w-7xl text-center py-5" >
-            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 my-7">
-              <MapPin className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-              <span className="text-accent text-[12px] font-bold uppercase tracking-wide">
+          <div className="hero-content order-2 lg:order-1 mx-auto max-w-7xl text-center py-5" >
+            <div className="hero-pill inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 my-7 backdrop-blur-md">
+              <MapPin className="w-3.5 h-3.5 text-white flex-shrink-0" />
+              <span className="text-muted text-[12px] font-bold uppercase tracking-wide">
                 Ahmedabad & Gandhinagar · Associate Partner Program
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-primary leading-[1.08] tracking-[-0.02em] mt-8 mb-6 mx-4">
+            <h1 className="hero-title text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mix-blend-difference leading-[1.04] tracking-[-0.03em] mt-8 mb-6 mx-4">
               Start and Build Your Own{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">Real Estate Business</span>
@@ -496,12 +527,12 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 mt-18 max-w-md mx-auto">
+            <p className="hero-copy text-base sm:text-lg text-white/90 leading-relaxed mb-8 mt-12 max-w-2xl mx-auto">
               <b>Awgro Realty Pvt. Ltd.</b> is building a new generation of{" "}
               <b>Real Estate Entrepreneurs</b> across Ahmedabad and Gandhinagar.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-3  mt-16">
+            <div className="hero-actions flex flex-wrap justify-center gap-3 mt-12">
               <a
                 href="#apply"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-3.5 rounded-xl hover:bg-primary/90 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm sm:text-base"
@@ -561,7 +592,7 @@ function Hero() {
               e.preventDefault();
               scrollToSection("apply");
             }}
-  className="fixed right-6 bottom-6 z-50 bg-primary text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+  className="floating-cta fixed right-6 bottom-6 z-50 bg-primary text-white font-bold px-7 py-4 rounded-full shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2">
   Become Associate <ArrowRight className="w-5 h-5 flex" />
 </a>
 
@@ -572,12 +603,12 @@ function Hero() {
 // ─── Positioning ───────────────────────────────────────────────────────────────
 function CoreValues() {
   return (
-    <section id="core-values" className="bg-white scroll-mt-24 pb-24">
+    <section id="core-values" className="section-shell bg-white scroll-mt-24 py-24 md:py-32">
       <div className="mx-auto max-w-8xl px-4 text-left sm:px-6 lg:px-8 ">
         <SectionLabel text="Core Values" />
         <div className="grid gap-y-10 sm:grid-cols-2 pt-12 lg:grid-cols-4">
           {VALUES.slice(0, 4).map(({ label, desc }, index) => (
-            <div key={label} className="px-6 lg:border-l lg:border-border lg:first:border-l-0">
+            <div key={label} className="reveal value-item group px-6 lg:border-l lg:border-border lg:first:border-l-0">
               <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
                 {String(index + 1).padStart(2, "0")}
               </p>
@@ -592,7 +623,7 @@ function CoreValues() {
         </div>
         <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 pt-12 lg:max-w-[75%] lg:mx-auto mt-10">
           {VALUES.slice(4).map(({ label, desc }, index) => (
-            <div key={label} className="px-6 lg:border-l lg:border-border lg:first:border-l-0">
+            <div key={label} className="reveal value-item group px-6 lg:border-l lg:border-border lg:first:border-l-0">
               <p className="text-2xl text-muted-foreground/80 leading-none mb-5">
                 {String(index + 5).padStart(2, "0")}
               </p>
@@ -611,24 +642,95 @@ function CoreValues() {
 }
 
 function Positioning() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const visionHeading = section.querySelector(".vision-heading");
+const visionImage = section.querySelector(".vision-image");
+
+const missionHeading = section.querySelector(".mission-heading");
+const missionImage = section.querySelector(".mission-image");
+
+    let ticking = false;
+
+    const checkPosition = () => {
+      const screenMiddle = window.innerHeight / 2;
+
+      // VISION
+if (
+  visionHeading &&
+  visionImage &&
+  !visionImage.classList.contains("vision-image-visible")
+) {
+  const rect = visionHeading.getBoundingClientRect();
+
+  if (rect.top <= screenMiddle) {
+    visionImage.classList.add("vision-image-visible");
+  }
+}
+
+// MISSION
+if (
+  missionHeading &&
+  missionImage &&
+  !missionImage.classList.contains("mission-image-visible")
+) {
+  const rect = missionHeading.getBoundingClientRect();
+
+  if (rect.top <= screenMiddle) {
+    missionImage.classList.add("mission-image-visible");
+  }
+}
+
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(checkPosition);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Check once on load
+    checkPosition();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section id="vision" className="py-20 md:py-24 bg-card">
-      <div className="max-w-8xl mx-auto ">
-        <div className="text-center mb-12">
+    <section
+      id="vision"
+      ref={sectionRef}
+      className="vision-mission-section section-shell py-24 md:py-32 bg-card"
+    >
+      <div className="max-w-8xl mx-auto">
+
+        <div className="reveal text-center mb-12">
           <SectionLabel text="The Associate Partner Model" />
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight">
             Our goal is simple:
           </h2>
         </div>
 
-        <div className=" border-accent mb-14 max-w-4xl mx-auto text-center">
+        <div className="border-accent mb-14 max-w-4xl mx-auto text-center">
           <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug mb-3">
             You build your real estate business.
           </p>
+
           <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug mb-3">
             We build the system that helps you{" "}
             <span className="text-accent">grow.</span>
           </p>
+
           <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug">
             Together, we build a stronger{" "}
             <span className="text-accent">real estate community</span>
@@ -636,12 +738,16 @@ function Positioning() {
         </div>
 
         <div className="grid md:grid-cols-2 max-w-8xl mx-auto -mb-20 md:-mb-24">
-          <div className="flex min-h-[22rem] flex-col justify-center bg-white p-8 sm:p-12 md:aspect-square md:min-h-0 lg:p-16">
+
+          {/* VISION CONTENT */}
+          <div className="vision-content reveal flex min-h-[22rem] flex-col justify-center bg-white p-8 sm:p-12 md:aspect-square md:min-h-0 lg:p-16">
             <Briefcase className="mb-6 h-8 w-8 text-accent" />
-            <h3 className="mb-4 text-2xl font-bold text-primary sm:text-3xl">
+
+            <h3 className="vision-heading mb-4 text-2xl font-bold text-primary sm:text-3xl">
               Our Vision
             </h3>
-            <p className="max-w-md  text-xl leading-relaxed text-muted-foreground">
+
+            <p className="max-w-md text-xl leading-relaxed text-muted-foreground">
               To create India's most trusted community of real estate
               entrepreneurs, starting with a network of 100+ successful
               Associate Partners across Ahmedabad and Gandhinagar. Our vision is
@@ -654,7 +760,10 @@ function Positioning() {
             </p>
           </div>
 
-          <div data-image-slot="vision"  className="aspect-square overflow-hidden bg-white mx-auto md:pr-16 md:pt-16">
+          {/* VISION IMAGE */}
+          <div
+  className="vision-image image-reveal aspect-square overflow-hidden bg-white mx-auto md:pr-16 md:pt-16"
+>
             <img
               src={visionlogo}
               alt="Modern home representing Awgro Realty's real estate vision"
@@ -662,9 +771,9 @@ function Positioning() {
             />
           </div>
 
+          {/* MISSION IMAGE */}
           <div
-            data-image-slot="mission"
-            className="order-4 aspect-square overflow-hidden bg-white mx-auto md:order-3 md:pl-16 md:pb-16"
+            className="mission-image image-reveal order-4 aspect-square overflow-hidden bg-white mx-auto md:order-3 md:pl-16 md:pb-16"
           >
             <img
               src={missionlogo}
@@ -673,30 +782,32 @@ function Positioning() {
             />
           </div>
 
-          <div className="order-3 relative flex min-h-[22rem] flex-col items-end justify-center bg-white p-8 text-right sm:p-12 md:order-4 md:aspect-square md:min-h-0 lg:p-16">
-  <TrendingUp className="mb-6 h-8 w-8 text-accent" />
+          {/* MISSION CONTENT */}
+          <div className="mission-content reveal order-3 relative flex min-h-[22rem] flex-col items-end justify-center bg-white p-8 text-right sm:p-12 md:order-4 md:aspect-square md:min-h-0 lg:p-16">
+            <TrendingUp className="mb-6 h-8 w-8 text-accent" />
 
-  <h3 className="mb-4 text-2xl font-bold text-primary sm:text-3xl">
-    Our Mission
-  </h3>
+            <h3 className="mission-heading mb-4 text-2xl font-bold text-primary sm:text-3xl">
+              Our Mission
+            </h3>
 
-  <p className="max-w-md text-xl leading-relaxed text-muted-foreground">
-    To empower individuals to start, build, and grow their own real
-    estate business through professional training, proven systems,
-    technology, marketing support, and a strong network. Provide
-    practical knowledge about the{" "}
-    <b>Ahmedabad and Gandhinagar real estate markets</b>.
-  </p>
+            <p className="max-w-md text-xl leading-relaxed text-muted-foreground">
+              To empower individuals to start, build, and grow their own real
+              estate business through professional training, proven systems,
+              technology, marketing support, and a strong network. Provide
+              practical knowledge about the{" "}
+              <b>Ahmedabad and Gandhinagar real estate markets</b>.
+            </p>
 
-  <button
-    type="button"
-    onClick={() => scrollToSection("apply")}
-    className="absolute bottom-8 right-8 inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-all hover:-translate-y-0.5 hover:shadow-lg sm:bottom-12 sm:right-12 lg:bottom-16 lg:right-16"
-  >
-    Get Started
-    <ArrowRight className="w-4 h-4" />
-  </button>
-</div>
+            <button
+              type="button"
+              onClick={() => scrollToSection("apply")}
+              className="absolute bottom-8 right-8 inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-all hover:-translate-y-0.5 hover:shadow-lg sm:bottom-12 sm:right-12 lg:bottom-16 lg:right-16"
+            >
+              Get Started
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
         </div>
       </div>
     </section>
@@ -705,44 +816,118 @@ function Positioning() {
 
 // ─── Benefits ──────────────────────────────────────────────────────────────────
 function Benefits() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const youBringHeading = section.querySelector(".you-bring-title");
+const weProvideHeading = section.querySelector(".we-provide-title");
+
+    const youBringPoints = section.querySelector(".benefits-bring-points");
+    const weProvidePoints = section.querySelector(".benefits-provide-points");
+
+    let ticking = false;
+
+    const checkPosition = () => {
+      const screenMiddle = window.innerHeight / 2;
+
+      // YOU BRING HEADING → YOU BRING POINTS
+      if (
+        youBringHeading &&
+        youBringPoints &&
+        !youBringPoints.classList.contains("points-visible")
+      ) {
+        const rect = youBringHeading.getBoundingClientRect();
+
+        if (rect.top <= screenMiddle) {
+          youBringPoints.classList.add("points-visible");
+        }
+      }
+
+      // WE PROVIDE HEADING → WE PROVIDE POINTS
+      if (
+        weProvideHeading &&
+        weProvidePoints &&
+        !weProvidePoints.classList.contains("points-visible")
+      ) {
+        const rect = weProvideHeading.getBoundingClientRect();
+
+        if (rect.top <= screenMiddle) {
+          weProvidePoints.classList.add("points-visible");
+        }
+      }
+
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(checkPosition);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    checkPosition();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section id="promise" className="py-20 md:py-24 bg-white">
-      <div className="max-w-8xl mx-auto ">
-        <div className="text-center mb-14">
+    <section
+      id="promise"
+      ref={sectionRef}
+      className="benefits-section section-shell py-24 md:py-32 bg-white"
+    >
+      <div className="max-w-8xl mx-auto">
+
+        <div className="reveal text-center mb-14">
           <SectionLabel text="Our Promise" />
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight max-w-2xl mx-auto">
             You Build the Business. We Build the System That Helps You Grow.
           </h2>
         </div>
 
-        {/* Comparison */}
-        <div className="grid gap-0 md:grid-cols-2 max-w-8xl mx-auto px-16">
-          <div className="order-1 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
-            <h3 className="text-3xl font-bold text-primary sm:text-4xl">
+        <div className="promise-grid grid gap-0 md:grid-cols-2 max-w-8xl mx-auto px-4 sm:px-8 lg:px-16">
+
+          {/* YOU BRING HEADING */}
+          <div className="reveal promise-panel you-bring-heading order-1 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
+            <h3 className="you-bring-title text-3xl font-bold text-primary sm:text-4xl">
               You Bring
             </h3>
           </div>
 
-          <div className="order-2 flex aspect-square items-center justify-end bg-input-background p-8 sm:p-12 lg:p-16">
+          {/* YOU BRING POINTS */}
+          <div className="reveal promise-panel benefits-bring-points order-2 flex aspect-square items-center justify-end bg-input-background p-8 sm:p-12 lg:p-16">
             <ul className="ml-auto w-fit max-w-xs space-y-5 text-right text-xl">
               {[
                 "Your Ambition",
                 "Your Hard Work",
                 "Your Network",
                 "Your Commitment",
-              ].map((item) => (
+              ].map((item, index) => (
                 <li
-  key={item}
-  className="flex flex-row-reverse items-center gap-3 text-xl font-medium text-foreground sm:text-xl"
->
-  <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-accent" />
-  {item}
-</li>
+                  key={item}
+                  className="benefit-point flex flex-row-reverse items-center gap-3 text-xl font-medium text-foreground sm:text-xl"
+                  style={{
+                    transitionDelay: `${index * 120}ms`,
+                  }}
+                >
+                  <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-accent" />
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
 
-          <div className="order-4 md:order-3 flex min-w-0 aspect-square items-center overflow-hidden bg-input-background p-6 sm:p-8 lg:p-16">
+          {/* WE PROVIDE POINTS */}
+          <div className="reveal promise-panel benefits-provide-points order-4 md:order-3 flex min-w-0 aspect-square items-center overflow-hidden bg-input-background p-6 sm:p-8 lg:p-16">
             <ul className="mr-auto space-y-5">
               {[
                 "Training",
@@ -751,25 +936,29 @@ function Benefits() {
                 "Technology",
                 "Marketing Support",
                 "Business Ecosystem",
-              ].map((item) => (
+              ].map((item, index) => (
                 <li
-  key={item}
-  className="flex items-center gap-3 text-sm font-medium text-foreground sm:text-xl"
->
-  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-  {item}
-</li>
+                  key={item}
+                  className="benefit-point flex items-center gap-3 text-sm font-medium text-foreground sm:text-xl"
+                  style={{
+                    transitionDelay: `${index * 120}ms`,
+                  }}
+                >
+                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
 
-          <div className="order-3 md:order-4 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
-            <h3 className="text-3xl font-bold text-primary sm:text-4xl">
+          {/* WE PROVIDE HEADING */}
+          <div className="reveal promise-panel we-provide-heading order-3 md:order-4 flex aspect-square items-center justify-center bg-muted p-8 text-center sm:p-12 lg:p-16">
+            <h3 className="we-provide-title text-3xl font-bold text-primary sm:text-4xl">
               We Provide
             </h3>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );
@@ -814,7 +1003,7 @@ function Journey() {
 
   const slideContent = (currentSlide: (typeof DREAM_SLIDES)[number]) => (
     <>
-      <div className="aspect-square overflow-hidden bg-muted">
+      <div className="dream-image aspect-square overflow-hidden bg-muted">
         <img
           src={currentSlide.image}
           alt={currentSlide.title}
@@ -822,7 +1011,7 @@ function Journey() {
         />
       </div>
 
-      <div className="flex min-h-[22rem] flex-col justify-center">
+      <div className="reveal dream-copy flex min-h-[22rem] flex-col justify-center">
         <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-accent">
           {currentSlide.eyebrow}
         </p>
@@ -837,9 +1026,9 @@ function Journey() {
   );
 
   return (
-    <section id="dream" className="overflow-hidden bg-card py-20 md:py-24">
+    <section id="dream" className="section-shell overflow-hidden bg-card py-24 md:py-32">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-16">
-        <div className="mb-12 text-center">
+        <div className="reveal mb-12 text-center">
           <SectionLabel text="Our Dream" />
         </div>
 
@@ -917,7 +1106,7 @@ function Campaign() {
   return (
     <section
       id="partner-mission"
-      className="relative overflow-hidden py-20 md:py-24"
+      className="campaign-section relative overflow-hidden py-24 md:py-32"
       style={{ background: "#0D1B2A" }}
     >
       <div
@@ -930,10 +1119,10 @@ function Campaign() {
       />
       <div className="absolute inset-0 bg-white" />
 
-      <div className="relative mx-auto max-w-8xl bg-primary px-16 py-20 md:py-24">
+      <div className="campaign-card relative mx-auto max-w-8xl bg-primary px-6 py-16 sm:px-10 md:px-16 md:py-24">
         <div className="grid items-start gap-16 lg:grid-cols-2">
           {/* Left */}
-          <div>
+          <div className="reveal campaign-copy">
             <div className="flex items-center gap-3 mb-7">
               <div className="h-px w-8 bg-secondary" />
               <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.2em]">
@@ -962,7 +1151,7 @@ function Campaign() {
           </div>
 
           {/* Right: Growth ladder (Enterprise at top = goal) */}
-          <div>
+          <div className="reveal campaign-ladder">
             <div className="flex items-center gap-3 mb-7">
               <div className="h-px w-8 bg-secondary" />
               <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.2em]">
@@ -1046,9 +1235,9 @@ function Eligibility() {
 // ─── Values ────────────────────────────────────────────────────────────────────
 function ValuesSection() {
   return (
-    <section id="core-values" className="py-20 md:py-24 bg-card">
+    <section id="core-values" className="section-shell py-24 md:py-32 bg-card">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="reveal text-center mb-12">
           <SectionLabel text="OUR CORE VALUES" />
           <h2 className="text-3xl sm:text-5xl font-extrabold text-primary">
             Built on These Principles
@@ -1059,7 +1248,7 @@ function ValuesSection() {
             <div
               key={label}
               className={clsx(
-                "rounded-2xl p-5 border border-border bg-[#F8F6F0] flex flex-col items-center text-center gap-3 hover:-translate-y-0.5 hover:shadow-md transition-all cursor-default",
+                "reveal value-card rounded-2xl p-5 border border-border bg-[#F8F6F0] flex flex-col items-center text-center gap-3 hover:-translate-y-1 hover:shadow-xl transition-all cursor-default",
                 i === 7 ? "lg:col-start-2" : "",
               )}
             >
@@ -1080,9 +1269,9 @@ function ValuesSection() {
 // ─── FAQ ───────────────────────────────────────────────────────────────────────
 function FAQ() {
   return (
-    <section id="faq" className="py-20 md:py-24 bg-white">
+    <section id="faq" className="section-shell py-24 md:py-32 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="reveal text-center mb-12">
           <SectionLabel text="FAQ's" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary">
             Questions & Answers
@@ -1144,7 +1333,7 @@ function ConversionForm({
   const label = "block text-sm font-semibold text-primary mb-1.5";
 
   return (
-    <section id="apply" className="py-20 md:py-24 bg-card">
+    <section id="apply" className="section-shell py-24 md:py-32 bg-card">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {submitted ? (
           <div className="text-center py-10">
@@ -1164,7 +1353,7 @@ function ConversionForm({
           <>
             {/* Form header */}
             <SectionLabel text="Contact us" />
-            <div className="bg-primary rounded-t-2xl px-8 pt-8 pb-7 text-center relative overflow-hidden">
+            <div className="form-header bg-primary rounded-t-3xl px-8 pt-10 pb-8 text-center relative overflow-hidden">
               {/* <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent" /> */}
               <div className="flex items-center justify-center gap-2.5 mb-4"></div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-primary-foreground leading-tight mb-2">
@@ -1176,7 +1365,7 @@ function ConversionForm({
             </div>
 
             {/* Form body */}
-            <div className="bg-card rounded-b-2xl border border-t-0 border-border shadow-xl p-7 md:p-8">
+            <div className="form-body bg-card rounded-b-3xl border border-t-0 border-border shadow-2xl p-7 md:p-10">
               <form onSubmit={onSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
@@ -1324,7 +1513,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-[#F8F6F0] text-white">
+    <footer className="site-footer bg-[#F8F6F0] text-primary">
       <div className="mx-auto max-w-8xl px-8 text-center sm:px-12 lg:px-20">
 
         {/* Main Footer */}
@@ -1434,8 +1623,8 @@ function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 py-5">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
+        <div className="border-t border-border py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary/50">
             <p>
               © {new Date().getFullYear()} Awgro Realty Pvt. Ltd. All rights reserved.
             </p>
@@ -1443,21 +1632,21 @@ function Footer() {
             <div className="flex items-center gap-4">
               <button
                 type="button"
-                className="hover:text-white transition-colors"
+                className="hover:text-primary transition-colors"
               >
                 Privacy Policy
               </button>
 
-              <span className="text-white/15">·</span>
+              <span className="text-primary/15">·</span>
 
               <button
                 type="button"
-                className="hover:text-white transition-colors"
+                className="hover:text-primary transition-colors"
               >
                 Terms & Conditions
               </button>
 
-              <span className="text-white/15">·</span>
+              <span className="text-primary/15">·</span>
 
               <span>Ahmedabad · Gandhinagar</span>
             </div>
@@ -1495,6 +1684,8 @@ function StickyMobileCTA() {
 
 // ─── App ───────────────────────────────────────────────────────────────────────
 export default function App() {
+  useScrollReveal();
+
   const [form, setForm] = useState({
     fullName: "",
     mobile: "",
