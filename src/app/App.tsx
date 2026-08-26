@@ -605,7 +605,7 @@ function Hero() {
 function CoreValues() {
   return (
     <section id="core-values" className="section-shell bg-white scroll-mt-24 py-24 md:py-32">
-      <div className="mx-auto max-w-8xl px-4 text-left sm:px-6 lg:px-8 ">
+      <div className="mx-auto max-w-7xl px-4 text-left sm:px-6 lg:px-8 ">
         <SectionLabel text="Core Values" />
         <div className="grid gap-y-10 sm:grid-cols-2 pt-12 lg:grid-cols-4">
           {VALUES.slice(0, 4).map(({ label, desc }, index) => (
