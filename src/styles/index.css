@@ -124,7 +124,7 @@ body { overflow-x: hidden; }
 .mission-content {
   position: relative;
   z-index: 1;
-  box-shadow: 0 18px 55px rgba(13,27,42,.055);
+  box-shadow: none;
 }
 .image-reveal {
   opacity: 0;
@@ -1151,7 +1151,7 @@ body { overflow-x: hidden; }
   top: 0;
   bottom: 0;
 
-  width: 150px;
+  width: 180px;
 
   z-index: 3;
   pointer-events: none;
@@ -1227,9 +1227,8 @@ body { overflow-x: hidden; }
 
 @keyframes promise-marquee-forward {
   from {
-    transform: translateX(-50%);
+    transform: translateX(calc(-1 * var(--marquee-width, 50%)));
   }
-
   to {
     transform: translateX(0);
   }
@@ -1239,9 +1238,8 @@ body { overflow-x: hidden; }
   from {
     transform: translateX(0);
   }
-
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(-1 * var(--marquee-width, 50%)));
   }
 }
 

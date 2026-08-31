@@ -587,16 +587,6 @@ function Hero() {
         </div>
       </div>
 
-      <a
-  href="#apply"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("apply");
-            }}
-  className="floating-cta fixed right-6 bottom-6 z-50 bg-primary text-white font-bold px-7 py-4 rounded-full shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2">
-  Become Associate <ArrowRight className="w-5 h-5 flex" />
-</a>
-
     </section>
   );
 }
@@ -833,17 +823,70 @@ function Benefits() {
     "Business Ecosystem",
   ];
 
+  const bringItemsRef = useRef<HTMLDivElement | null>(null);
+  const provideItemsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const measureOneSet = (itemsEl: HTMLDivElement, setSize: number) => {
+      // Pause animation so transform does not affect measurement
+      itemsEl.style.animation = "none";
+      void itemsEl.offsetWidth; // force reflow
+
+      const children = itemsEl.children;
+      if (children.length < setSize * 2) return;
+
+      // Exact width of one full set of labels
+      const first = children[0] as HTMLElement;
+      const secondSetStart = children[setSize] as HTMLElement;
+      const oneSetWidth = Math.round(
+        secondSetStart.offsetLeft - first.offsetLeft,
+      );
+
+      // Set variable on the element that is actually animating
+      itemsEl.style.setProperty("--marquee-width", `${oneSetWidth}px`);
+
+      // Restart animation so it uses the new width
+      itemsEl.style.animation = "none";
+      void itemsEl.offsetWidth;
+      itemsEl.style.animation = "";
+    };
+
+    const measure = () => {
+      if (bringItemsRef.current) {
+        measureOneSet(bringItemsRef.current, youBring.length);
+      }
+      if (provideItemsRef.current) {
+        measureOneSet(provideItemsRef.current, weProvide.length);
+      }
+    };
+
+    measure();
+    const raf = requestAnimationFrame(measure);
+    const t1 = window.setTimeout(measure, 100);
+    const t2 = window.setTimeout(measure, 400);
+
+    window.addEventListener("resize", measure);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
+
+  // Triple the content so small measurement errors never show a jump
+  const bringLoop = [...youBring, ...youBring, ...youBring];
+  const provideLoop = [...weProvide, ...weProvide, ...weProvide];
+
   return (
     <section
       id="promise"
       className="moving-promise-section relative overflow-hidden bg-white py-24 md:py-32"
     >
       <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-10">
-
-        {/* SECTION HEADING */}
         <div className="mb-16 text-center md:mb-20">
           <SectionLabel text="Our Promise" />
-
           <h2 className="mx-auto mt-5 max-w-4xl text-3xl font-extrabold leading-[1.08] tracking-tight text-primary sm:text-4xl md:text-5xl">
             You Build the Business.
             <br />
@@ -851,23 +894,19 @@ function Benefits() {
           </h2>
         </div>
 
-        {/* ═══════════════════════════════════════════════════════
-            YOU BRING
-        ═══════════════════════════════════════════════════════ */}
+        {/* YOU BRING */}
         <div className="moving-promise-row">
-
-          {/* Fixed label */}
           <div className="moving-promise-label">
             <span>You Bring</span>
           </div>
 
-          {/* Moving content */}
           <div className="moving-promise-track moving-promise-track-forward">
-            <div className="moving-promise-items">
-              {[...youBring, ...youBring].map((item, index) => (
+            <div ref={bringItemsRef} className="moving-promise-items">
+              {bringLoop.map((item, index) => (
                 <div
                   key={`bring-${index}`}
                   className="moving-promise-item"
+                  aria-hidden={index >= youBring.length}
                 >
                   <span>{item}</span>
                   <i />
@@ -878,30 +917,26 @@ function Benefits() {
         </div>
 
         {/* WE PROVIDE */}
-<div className="moving-promise-row moving-promise-row-right mt-8 md:mt-10">
+        <div className="moving-promise-row moving-promise-row-right mt-8 md:mt-10">
+          <div className="moving-promise-track moving-promise-track-reverse">
+            <div ref={provideItemsRef} className="moving-promise-items">
+              {provideLoop.map((item, index) => (
+                <div
+                  key={`provide-${index}`}
+                  className="moving-promise-item"
+                  aria-hidden={index >= weProvide.length}
+                >
+                  <span>{item}</span>
+                  <i />
+                </div>
+              ))}
+            </div>
+          </div>
 
-  {/* Moving content */}
-  <div className="moving-promise-track moving-promise-track-reverse">
-    <div className="moving-promise-items">
-      {[...weProvide, ...weProvide].map((item, index) => (
-        <div
-          key={`provide-${index}`}
-          className="moving-promise-item"
-        >
-          <span>{item}</span>
-          <i />
+          <div className="moving-promise-label moving-promise-label-right">
+            <span>We Provide</span>
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-
-  {/* Fixed label on RIGHT */}
-  <div className="moving-promise-label moving-promise-label-right">
-    <span>We Provide</span>
-  </div>
-
-</div>
-
       </div>
     </section>
   );
@@ -1672,6 +1707,15 @@ export default function App() {
         submitted={submitted}
       />
       <Footer />
+      <a
+  href="#apply"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("apply");
+            }}
+  className="floating-cta fixed right-10 bottom-10 z-50 bg-primary text-white font-bold px-7 py-4 rounded-full shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2">
+  Become Associate <ArrowRight className="w-5 h-5 flex" />
+</a>
       <StickyMobileCTA />
       <div className="h-16 sm:hidden" aria-hidden />
     </div>
