@@ -1264,8 +1264,9 @@ body { overflow-x: hidden; }
   }
 
   .moving-promise-item i {
-    margin-left: 32px;
-  }
+  margin-left: 84px;
+  margin-right: 32px;
+}
 
   .moving-promise-row:not(.moving-promise-row-right)
   .moving-promise-label::after,
@@ -1307,11 +1308,12 @@ body { overflow-x: hidden; }
   }
 
   .moving-promise-item i {
-    width: 5px;
-    height: 5px;
+  width: 5px;
+  height: 5px;
 
-    margin-left: 24px;
-  }
+  margin-left: 68px;
+  margin-right: 24px;
+}
 
   .moving-promise-track::before,
   .moving-promise-track::after {

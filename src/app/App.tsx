@@ -326,7 +326,7 @@ function Header() {
           <img
             src={awgroLogoNavbar}
             alt="Awgro Realty"
-            className="h-10 w-auto object-contain"
+            className="h-16 w-auto object-contain"
           />
         </a>
 
@@ -536,7 +536,7 @@ function Hero() {
             <div className="hero-actions flex flex-wrap justify-center gap-3 mt-12">
               <a
                 href="#apply"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-3.5 rounded-xl hover:bg-primary/90 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm sm:text-base"
+                className="inline-flex items-center gap-2 bg-accent text-primary-foreground font-semibold px-5 py-3.5 rounded-xl hover:bg-primary/90 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm sm:text-base"
               >
                 Apply to Become an Associate Partner
                 <ArrowRight className="w-4 h-4" />
@@ -634,7 +634,7 @@ function CoreValues() {
 
 function AssociatePartnerModel() {
   return (
-    <section className="vision-mission-section section-shell py-24 md:py-32 bg-card">
+    <section className="vision-mission-section py-24 md:py-32 bg-card">
       <div className="max-w-8xl mx-auto">
         <div className="reveal text-center mb-12">
           <SectionLabel text="The Associate Partner Model" />
@@ -736,10 +736,10 @@ if (
     >
       <div className="max-w-8xl mx-auto">
       <SectionLabel text="Our Vision and mission" />
-        <div className="grid md:grid-cols-2 max-w-8xl mx-auto -mb-20 md:-mb-24">
+        <div className="grid lg:grid-cols-2 max-w-8xl mx-auto">
         
           {/* VISION CONTENT */}
-          <div className="vision-content reveal flex min-h-[22rem] flex-col justify-center bg-white p-8 sm:p-12 md:aspect-square md:min-h-0 lg:p-16">
+          <div className="vision-content reveal flex min-h-[22rem] flex-col justify-center bg-white p-8 sm:p-12 lg:aspect-square lg:min-h-0 lg:p-16">
             <Briefcase className="mb-6 h-8 w-8 text-accent" />
 
             <h3 className="vision-heading mb-4 text-2xl font-bold text-primary sm:text-3xl">
@@ -770,7 +770,7 @@ if (
 
           {/* VISION IMAGE */}
           <div
-  className="vision-image image-reveal aspect-square overflow-hidden bg-white mx-auto md:pr-16 md:pt-16"
+  className="vision-image image-reveal aspect-square overflow-hidden bg-white mx-auto lg:pr-16 lg:pt-16"
 >
             <img
               src={visionlogo}
@@ -781,7 +781,7 @@ if (
 
           {/* MISSION IMAGE */}
           <div
-            className="mission-image image-reveal order-4 aspect-square overflow-hidden bg-white mx-auto md:order-3 md:pl-16 md:pb-16"
+            className="mission-image image-reveal order-4 aspect-square overflow-hidden bg-white mx-auto lg:order-3 lg:pl-16 lg:pb-16"
           >
             <img
               src={missionlogo}
@@ -791,7 +791,7 @@ if (
           </div>
 
           {/* MISSION CONTENT */}
-          <div className="mission-content reveal order-3 relative flex min-h-[22rem] flex-col items-end justify-center bg-white p-8 text-right sm:p-12 md:order-4 md:aspect-square md:min-h-0 lg:p-16">
+          <div className="mission-content reveal order-3 relative flex min-h-[22rem] flex-col items-end justify-center bg-white p-8 text-right sm:p-12 lg:order-4 lg:aspect-square lg:min-h-0 lg:p-16">
             <TrendingUp className="mb-6 h-8 w-8 text-accent" />
 
             <h3 className="mission-heading mb-4 text-2xl font-bold text-primary sm:text-3xl">
@@ -821,7 +821,7 @@ if (
             <button
               type="button"
               onClick={() => scrollToSection("apply")}
-              className="absolute bottom-8 right-8 inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-all hover:-translate-y-0.5 hover:shadow-lg sm:bottom-12 sm:right-12 lg:bottom-16 lg:right-16"
+              className="static mt-6 inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-all hover:-translate-y-0.5 hover:shadow-lg sm:absolute sm:mt-0 sm:bottom-12 sm:right-12 lg:bottom-16 lg:right-16"
             >
               Get Started
               <ArrowRight className="w-4 h-4" />
@@ -1033,7 +1033,7 @@ function Journey() {
   );
 
   return (
-    <section id="dream" className="section-shell overflow-hidden bg-card py-24 md:py-32">
+    <section id="dream" className=" overflow-hidden bg-card py-24 md:py-32">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-16">
         <div className="reveal mb-12 text-center">
           <SectionLabel text="Our Dream" />
@@ -1276,7 +1276,7 @@ function ValuesSection() {
 // ─── FAQ ───────────────────────────────────────────────────────────────────────
 function FAQ() {
   return (
-    <section id="faq" className="section-shell py-24 md:py-32 bg-white">
+    <section id="faq" className=" py-24 md:py-32 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="reveal text-center mb-12">
           <SectionLabel text="FAQ's" />
@@ -1296,7 +1296,7 @@ function FAQ() {
               className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm"
             >
               <AccordionPrimitive.Trigger className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left group hover:bg-muted/40 transition-colors">
-                <span className="font-semibold text-primary text-sm sm:text-[15px] leading-snug">
+                <span className="font-semibold text-primary text-lg leading-snug">
                   {faq.q}
                 </span>
                 <ChevronDown className="w-5 h-5 text-secondrary flex-shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
@@ -1304,7 +1304,7 @@ function FAQ() {
               <AccordionPrimitive.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
                 <div className="px-6 pb-5">
                   <div className="w-full h-px bg-border mb-4" />
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-md leading-relaxed">
                     {faq.a}
                   </p>
                 </div>
@@ -1340,7 +1340,7 @@ function ConversionForm({
   const label = "block text-sm font-semibold text-primary mb-1.5";
 
   return (
-    <section id="apply" className="section-shell py-24 md:py-32 bg-card">
+    <section id="apply" className=" py-24 md:py-32 bg-card">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {submitted ? (
           <div className="text-center py-10">
@@ -1366,7 +1366,7 @@ function ConversionForm({
               <h2 className="text-2xl sm:text-3xl font-extrabold text-primary-foreground leading-tight mb-2">
                 Ready to Start Your Real Estate Business?
               </h2>
-              <p className="text-primary-foreground/50 text-sm">
+              <p className="text-primary-foreground/50 text-md">
                 Complete the form below and our team will be in touch.
               </p>
             </div>
@@ -1474,7 +1474,7 @@ function ConversionForm({
                   type="submit"
                   className="w-full bg-primary text-primary-foreground font-bold py-4 rounded-xl hover:bg-primary/90 transition-all hover:shadow-lg hover:-translate-y-0.5 text-base flex items-center justify-center gap-2 mt-1"
                 >
-                  Apply to Become an Associate Partner
+                  Submit Application
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </form>
@@ -1524,7 +1524,7 @@ function Footer() {
       <div className="mx-auto max-w-8xl px-8 text-center sm:px-12 lg:px-20">
 
         {/* Main Footer */}
-        <div className="grid gap-16 py-14 text-center md:grid-cols-3 md:justify-between md:text-left md:py-16">
+        <div className="grid gap-12 py-14 text-center md:grid-cols-2 md:justify-between md:text-left md:py-16 lg:grid-cols-3 lg:gap-16">
 
           {/* Get started and brand */}
           <div className="flex min-h-[6rem] flex-col items-center md:items-start">
@@ -1546,14 +1546,14 @@ function Footer() {
             </div>
           </div>
 
-          <div className="grid gap-12 sm:grid-cols-2 md:justify-self-end md:pt-1">
+          <div className="grid gap-8 sm:grid-cols-2 md:justify-self-end md:pt-1">
             {/* Quick Links */}
             <div>
               <h3 className="mb-5 text-sm font-bold uppercase tracking-[0.18em] text-primary">
                 Quick Links
               </h3>
 
-              <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-center md:text-left">
+              <div className="grid grid-cols-1 gap-y-3 text-center md:text-left">
                 {footerNav.map((item) => (
                   <button
                     key={item.id}
@@ -1613,7 +1613,7 @@ function Footer() {
               <img
                 src={awgroLogoFooter}
                 alt="Awgro Realty"
-                className="h-10 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </a>
 
@@ -1713,10 +1713,40 @@ export default function App() {
     ) =>
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+ const onSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  // FormSubmit endpoint — change the email if needed
+  const FORM_ENDPOINT = "https://formsubmit.co/ajax/sumitj31012005@gmail.com";
+
+  try {
+    const response = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: form.fullName,
+        mobile: form.mobile,
+        city: form.city,
+        profession: form.profession,
+        experience: form.experience || "Not specified",
+        callTime: form.callTime || "Not specified",
+        reason: form.reason,
+        _subject: `Associate Partner Application – ${form.fullName}`,
+      }),
+    });
+
+    if (response.ok) {
+      setSubmitted(true);
+    } else {
+      alert("Something went wrong. Please try again or contact us on WhatsApp.");
+    }
+  } catch (error) {
+    alert("Something went wrong. Please try again or contact us on WhatsApp.");
+  }
+};
 
   return (
     <div className="min-h-screen bg-white text-foreground">
@@ -1743,7 +1773,7 @@ export default function App() {
               e.preventDefault();
               scrollToSection("apply");
             }}
-  className="floating-cta fixed right-10 bottom-10 z-50 bg-primary text-white font-bold px-7 py-4 rounded-full shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2">
+  className="floating-cta hidden sm:flex fixed right-10 bottom-10 z-50 bg-primary text-white font-bold px-7 py-4 rounded-full shadow-2xl hover:scale-105 transition-all items-center justify-center gap-2">
   Become Associate <ArrowRight className="w-5 h-5 flex" />
 </a>
       <StickyMobileCTA />
