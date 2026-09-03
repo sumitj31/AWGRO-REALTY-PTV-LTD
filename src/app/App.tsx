@@ -1025,7 +1025,7 @@ function Journey() {
         <h3 className="max-w-xl text-3xl font-extrabold leading-tight text-primary sm:text-4xl">
           {currentSlide.title}
         </h3>
-        <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
+        <p className="mt-6 max-w-lg text-xl leading-relaxed text-muted-foreground">
           {currentSlide.desc}
         </p>
       </div>
@@ -1143,7 +1143,7 @@ function Campaign() {
               <br />
               <span className="text-white">One Powerful Network.</span>
             </h2>
-            <p className="text-white/55 text-base leading-relaxed max-w-sm mb-10">
+            <p className="text-white/55 text-xl leading-relaxed max-w-sm mb-10">
               We are building a community of empowered real estate entrepreneurs
               across Ahmedabad and Gandhinagar. Every partner who joins
               strengthens the entire ecosystem.
@@ -1171,9 +1171,9 @@ function Campaign() {
   return (
     <div
       key={item}
-      className="flex items-center justify-between gap-4 border-b border-white/10 py-4 first:pt-0 last:border-b-0"
+      className="flex items-center justify-between gap-4 border-b border-white/10 py-4 first:pt-4 last:border-b-0"
     >
-      <span className="text-sm font-semibold text-white/75">{item}</span>
+      <span className="text-xl font-semibold text-white">{item}</span>
       {/* <span className="text-xs font-bold tracking-[0.18em] text-white/35">
         {String(i + 1).padStart(2, "0")}
       </span> */}

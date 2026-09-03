@@ -1049,7 +1049,7 @@ body { overflow-x: hidden; }
 
   flex-shrink: 0;
 
-  padding: 0 42px;
+  padding: 0;
 
   color: #0d1b2a;
 
@@ -1066,6 +1066,7 @@ body { overflow-x: hidden; }
   height: 7px;
 
   margin-left: 42px;
+  margin-right: 42px;
 
   flex-shrink: 0;
 
