@@ -344,14 +344,6 @@ function Header() {
             Core Values
           </a>
 
-          <button
-            type="button"
-            onClick={() => scrollToSection("vision")}
-            className="text-sm font-semibold text-primary hover:text-accent transition-colors"
-          >
-            Vision & Mission
-          </button>
-
           <a
             href="#promise"
             onClick={(e) => {
@@ -362,6 +354,14 @@ function Header() {
           >
             Promise
           </a>
+          <button
+            type="button"
+            onClick={() => scrollToSection("vision")}
+            className="text-sm font-semibold text-primary hover:text-accent transition-colors"
+          >
+            Vision & Mission
+          </button>
+
 
           <a
             href="#dream"
@@ -632,6 +632,38 @@ function CoreValues() {
   );
 }
 
+function AssociatePartnerModel() {
+  return (
+    <section className="vision-mission-section section-shell py-24 md:py-32 bg-card">
+      <div className="max-w-8xl mx-auto">
+        <div className="reveal text-center mb-12">
+          <SectionLabel text="The Associate Partner Model" />
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight">
+            Our goal is simple:
+          </h2>
+        </div>
+
+        <div className="border-accent max-w-4xl mx-auto text-center">
+          <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug mb-3">
+            You build your real estate business.
+          </p>
+
+          <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug mb-3">
+            We build the system that helps you{" "}
+            <span className="text-accent">grow.</span>
+          </p>
+
+          <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug">
+            Together, we build a stronger{" "}
+            <span className="text-accent">real estate community</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Positioning() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -700,36 +732,12 @@ if (
     <section
       id="vision"
       ref={sectionRef}
-      className="vision-mission-section section-shell py-24 md:py-32 bg-card"
+      className="vision-mission-section py-24 md:py-32 bg-card"
     >
       <div className="max-w-8xl mx-auto">
-
-        <div className="reveal text-center mb-12">
-          <SectionLabel text="The Associate Partner Model" />
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary leading-tight">
-            Our goal is simple:
-          </h2>
-        </div>
-
-        <div className="border-accent mb-14 max-w-4xl mx-auto text-center">
-          <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug mb-3">
-            You build your real estate business.
-          </p>
-
-          <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug mb-3">
-            We build the system that helps you{" "}
-            <span className="text-accent">grow.</span>
-          </p>
-
-          <p className="text-2xl sm:text-[1.75rem] md:text-[2rem] font-bold text-primary leading-snug">
-            Together, we build a stronger{" "}
-            <span className="text-accent">real estate community</span>
-          </p>
-        </div>
-
+      <SectionLabel text="Our Vision and mission" />
         <div className="grid md:grid-cols-2 max-w-8xl mx-auto -mb-20 md:-mb-24">
-
+        
           {/* VISION CONTENT */}
           <div className="vision-content reveal flex min-h-[22rem] flex-col justify-center bg-white p-8 sm:p-12 md:aspect-square md:min-h-0 lg:p-16">
             <Briefcase className="mb-6 h-8 w-8 text-accent" />
@@ -738,17 +746,26 @@ if (
               Our Vision
             </h3>
 
-            <p className="max-w-md text-xl leading-relaxed text-muted-foreground">
-              To create India's most trusted community of real estate
-              entrepreneurs, starting with a network of 100+ successful
-              Associate Partners across Ahmedabad and Gandhinagar. Our vision is
-              to make{" "}
-              <b>
-                real estate entrepreneurship accessible, professional, and
-                scalable
-              </b>{" "}
-              for the right individuals.
-            </p>
+            <p className="max-w-3xl text-xl leading-relaxed text-muted-foreground">
+  To create India's most trusted community of real estate entrepreneurs,
+  starting with a network of 100+ successful Associate Partners across
+  Ahmedabad and Gandhinagar. We envision a future where individuals have the
+  opportunity to{" "}
+  <b>
+    build their own real estate business, client network, and professional
+    identity
+  </b>{" "}
+  with the right support and ecosystem.
+  <br />
+  <br />
+  Our vision is to make{" "}
+  <b>
+    real estate entrepreneurship accessible, professional, and scalable
+  </b>{" "}
+  for the right individuals by providing the knowledge, systems, technology,
+  and network needed to turn their ambition into a successful long-term
+  career.
+</p>
           </div>
 
           {/* VISION IMAGE */}
@@ -781,13 +798,25 @@ if (
               Our Mission
             </h3>
 
-            <p className="max-w-md text-xl leading-relaxed text-muted-foreground">
-              To empower individuals to start, build, and grow their own real
-              estate business through professional training, proven systems,
-              technology, marketing support, and a strong network. Provide
-              practical knowledge about the{" "}
-              <b>Ahmedabad and Gandhinagar real estate markets</b>.
-            </p>
+            <p className="max-w-3xl text-xl leading-relaxed text-muted-foreground">
+  To empower individuals to start, build, and grow their own real estate
+  business through{" "}
+  <b>
+    professional training, proven systems, technology, marketing support, and
+    a strong network
+  </b>
+  . We provide practical knowledge about the{" "}
+  <b>Ahmedabad and Gandhinagar real estate markets</b>, along with the skills
+  needed in sales, negotiation, communication, and business development.
+  <br />
+  <br />
+  Our mission is to help every Associate Partner{" "}
+  <b>
+    build their own network, develop their personal brand, and create a
+    successful long-term real estate career
+  </b>{" "}
+  while benefiting from the Awgro Realty ecosystem and professional support.
+</p>
 
             <button
               type="button"
@@ -1694,8 +1723,9 @@ export default function App() {
       <Header />
       <Hero />
       <CoreValues />
-      <Positioning />
+      <AssociatePartnerModel />
       <Benefits />
+      <Positioning />
       <Journey />
       <Campaign />
       {/* <Eligibility /> */}
